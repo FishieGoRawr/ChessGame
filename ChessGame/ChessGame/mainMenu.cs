@@ -17,8 +17,17 @@ namespace ChessGame
         public mainMenu(ChessGame chessGame)
         {
             m_chessGame = chessGame;
-
             InitializeComponent();
+            m_chessGame.createPlayerFromFile();
+            fillListBoxPlayer();
+        }
+
+        public void fillListBoxPlayer()
+        {
+            foreach (var player in m_chessGame.PlayerList)
+            {
+                lsbPlayers.Items.Add(player.Name);                
+            }
         }
 
         private void BtnAddPlayer_Click(object sender, EventArgs e)
@@ -36,8 +45,9 @@ namespace ChessGame
             {
                 lsbPlayers.Items.Add(playerName);
                 txtAddPlayer.Clear();
+
                 m_chessGame.createNewPlayer(playerName);
-                m_chessGame.serializePlayerList();
+                m_chessGame.savePlayerList();
             }
             else if (String.IsNullOrEmpty(playerName))
                 MessageBox.Show("Vous ne pouvez pas entrer un nom vide. Veuillez entrer un nom.", "Nom vide", MessageBoxButtons.OK);
@@ -56,11 +66,6 @@ namespace ChessGame
         private void BtnStartGame_Click(object sender, EventArgs e)
         {
             m_chessGame.createGame();
-        }
-
-        private void savePlayerOnFile()
-        {
-
         }
     }
 }
