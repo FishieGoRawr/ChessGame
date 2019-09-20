@@ -8,5 +8,8 @@ namespace ChessGame
 {
     class Piece
     {
+        bool m_alive;
+        char m_color;
+        string m_imagePath;
     }
 }

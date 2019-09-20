@@ -6,16 +6,24 @@ using System.Windows.Forms;
 
 namespace ChessGame
 {
-    static class ChessGame
+    public class ChessGame
     {
+        Game m_game;
+        mainMenu m_menu;
+
+        public ChessGame()
+        {
+            m_menu = new mainMenu(this);
+            Application.Run(m_menu);
+        }
+
         [STAThread]
         static void Main()
-        {
-            Game m_game;
-
+        {            
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new mainMenu());
+
+            ChessGame game = new ChessGame();
         }
     }
 }

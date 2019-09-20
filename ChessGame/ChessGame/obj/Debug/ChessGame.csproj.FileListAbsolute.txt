@@ -1,0 +1,10 @@
+P:\École\Automne 2019\Prog III\TP Jeux d'échec\ChessGame\ChessGame\ChessGame\obj\Debug\ChessGame.csprojAssemblyReference.cache
+P:\École\Automne 2019\Prog III\TP Jeux d'échec\ChessGame\ChessGame\ChessGame\obj\Debug\ChessGame.Properties.Resources.resources
+P:\École\Automne 2019\Prog III\TP Jeux d'échec\ChessGame\ChessGame\ChessGame\obj\Debug\ChessGame.csproj.GenerateResource.cache
+P:\École\Automne 2019\Prog III\TP Jeux d'échec\ChessGame\ChessGame\ChessGame\obj\Debug\ChessGame.csproj.CoreCompileInputs.cache
+P:\École\Automne 2019\Prog III\TP Jeux d'échec\ChessGame\ChessGame\ChessGame\bin\Debug\ChessGame.exe.config
+P:\École\Automne 2019\Prog III\TP Jeux d'échec\ChessGame\ChessGame\ChessGame\bin\Debug\ChessGame.exe
+P:\École\Automne 2019\Prog III\TP Jeux d'échec\ChessGame\ChessGame\ChessGame\bin\Debug\ChessGame.pdb
+P:\École\Automne 2019\Prog III\TP Jeux d'échec\ChessGame\ChessGame\ChessGame\obj\Debug\ChessGame.exe
+P:\École\Automne 2019\Prog III\TP Jeux d'échec\ChessGame\ChessGame\ChessGame\obj\Debug\ChessGame.pdb
+P:\École\Automne 2019\Prog III\TP Jeux d'échec\ChessGame\ChessGame\ChessGame\obj\Debug\ChessGame.mainMenu.resources

@@ -12,9 +12,43 @@ namespace ChessGame
 {
     public partial class mainMenu : Form
     {
-        public mainMenu()
+        ChessGame m_chessGame;
+
+        public mainMenu(ChessGame chessGame)
         {
+            m_chessGame = chessGame;
+
             InitializeComponent();
+        }
+
+        private void BtnAddPlayer_Click(object sender, EventArgs e)
+        {
+            string playerName = txtAddPlayer.Text;
+            bool duplicate = false;
+
+            foreach (var name in lsbPlayers.Items) //Parcour lsb pour trouver duplictat de nom
+            {
+                if (playerName == (string)name)
+                    duplicate = true;
+            }
+
+            if (!duplicate && !String.IsNullOrEmpty(playerName)) //Ajoute le nom si ok, sinon, affiche un erreur
+            {
+                lsbPlayers.Items.Add(playerName);
+                txtAddPlayer.Clear();
+            }
+            else if (String.IsNullOrEmpty(playerName))
+                MessageBox.Show("Vous ne pouvez pas entrer un nom vide. Veuillez entrer un nom.", "Nom vide", MessageBoxButtons.OK);
+            else if (duplicate)
+                MessageBox.Show("Ce nom existe déjà. Veuillez entrer un autre nom.", "Nom identique trouvé", MessageBoxButtons.OK);
+        }
+
+        private void BtnDeletePlayer_Click(object sender, EventArgs e)
+        {
+            if (lsbPlayers.SelectedIndex == -1)
+                MessageBox.Show("Vous devez sélectionné un nom pour le supprimer.", "Aucun nom sélectionné", MessageBoxButtons.OK);
+            else
+                lsbPlayers.Items.RemoveAt(lsbPlayers.SelectedIndex);
         }
     }
 }
