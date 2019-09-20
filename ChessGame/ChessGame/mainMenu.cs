@@ -19,11 +19,15 @@ namespace ChessGame
             m_chessGame = chessGame;
             InitializeComponent();
             m_chessGame.createPlayerFromFile();
+            fillListBoxPlayer();
         }
 
-        private void fillListBoxPlayer()
+        public void fillListBoxPlayer()
         {
-            List<Player> test = m_chessGame.PlayerList;
+            foreach (var player in m_chessGame.PlayerList)
+            {
+                lsbPlayers.Items.Add(player.Name);                
+            }
         }
 
         private void BtnAddPlayer_Click(object sender, EventArgs e)

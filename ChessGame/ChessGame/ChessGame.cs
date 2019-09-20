@@ -14,6 +14,12 @@ namespace ChessGame
         private mainMenu m_menu;
         private List<Player> m_listPlayer;
 
+        //ACCESSEUR
+        public List<Player> PlayerList
+        {
+            get { return m_listPlayer; }
+        }
+
         //CONSTRUCTEUR
         public ChessGame()
         {
@@ -22,6 +28,7 @@ namespace ChessGame
             Application.Run(m_menu);
         }
 
+        //MÉTHODES
         [STAThread]
         static void Main()
         {

@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 
 namespace ChessGame
 {
-
-    class Player
+    public class Player
     {
         private string m_playerName;
         private bool m_isWhite;
@@ -18,7 +17,7 @@ namespace ChessGame
         {
             this.m_winLossCount = new int[2];
             this.m_playerName = name;
-            this.m_isWhite = false;            
+            this.m_isWhite = false;
         }
 
         public Player(string name, int winCount, int lossCount)
