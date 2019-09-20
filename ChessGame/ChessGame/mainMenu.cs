@@ -12,7 +12,7 @@ namespace ChessGame
 {
     public partial class mainMenu : Form
     {
-        ChessGame m_chessGame;
+        private ChessGame m_chessGame;
 
         public mainMenu(ChessGame chessGame)
         {
@@ -36,6 +36,8 @@ namespace ChessGame
             {
                 lsbPlayers.Items.Add(playerName);
                 txtAddPlayer.Clear();
+                m_chessGame.createNewPlayer(playerName);
+                m_chessGame.serializePlayerList();
             }
             else if (String.IsNullOrEmpty(playerName))
                 MessageBox.Show("Vous ne pouvez pas entrer un nom vide. Veuillez entrer un nom.", "Nom vide", MessageBoxButtons.OK);
@@ -49,6 +51,16 @@ namespace ChessGame
                 MessageBox.Show("Vous devez sélectionné un nom pour le supprimer.", "Aucun nom sélectionné", MessageBoxButtons.OK);
             else
                 lsbPlayers.Items.RemoveAt(lsbPlayers.SelectedIndex);
+        }
+
+        private void BtnStartGame_Click(object sender, EventArgs e)
+        {
+            m_chessGame.createGame();
+        }
+
+        private void savePlayerOnFile()
+        {
+
         }
     }
 }

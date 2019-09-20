@@ -30,19 +30,19 @@
         {
             this.TabMainMenu = new System.Windows.Forms.TabControl();
             this.tabGame = new System.Windows.Forms.TabPage();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.btnStartGame = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.cmbSelectPlayer2 = new System.Windows.Forms.ComboBox();
             this.cmbSelectPlayer1 = new System.Windows.Forms.ComboBox();
             this.tabCreatePlayer = new System.Windows.Forms.TabPage();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.txtAddPlayer = new System.Windows.Forms.TextBox();
             this.btnAddPlayer = new System.Windows.Forms.Button();
             this.btnDeletePlayer = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.lsbPlayers = new System.Windows.Forms.ListBox();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.TabMainMenu.SuspendLayout();
             this.tabGame.SuspendLayout();
             this.tabCreatePlayer.SuspendLayout();
@@ -74,6 +74,15 @@
             this.tabGame.Text = "Partie";
             this.tabGame.UseVisualStyleBackColor = true;
             // 
+            // panel1
+            // 
+            this.panel1.BackgroundImage = global::ChessGame.Properties.Resources.mainMenu_Picture;
+            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel1.Location = new System.Drawing.Point(135, 6);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(328, 312);
+            this.panel1.TabIndex = 8;
+            // 
             // btnStartGame
             // 
             this.btnStartGame.Location = new System.Drawing.Point(67, 505);
@@ -82,6 +91,7 @@
             this.btnStartGame.TabIndex = 4;
             this.btnStartGame.Text = "Démarrer une partie";
             this.btnStartGame.UseVisualStyleBackColor = true;
+            this.btnStartGame.Click += new System.EventHandler(this.BtnStartGame_Click);
             // 
             // label3
             // 
@@ -133,6 +143,15 @@
             this.tabCreatePlayer.Text = "Création de joueurs";
             this.tabCreatePlayer.UseVisualStyleBackColor = true;
             // 
+            // panel2
+            // 
+            this.panel2.BackgroundImage = global::ChessGame.Properties.Resources.mainMenu_Picture;
+            this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel2.Location = new System.Drawing.Point(135, 6);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(328, 312);
+            this.panel2.TabIndex = 7;
+            // 
             // txtAddPlayer
             // 
             this.txtAddPlayer.Location = new System.Drawing.Point(33, 339);
@@ -177,24 +196,6 @@
             this.lsbPlayers.Name = "lsbPlayers";
             this.lsbPlayers.Size = new System.Drawing.Size(542, 84);
             this.lsbPlayers.TabIndex = 2;
-            // 
-            // panel2
-            // 
-            this.panel2.BackgroundImage = global::ChessGame.Properties.Resources.mainMenu_Picture;
-            this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel2.Location = new System.Drawing.Point(135, 6);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(328, 312);
-            this.panel2.TabIndex = 7;
-            // 
-            // panel1
-            // 
-            this.panel1.BackgroundImage = global::ChessGame.Properties.Resources.mainMenu_Picture;
-            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel1.Location = new System.Drawing.Point(135, 6);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(328, 312);
-            this.panel1.TabIndex = 8;
             // 
             // mainMenu
             // 
