@@ -17,13 +17,13 @@ namespace ChessGame
         public mainMenu(ChessGame chessGame)
         {
             m_chessGame = chessGame;
-            m_chessGame.createPlayerFromFile();
             InitializeComponent();
+            m_chessGame.createPlayerFromFile();
         }
 
-        private void loadListBoxPlayers()
+        private void fillListBoxPlayer()
         {
-
+            List<Player> test = m_chessGame.PlayerList;
         }
 
         private void BtnAddPlayer_Click(object sender, EventArgs e)

@@ -17,8 +17,8 @@ namespace ChessGame
         //CONSTRUCTEUR
         public ChessGame()
         {
-            m_menu = new mainMenu(this);
             m_listPlayer = new List<Player>();
+            m_menu = new mainMenu(this);
             Application.Run(m_menu);
         }
 
@@ -31,7 +31,6 @@ namespace ChessGame
             ChessGame game = new ChessGame();
         }
 
-
         public void createNewPlayer(string playerName) //Crée un nouveau joueur
         {
             m_listPlayer.Add(new Player(playerName));
@@ -43,36 +42,33 @@ namespace ChessGame
             string line;
             StreamReader sr = new StreamReader("playerList.txt");
 
-            while ((line = sr.ReadLine()) != null)
-            {
+            while ((line = sr.ReadLine()) != null) //Parcours le fichier et sépare le tout par joueurs
                 playerList.Add(line);
-                
-            }
+
             sr.Close();
 
-
-            foreach (var player in playerList)
+            foreach (var player in playerList) //Parcours la liste de joueurs et split en nom/win/loss
             {
                 string[] playerInfo = player.Split(',');
-                m_listPlayer.Add(new Player(playerInfo[0], int.Parse(playerInfo[1]), int.Parse(playerInfo[2])));
-            }
+                string playerName = playerInfo[0];
+                int playerWin = Convert.ToInt32(playerInfo[1]);
+                int playerLoss = Convert.ToInt32(playerInfo[2]);
 
-            foreach (var player in m_listPlayer)
-            {
-                Console.WriteLine(player.Name);
-                Console.WriteLine(player.WinCount);
-                Console.WriteLine(player.LossCount);
-                Console.WriteLine("\n");
+                m_listPlayer.Add(new Player(playerName, playerWin, playerLoss));
             }
         }
 
         public string serializePlayerList() //Sérialize la liste de joueur pour facilité l'écriture sur disque
         {
+            
             string serializedList = "";
 
             foreach (var player in m_listPlayer)
             {
-                serializedList += player.Name + "," + player.WinCount + "," + player.LossCount + "\n";
+                if (!(player == m_listPlayer.Last()))
+                    serializedList += player.Name + "," + player.WinCount + "," + player.LossCount + "\n";
+                else
+                    serializedList += player.Name + "," + player.WinCount + "," + player.LossCount;
             }
 
             return serializedList;
