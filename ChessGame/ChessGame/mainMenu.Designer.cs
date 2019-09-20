@@ -76,7 +76,7 @@
             // 
             // panel1
             // 
-            this.panel1.BackgroundImage = global::ChessGame.Properties.Resources.mainMenu_Picture;
+            //this.panel1.BackgroundImage = global::ChessGame.Properties.Resources.mainMenu_Picture;
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel1.Location = new System.Drawing.Point(135, 6);
             this.panel1.Name = "panel1";
@@ -145,7 +145,7 @@
             // 
             // panel2
             // 
-            this.panel2.BackgroundImage = global::ChessGame.Properties.Resources.mainMenu_Picture;
+            //this.panel2.BackgroundImage = global::ChessGame.Properties.Resources.mainMenu_Picture;
             this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel2.Location = new System.Drawing.Point(135, 6);
             this.panel2.Name = "panel2";

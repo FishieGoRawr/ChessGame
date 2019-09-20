@@ -63,19 +63,9 @@ namespace ChessGame.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap il_570xN_1217314060_jha1 {
+        internal static System.Drawing.Bitmap Board {
             get {
-                object obj = ResourceManager.GetObject("il_570xN.1217314060_jha1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap mainMenu_Picture {
-            get {
-                object obj = ResourceManager.GetObject("mainMenu Picture", resourceCulture);
+                object obj = ResourceManager.GetObject("Board", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
