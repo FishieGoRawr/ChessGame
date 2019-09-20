@@ -16,9 +16,17 @@ namespace ChessGame
         //CONSTRUCTEURS
         public Player(string name) //New player constructor
         {
-            this.m_playerName = name;
-            this.m_isWhite = false;
             this.m_winLossCount = new int[2];
+            this.m_playerName = name;
+            this.m_isWhite = false;            
+        }
+
+        public Player(string name, int winCount, int lossCount)
+        {
+            this.m_winLossCount = new int[2];
+            this.m_playerName = name;
+            this.m_winLossCount[0] = winCount;
+            this.m_winLossCount[1] = lossCount;
         }
 
         //ACCESSEURS
