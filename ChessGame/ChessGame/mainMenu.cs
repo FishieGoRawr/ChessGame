@@ -66,6 +66,7 @@ namespace ChessGame
         private void BtnStartGame_Click(object sender, EventArgs e)
         {
             m_chessGame.createGame();
+
         }
     }
 }

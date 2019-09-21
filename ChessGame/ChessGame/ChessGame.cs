@@ -45,29 +45,36 @@ namespace ChessGame
 
         public void createPlayerFromFile() //Remplie la liste de joueur à partir du fichier sauvegardé sur disque
         {
-            List<string> playerList = new List<string>();
-            string line;
-            StreamReader sr = new StreamReader("playerList.txt");
-
-            while ((line = sr.ReadLine()) != null) //Parcours le fichier et sépare le tout par joueurs
-                playerList.Add(line);
-
-            sr.Close();
-
-            foreach (var player in playerList) //Parcours la liste de joueurs et split en nom/win/loss
+            try
             {
-                string[] playerInfo = player.Split(',');
-                string playerName = playerInfo[0];
-                int playerWin = Convert.ToInt32(playerInfo[1]);
-                int playerLoss = Convert.ToInt32(playerInfo[2]);
 
-                m_listPlayer.Add(new Player(playerName, playerWin, playerLoss));
+                List<string> playerList = new List<string>();
+                string line;
+                StreamReader sr = new StreamReader("playerList.txt");
+
+                while ((line = sr.ReadLine()) != null) //Parcours le fichier et sépare le tout par joueurs
+                    playerList.Add(line);
+
+                sr.Close();
+
+                foreach (var player in playerList) //Parcours la liste de joueurs et split en nom/win/loss
+                {
+                    string[] playerInfo = player.Split(',');
+                    string playerName = playerInfo[0];
+                    int playerWin = Convert.ToInt32(playerInfo[1]);
+                    int playerLoss = Convert.ToInt32(playerInfo[2]);
+
+                    m_listPlayer.Add(new Player(playerName, playerWin, playerLoss));
+                }
+            }
+            catch (Exception)
+            {
             }
         }
 
         public string serializePlayerList() //Sérialize la liste de joueur pour facilité l'écriture sur disque
         {
-            
+
             string serializedList = "";
 
             foreach (var player in m_listPlayer)
@@ -92,6 +99,7 @@ namespace ChessGame
         public void createGame()
         {
             //Creating a new chess game with the 2 selected players
+            m_game = new Game();
         }
     }
 }

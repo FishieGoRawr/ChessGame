@@ -19,3 +19,14 @@ P:\CEGEP\3ieme année\Automne 2019\Conception et Développement Orientés Objets
 P:\CEGEP\3ieme année\Automne 2019\Conception et Développement Orientés Objets\Travaux pratiques\TP1\ChessGame\ChessGame\ChessGame\obj\Debug\ChessGame.exe
 P:\CEGEP\3ieme année\Automne 2019\Conception et Développement Orientés Objets\Travaux pratiques\TP1\ChessGame\ChessGame\ChessGame\obj\Debug\ChessGame.pdb
 P:\CEGEP\3ieme année\Automne 2019\Conception et Développement Orientés Objets\Travaux pratiques\TP1\ChessGame\ChessGame\ChessGame\obj\Debug\ChessGame.chessBoard.resources
+E:\documents-datadrive\School\Conception OO\ChessGame\ChessGame\ChessGame\bin\Debug\ChessGame.exe.config
+E:\documents-datadrive\School\Conception OO\ChessGame\ChessGame\ChessGame\bin\Debug\ChessGame.exe
+E:\documents-datadrive\School\Conception OO\ChessGame\ChessGame\ChessGame\bin\Debug\ChessGame.pdb
+E:\documents-datadrive\School\Conception OO\ChessGame\ChessGame\ChessGame\obj\Debug\ChessGame.csprojAssemblyReference.cache
+E:\documents-datadrive\School\Conception OO\ChessGame\ChessGame\ChessGame\obj\Debug\ChessGame.chessBoard.resources
+E:\documents-datadrive\School\Conception OO\ChessGame\ChessGame\ChessGame\obj\Debug\ChessGame.mainMenu.resources
+E:\documents-datadrive\School\Conception OO\ChessGame\ChessGame\ChessGame\obj\Debug\ChessGame.Properties.Resources.resources
+E:\documents-datadrive\School\Conception OO\ChessGame\ChessGame\ChessGame\obj\Debug\ChessGame.csproj.GenerateResource.cache
+E:\documents-datadrive\School\Conception OO\ChessGame\ChessGame\ChessGame\obj\Debug\ChessGame.csproj.CoreCompileInputs.cache
+E:\documents-datadrive\School\Conception OO\ChessGame\ChessGame\ChessGame\obj\Debug\ChessGame.exe
+E:\documents-datadrive\School\Conception OO\ChessGame\ChessGame\ChessGame\obj\Debug\ChessGame.pdb

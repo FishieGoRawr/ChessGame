@@ -6,14 +6,19 @@ using System.Threading.Tasks;
 
 namespace ChessGame
 {
-    class Game
+    public class Game
     {
         Player m_pWhite, m_pBlack;
         bool m_turn;
         Board m_board;
-        gameGUI m_gameGUI;
+        chessBoard m_gameGUI;
         List<Piece> m_whiteEaten;
         List<Piece> m_blackEaten;
 
+        public Game()
+        {
+            m_gameGUI = new chessBoard(this);
+            m_gameGUI.Show();
+        }
     }
 }
