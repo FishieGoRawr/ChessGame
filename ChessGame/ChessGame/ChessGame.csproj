@@ -51,15 +51,14 @@
   <ItemGroup>
     <Compile Include="Bishop.cs" />
     <Compile Include="Board.cs" />
-    <Compile Include="chessBoard.cs">
+    <Compile Include="gameGUI.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="chessBoard.Designer.cs">
-      <DependentUpon>chessBoard.cs</DependentUpon>
+    <Compile Include="gameGUI.Designer.cs">
+      <DependentUpon>gameGUI.cs</DependentUpon>
     </Compile>
     <Compile Include="firstMovePiece.cs" />
     <Compile Include="Game.cs" />
-    <Compile Include="gameGUI.cs" />
     <Compile Include="King.cs" />
     <Compile Include="Knight.cs" />
     <Compile Include="mainMenu.cs">
@@ -81,8 +80,8 @@
     <Compile Include="Queen.cs" />
     <Compile Include="Rook.cs" />
     <Compile Include="Tile.cs" />
-    <EmbeddedResource Include="chessBoard.resx">
-      <DependentUpon>chessBoard.cs</DependentUpon>
+    <EmbeddedResource Include="gameGUI.resx">
+      <DependentUpon>gameGUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="mainMenu.resx">
       <DependentUpon>mainMenu.cs</DependentUpon>

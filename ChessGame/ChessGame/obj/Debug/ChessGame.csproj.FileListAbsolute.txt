@@ -23,10 +23,10 @@ E:\documents-datadrive\School\Conception OO\ChessGame\ChessGame\ChessGame\bin\De
 E:\documents-datadrive\School\Conception OO\ChessGame\ChessGame\ChessGame\bin\Debug\ChessGame.exe
 E:\documents-datadrive\School\Conception OO\ChessGame\ChessGame\ChessGame\bin\Debug\ChessGame.pdb
 E:\documents-datadrive\School\Conception OO\ChessGame\ChessGame\ChessGame\obj\Debug\ChessGame.csprojAssemblyReference.cache
-E:\documents-datadrive\School\Conception OO\ChessGame\ChessGame\ChessGame\obj\Debug\ChessGame.chessBoard.resources
 E:\documents-datadrive\School\Conception OO\ChessGame\ChessGame\ChessGame\obj\Debug\ChessGame.mainMenu.resources
 E:\documents-datadrive\School\Conception OO\ChessGame\ChessGame\ChessGame\obj\Debug\ChessGame.Properties.Resources.resources
 E:\documents-datadrive\School\Conception OO\ChessGame\ChessGame\ChessGame\obj\Debug\ChessGame.csproj.GenerateResource.cache
 E:\documents-datadrive\School\Conception OO\ChessGame\ChessGame\ChessGame\obj\Debug\ChessGame.csproj.CoreCompileInputs.cache
 E:\documents-datadrive\School\Conception OO\ChessGame\ChessGame\ChessGame\obj\Debug\ChessGame.exe
 E:\documents-datadrive\School\Conception OO\ChessGame\ChessGame\ChessGame\obj\Debug\ChessGame.pdb
+E:\documents-datadrive\School\Conception OO\ChessGame\ChessGame\ChessGame\obj\Debug\ChessGame.gameGUI.resources

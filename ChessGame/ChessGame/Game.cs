@@ -11,13 +11,16 @@ namespace ChessGame
         Player m_pWhite, m_pBlack;
         bool m_turn;
         Board m_board;
-        chessBoard m_gameGUI;
+        gameGUI m_gameGUI;
         List<Piece> m_whiteEaten;
         List<Piece> m_blackEaten;
 
         public Game()
         {
-            m_gameGUI = new chessBoard(this);
+            m_board = new Board();
+
+            //Creating UI and showing it 
+            m_gameGUI = new gameGUI(this);
             m_gameGUI.Show();
         }
     }

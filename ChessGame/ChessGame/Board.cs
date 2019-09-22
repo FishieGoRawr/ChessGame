@@ -8,12 +8,14 @@ namespace ChessGame
 {
     class Board
     {
-        private Tile[,] m_tiles;
+        private Tile[] m_tiles;
+        private int m_width;
 
         //CONSTRUCTEUR
         public Board()
         {
-            m_tiles = new Tile[8, 8];
+            m_tiles = new Tile[64];
+
         }
 
         public Board(string serializedBoard)
@@ -21,10 +23,10 @@ namespace ChessGame
             //Reprendre une partie en cours avec un board serialisé
         }
 
-        //INDEXEUR
+        //ACCESSEUR
         public Tile this[int x, int y]
         {
-            get { return m_tiles[x, y]; }
+            get { return m_tiles[x + m_width * y]; }
         }
     }
 }
