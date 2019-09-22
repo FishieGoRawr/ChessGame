@@ -17,11 +17,29 @@ namespace ChessGame
 
         public Game()
         {
-            m_board = new Board();
+            m_board = new Board(8);
 
             //Creating UI and showing it 
             m_gameGUI = new gameGUI(this);
             m_gameGUI.Show();
+
+            refreshBoard();
+        }
+
+        public void refreshBoard()
+        {
+            for (int y = 0; y < m_board.Width; y++)
+            {
+                for (int x = 0; x < m_board.Width; x++)
+                {
+                    if (m_board[x, y].CurrentPiece != null)
+                    {
+                        Piece pieceToAdd = m_board[x, y].CurrentPiece;
+                        Type typeToAdd = pieceToAdd.GetType();
+                        m_gameGUI.addPiece(x, y,  typeToAdd.Name, pieceToAdd.m_imagePath);
+                    }
+                }
+            }
         }
     }
 }

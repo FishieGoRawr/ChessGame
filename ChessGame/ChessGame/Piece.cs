@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 namespace ChessGame
 {
-    class Piece
+    public class Piece
     {
-        bool m_alive;
-        char m_color;
-        string m_imagePath;
+        private char m_color;
+
+        public bool m_alive;
+        public string m_imagePath;
 
         public Piece(bool p_alive, char p_color, string p_imagepath)
         {

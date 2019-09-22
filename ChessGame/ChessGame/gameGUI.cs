@@ -51,5 +51,29 @@ namespace ChessGame
 
             Console.WriteLine(tileX + "," + tileY);
         }
+
+        private void piece_MouseUp(object sender, MouseEventArgs e)
+        {
+            Console.WriteLine("Allo");
+        }
+
+        public void addPiece(int p_x, int p_y, string p_name, string p_imagePath = "")
+        {
+            int tileWidth = board.Width / 8;
+            int tileHeight = board.Height / 8;
+            var picture = new PictureBox
+            {
+                Name = p_name,
+                Size = new Size(tileWidth, tileHeight),
+                Location = new Point( (p_x * tileWidth) , (p_y * tileHeight)),
+                Image = Image.FromFile(@p_imagePath),
+                SizeMode = PictureBoxSizeMode.StretchImage,
+                BackColor = Color.Transparent,
+        };
+
+            picture.MouseUp += new MouseEventHandler(piece_MouseUp);
+
+            board.Controls.Add(picture);
+        }
     }
 }
