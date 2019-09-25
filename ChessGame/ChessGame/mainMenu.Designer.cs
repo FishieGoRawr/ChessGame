@@ -76,7 +76,6 @@
             // 
             // panel1
             // 
-            //this.panel1.BackgroundImage = global::ChessGame.Properties.Resources.mainMenu_Picture;
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel1.Location = new System.Drawing.Point(135, 6);
             this.panel1.Name = "panel1";
@@ -118,6 +117,7 @@
             this.cmbSelectPlayer2.Name = "cmbSelectPlayer2";
             this.cmbSelectPlayer2.Size = new System.Drawing.Size(177, 28);
             this.cmbSelectPlayer2.TabIndex = 1;
+            this.cmbSelectPlayer2.SelectedIndexChanged += new System.EventHandler(this.CmbSelectPlayer2_SelectedValueChanged);
             // 
             // cmbSelectPlayer1
             // 
@@ -126,6 +126,7 @@
             this.cmbSelectPlayer1.Name = "cmbSelectPlayer1";
             this.cmbSelectPlayer1.Size = new System.Drawing.Size(177, 28);
             this.cmbSelectPlayer1.TabIndex = 0;
+            this.cmbSelectPlayer1.SelectedIndexChanged += new System.EventHandler(this.CmbSelectPlayer1_SelectedValueChanged);
             // 
             // tabCreatePlayer
             // 
@@ -145,7 +146,6 @@
             // 
             // panel2
             // 
-            //this.panel2.BackgroundImage = global::ChessGame.Properties.Resources.mainMenu_Picture;
             this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel2.Location = new System.Drawing.Point(135, 6);
             this.panel2.Name = "panel2";
