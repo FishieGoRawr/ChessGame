@@ -28,5 +28,10 @@ namespace ChessGame
 
             return serializedPiece;
         }
+
+        public virtual bool canMove(int[] coordFrom, int[] coordTo)
+        {
+            return false;
+        }
     }
 }

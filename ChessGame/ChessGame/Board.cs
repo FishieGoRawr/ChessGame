@@ -23,7 +23,7 @@ namespace ChessGame
 
             for (int i = 0; i < m_tiles.Length; i++)
             {
-                m_tiles[i] = new Tile( (i % m_width), (i / m_width) );
+                m_tiles[i] = new Tile((i % m_width), (i / m_width));
             }
 
             //Disposing pieces
@@ -72,7 +72,7 @@ namespace ChessGame
                         {
                             case 0:
                             case 7:
-                                this[x, y].CurrentPiece = new Rook(true, p_piecesColor);
+                                this[x, y].CurrentPiece = new Rook(true, p_piecesColor, true);
                                 break;
                             case 1:
                             case 6:
@@ -87,11 +87,11 @@ namespace ChessGame
                                 if (p_piecesColor == 'W')
                                 {
                                     this[3, y].CurrentPiece = new Queen(true, p_piecesColor);
-                                    this[4, y].CurrentPiece = new King(true, p_piecesColor);
+                                    this[4, y].CurrentPiece = new King(true, p_piecesColor, true);
                                 }
                                 else
                                 {
-                                    this[3, y].CurrentPiece = new King(true, p_piecesColor);
+                                    this[3, y].CurrentPiece = new King(true, p_piecesColor, true);
                                     this[4, y].CurrentPiece = new Queen(true, p_piecesColor);
                                 }
                                 break;
@@ -101,7 +101,7 @@ namespace ChessGame
                     }
                     else
                     {
-                        this[x, y].CurrentPiece = new Pawn(true, p_piecesColor);
+                        this[x, y].CurrentPiece = new Pawn(true, p_piecesColor, true);
                     }
                 }
             }
@@ -125,9 +125,44 @@ namespace ChessGame
         //    this.m_selectedTile = this[coord[0], coord[1]];
         //}
 
-        public void initMove()
+        public bool isDestinationValid(Tile tileFrom, Tile tileTo)
+        {
+            bool isValid = false;
+
+            if (!tileTo.isOccupied())
+            {
+                isValid = true;
+            }
+
+            return isValid;
+        }
+
+        public void movePiece(int[] coordFrom, int[] coordTo)
         {
 
+            this[coordTo[0], coordTo[1]].CurrentPiece = this[coordFrom[0], coordFrom[1]].CurrentPiece;
+            this[coordFrom[0], coordFrom[1]].CurrentPiece = null;
+            this.m_selectedTile = null;
+        }
+
+        //Are we trying to move
+        public bool isMoving(int[] coordFrom, char p_turn)
+        {
+            if (this.m_selectedTile != null)
+            {
+                if (this.SelectedTile.getPieceColor() == this[coordFrom[0], coordFrom[1]].getPieceColor())
+                {
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+            }
+            else
+            {
+                return false;
+            }
         }
 
         public override string ToString()

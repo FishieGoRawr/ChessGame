@@ -30,6 +30,11 @@ namespace ChessGame
             this.Y = p_Y;
         }
 
+        public bool isOccupied()
+        {
+            return m_currentPiece != null;
+        }
+
         public char getPieceColor()
         {
             if (this.m_currentPiece != null)

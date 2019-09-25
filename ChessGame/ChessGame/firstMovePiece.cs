@@ -8,7 +8,7 @@ namespace ChessGame
 {
     class firstMovePiece : Piece
     {
-        bool m_firstMove;
+        public bool m_firstMove;
 
         public firstMovePiece(bool p_alive, char p_color, bool p_firstMove = false) : base(p_alive, p_color)
         {

@@ -33,6 +33,26 @@ namespace ChessGame
         }
 
         //METHODES
+        public int[] getCoordFrom()
+        {
+            int[] coordFrom = { m_start.X, m_start.Y };
+            return coordFrom;
+        }
 
+        public int[] getCoordTo()
+        {
+            int[] coordTo = { m_end.X, m_end.Y };
+            return coordTo;
+        }
+
+        public bool isValidMovement()
+        {
+            bool validMovement = this.m_movedPiece.canMove(getCoordFrom(), getCoordTo());
+            if (validMovement && m_movedPiece.GetType().BaseType.Name == "firstMovePiece")
+            {
+                ((firstMovePiece)m_movedPiece).m_firstMove = false;
+            }
+            return validMovement;
+        }
     }
 }

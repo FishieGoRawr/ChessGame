@@ -38,23 +38,50 @@ namespace ChessGame
         {
             //if (m_board[p_x,p_y].CurrentPiece != null)
             //{
-            bool isValidTile = m_board.trySelectTile(coordFrom, m_turn);
+            bool isMove = m_board.isMoving(coordFrom, m_turn);
 
-            if (isValidTile)
+            //If the player is trying to select a piece
+            if (!isMove)
             {
-                refreshBoard();
-                if (this.m_turn == 'W')
+                bool isValidTile = m_board.trySelectTile(coordFrom, m_turn);
+                if (isValidTile)
                 {
-                    this.m_move = new Move(this.m_pWhite, m_board.SelectedTile);
-                }
-                else
-                {
-                    this.m_move = new Move(this.m_pBlack, m_board.SelectedTile);
+                    refreshBoard();
+                    if (this.m_turn == 'W')
+                    {
+                        this.m_move = new Move(this.m_pWhite, m_board.SelectedTile);
+                    }
+                    else
+                    {
+                        this.m_move = new Move(this.m_pBlack, m_board.SelectedTile);
+                    }
                 }
             }
+            //If the player is trying to move
+            else
+            {
+                m_move.End = m_board[coordFrom[0], coordFrom[1]];
+                bool destValid = this.m_board.isDestinationValid(m_move.Start, m_move.End);
+                if (destValid)
+                {
+                    bool validMovement = this.m_move.isValidMovement();
+                    if (validMovement)
+                    {
+                        move(m_move.getCoordFrom(), m_move.getCoordTo());
+                    }
+                }
+
+            }
+
             //}
         }
 
+
+        public void move(int[] coordFrom, int[] coordTo)
+        {
+            m_board.movePiece(coordFrom, coordTo);
+            refreshBoard();
+        }
         //public bool isSelectedPieceValid(int[] coordFrom)
         //{
         //    return this.m_board.isSameColorPiece(coordFrom, m_turn);
