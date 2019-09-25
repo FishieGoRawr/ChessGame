@@ -30,3 +30,4 @@ E:\documents-datadrive\School\Conception OO\ChessGame\ChessGame\ChessGame\obj\De
 E:\documents-datadrive\School\Conception OO\ChessGame\ChessGame\ChessGame\obj\Debug\ChessGame.pdb
 E:\documents-datadrive\School\Conception OO\ChessGame\ChessGame\ChessGame\obj\Debug\ChessGame.gameGUI.resources
 P:\CEGEP\3ieme année\Automne 2019\Conception et Développement Orientés Objets\Travaux pratiques\TP1\ChessGame\ChessGame\ChessGame\obj\Debug\ChessGame.gameGUI.resources
+P:\École\Automne 2019\Prog III\TP Jeux d'échec\ChessGame\ChessGame\ChessGame\obj\Debug\ChessGame.gameGUI.resources
