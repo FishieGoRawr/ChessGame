@@ -8,16 +8,8 @@ namespace ChessGame
 {
     class King : firstMovePiece
     {
-        public King(bool p_alive, char p_color, string p_imagePath, bool p_firstMove = false) : base(p_alive, p_color, p_imagePath, p_firstMove)
+        public King(bool p_alive, char p_color, bool p_firstMove = false) : base(p_alive, p_color, p_firstMove)
         {
-            if (p_color == 'W')
-            {
-                p_imagePath = "";
-            }
-            else
-            {
-                p_imagePath = "";
-            }
         }
     }
 }

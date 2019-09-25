@@ -28,18 +28,13 @@ namespace ChessGame
 
         public void refreshBoard()
         {
-            for (int y = 0; y < m_board.Width; y++)
-            {
-                for (int x = 0; x < m_board.Width; x++)
-                {
-                    if (m_board[x, y].CurrentPiece != null)
-                    {
-                        Piece pieceToAdd = m_board[x, y].CurrentPiece;
-                        Type typeToAdd = pieceToAdd.GetType();
-                        m_gameGUI.addPiece(x, y,  typeToAdd.Name, pieceToAdd.m_imagePath);
-                    }
-                }
-            }
+            m_gameGUI.drawBoard(m_board.ToString());
+        }
+
+
+        public void highlightTile(int p_x, int p_y, int p_width, int p_height)
+        {
+            m_gameGUI.drawRectangle(p_x * p_width, p_y * p_height, p_width, p_height);
         }
     }
 }

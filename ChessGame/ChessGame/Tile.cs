@@ -30,5 +30,22 @@ namespace ChessGame
             this.Y = p_Y;
         }
 
+        public override string ToString()
+        {
+            string serializedTile = "";
+
+            if (this.m_currentPiece != null)
+            {
+                serializedTile = this.m_X.ToString() + this.m_Y.ToString() + "," + this.m_currentPiece.ToString();
+            }
+            else
+            {
+                serializedTile = this.m_X.ToString() + this.m_Y.ToString() + "," + "null";
+            }
+
+
+            return serializedTile;
+        }
+
     }
 }

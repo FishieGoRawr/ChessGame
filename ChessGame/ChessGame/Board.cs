@@ -10,12 +10,14 @@ namespace ChessGame
     {
         private Tile[] m_tiles;
         private int m_width;
+        public string m_background;
 
         //CONSTRUCTEUR
         public Board(int p_width)
         {
             this.Width = p_width;
             this.m_tiles = new Tile[64];
+            this.m_background = "board";
 
             for (int i = 0; i < m_tiles.Length; i++)
             {
@@ -67,27 +69,27 @@ namespace ChessGame
                         {
                             case 0:
                             case 7:
-                                this[x, y].CurrentPiece = new Rook(true, p_piecesColor, ressourceFolderPath + p_piecesColor + "_rook.png");
+                                this[x, y].CurrentPiece = new Rook(true, p_piecesColor);
                                 break;
                             case 1:
                             case 6:
-                                this[x, y].CurrentPiece = new Knight(true, p_piecesColor, ressourceFolderPath + p_piecesColor +"_knight.png");
+                                this[x, y].CurrentPiece = new Knight(true, p_piecesColor);
                                 break;
                             case 2:
                             case 5:
-                                this[x, y].CurrentPiece = new Bishop(true, p_piecesColor, ressourceFolderPath + p_piecesColor + "_bishop.png");
+                                this[x, y].CurrentPiece = new Bishop(true, p_piecesColor);
                                 break;
                             case 3:
                             case 4:
                                 if (p_piecesColor == 'W')
                                 {
-                                    this[3, y].CurrentPiece = new Queen(true, p_piecesColor, ressourceFolderPath + p_piecesColor + "_queen.png");
-                                    this[4, y].CurrentPiece = new King(true, p_piecesColor, ressourceFolderPath + p_piecesColor + "_king.png");
+                                    this[3, y].CurrentPiece = new Queen(true, p_piecesColor);
+                                    this[4, y].CurrentPiece = new King(true, p_piecesColor);
                                 }
                                 else
                                 {
-                                    this[3, y].CurrentPiece = new King(true, p_piecesColor, ressourceFolderPath + p_piecesColor + "_king.png");
-                                    this[4, y].CurrentPiece = new Queen(true, p_piecesColor, ressourceFolderPath + p_piecesColor + "_queen.png");
+                                    this[3, y].CurrentPiece = new King(true, p_piecesColor);
+                                    this[4, y].CurrentPiece = new Queen(true, p_piecesColor);
                                 }
                                 break;
                             default:
@@ -96,10 +98,24 @@ namespace ChessGame
                     }
                     else
                     {
-                        this[x, y].CurrentPiece = new Pawn(true, p_piecesColor, ressourceFolderPath + p_piecesColor + "_pawn.png");
+                        this[x, y].CurrentPiece = new Pawn(true, p_piecesColor);
                     }
                 }
             }
+        }
+
+        public override string ToString()
+        {
+            string serializedBoard = "";
+
+            serializedBoard += m_background;
+
+            for (int i = 0; i < m_tiles.Length; i++)
+            {
+                serializedBoard += "|" + m_tiles[i].ToString();
+            }
+
+            return serializedBoard;
         }
     }
 }

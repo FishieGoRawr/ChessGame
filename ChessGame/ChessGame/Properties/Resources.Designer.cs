@@ -59,15 +59,5 @@ namespace ChessGame.Properties {
                 resourceCulture = value;
             }
         }
-        
-        /// <summary>
-        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Board {
-            get {
-                object obj = ResourceManager.GetObject("Board", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
     }
 }

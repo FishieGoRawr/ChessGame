@@ -8,16 +8,9 @@ namespace ChessGame
 {
     class Queen : Piece
     {
-        public Queen(bool p_alive, char p_color, string p_imagePath) : base( p_alive,  p_color,  p_imagePath)
+        public Queen(bool p_alive, char p_color) : base( p_alive,  p_color)
         {
-            if (p_color == 'W')
-            {
-                p_imagePath = "";
-            }
-            else
-            {
-                p_imagePath = "";
-            }
+
         }
     }
 }

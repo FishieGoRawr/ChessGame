@@ -33,29 +33,25 @@
             // 
             // board
             // 
-            this.board.BackgroundImage = global::ChessGame.Properties.Resources.Board;
             this.board.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.board.Location = new System.Drawing.Point(11, 11);
-            this.board.Margin = new System.Windows.Forms.Padding(2);
+            this.board.Location = new System.Drawing.Point(16, 16);
             this.board.Name = "board";
-            this.board.Size = new System.Drawing.Size(504, 504);
+            this.board.Size = new System.Drawing.Size(756, 756);
             this.board.TabIndex = 0;
-            this.board.Paint += new System.Windows.Forms.PaintEventHandler(this.board_Paint);
+            this.board.Paint += new System.Windows.Forms.PaintEventHandler(this.Board_Paint);
             this.board.MouseUp += new System.Windows.Forms.MouseEventHandler(this.board_MouseUP);
             // 
             // gameGUI
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(144F, 144F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(533, 523);
+            this.ClientSize = new System.Drawing.Size(800, 784);
             this.Controls.Add(this.board);
-            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "gameGUI";
-            this.Padding = new System.Windows.Forms.Padding(11);
+            this.Padding = new System.Windows.Forms.Padding(16);
             this.Text = "chessBoard";
-            this.Paint += new System.Windows.Forms.PaintEventHandler(this.board_Paint);
             this.ResumeLayout(false);
 
         }

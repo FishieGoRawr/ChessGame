@@ -231,6 +231,7 @@
         private System.Windows.Forms.ComboBox cmbSelectPlayer1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
-    }
+
+}
 }
 
