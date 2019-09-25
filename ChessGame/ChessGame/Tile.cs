@@ -30,6 +30,15 @@ namespace ChessGame
             this.Y = p_Y;
         }
 
+        public char getPieceColor()
+        {
+            if (this.m_currentPiece != null)
+            {
+                return m_currentPiece.m_color;
+            }
+            return 'N';
+        }
+
         public override string ToString()
         {
             string serializedTile = "";
@@ -42,7 +51,6 @@ namespace ChessGame
             {
                 serializedTile = this.m_X.ToString() + this.m_Y.ToString() + "," + "null";
             }
-
 
             return serializedTile;
         }

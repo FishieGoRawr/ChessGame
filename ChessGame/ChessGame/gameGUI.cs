@@ -24,15 +24,16 @@ namespace ChessGame
         private void board_MouseUP(object sender, MouseEventArgs e)
         {
             Panel boardPanel = (Panel)sender;
-            int tileWidth = boardPanel.Width / 8;
-            int tileHeight = boardPanel.Height / 8;
+            if (e.X < 504 && e.Y < 504)
+            {
+                int tileWidth = boardPanel.Width / 8;
+                int tileHeight = boardPanel.Height / 8;
+                int[] clickedCoord = { (e.X / tileWidth), (e.Y / tileHeight) };
 
-            int tileX = (e.X / tileWidth);
-            int tileY = (e.Y / tileHeight);
+                m_game.highlightTile(clickedCoord);
 
-            m_game.refreshBoard();
-            m_game.highlightTile(tileX, tileY, tileWidth, tileHeight);
-            Console.WriteLine(tileX + ", " + tileY);
+                Console.WriteLine(clickedCoord[0] + ", " + clickedCoord[1]);
+            }
         }
 
 
@@ -69,8 +70,17 @@ namespace ChessGame
 
             myBuffer.Graphics.DrawImage(backGround, 0, 0, board.Width, board.Height);
 
+            //Highlighting the tile that is currently selected
+            string[] selTemp = boardTiles[1].Split(',');
+            string selName = selTemp[1];
+            if (selName != "none")
+            {
+                int x = ((selTemp[0])[0]) - 48;
+                int y = ((selTemp[0])[1]) - 48;
+                drawRectangle(x, y, myBuffer.Graphics);
+            }
 
-            for (int i = 1; i < boardTiles.Length; i++)
+            for (int i = 2; i < boardTiles.Length; i++)
             {
                 string[] temp = boardTiles[i].Split(',');
                 string name = temp[1];
@@ -88,15 +98,15 @@ namespace ChessGame
         }
 
         //Draws a blue rectangle outline at the specified coordinates
-        public void drawRectangle(int p_x, int p_y, int p_width, int p_height)
+        public void drawRectangle(int p_x, int p_y, Graphics g)
         {
+            int tileWidth = board.Width / 8;
+            int tileHeight = board.Height / 8;
             System.Drawing.Pen myPen = new System.Drawing.Pen(System.Drawing.Color.CadetBlue);
             myPen.Width = 5;
-            System.Drawing.Graphics boardGraphics;
-            boardGraphics = this.board.CreateGraphics();
-            boardGraphics.DrawRectangle(myPen, new Rectangle(p_x, p_y, p_width, p_height));
+            g.DrawRectangle(myPen, new Rectangle(p_x * tileWidth, p_y * tileHeight, tileWidth, tileHeight));
             myPen.Dispose();
-            boardGraphics.Dispose();
+            //g.Dispose();
         }
 
         private void Board_Paint(object sender, PaintEventArgs e)

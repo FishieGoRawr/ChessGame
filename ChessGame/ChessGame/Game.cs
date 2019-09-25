@@ -8,33 +8,56 @@ namespace ChessGame
 {
     public class Game
     {
-        Player m_pWhite, m_pBlack;
-        bool m_turn;
+        Player m_pWhite, m_pBlack;      //Both players currently playing the game 
+        char m_turn;                    //Represent who's player turn it is to play (true = white player | false = black player)
         Board m_board;
         gameGUI m_gameGUI;
+        Move m_move;
         List<Piece> m_whiteEaten;
         List<Piece> m_blackEaten;
 
         public Game()
         {
-            m_board = new Board(8);
+            this.m_board = new Board(8);
+            this.m_turn = 'W';
 
             //Creating UI and showing it 
-            m_gameGUI = new gameGUI(this);
-            m_gameGUI.Show();
+            this.m_gameGUI = new gameGUI(this);
+            this.m_gameGUI.Show();
 
             refreshBoard();
         }
 
         public void refreshBoard()
         {
-            m_gameGUI.drawBoard(m_board.ToString());
+            this.m_gameGUI.drawBoard(m_board.ToString());
         }
 
 
-        public void highlightTile(int p_x, int p_y, int p_width, int p_height)
+        public void highlightTile(int[] coordFrom)
         {
-            m_gameGUI.drawRectangle(p_x * p_width, p_y * p_height, p_width, p_height);
+            //if (m_board[p_x,p_y].CurrentPiece != null)
+            //{
+            bool isValidTile = m_board.trySelectTile(coordFrom, m_turn);
+
+            if (isValidTile)
+            {
+                refreshBoard();
+                if (this.m_turn == 'W')
+                {
+                    this.m_move = new Move(this.m_pWhite, m_board.SelectedTile);
+                }
+                else
+                {
+                    this.m_move = new Move(this.m_pBlack, m_board.SelectedTile);
+                }
+            }
+            //}
         }
+
+        //public bool isSelectedPieceValid(int[] coordFrom)
+        //{
+        //    return this.m_board.isSameColorPiece(coordFrom, m_turn);
+        //}
     }
 }

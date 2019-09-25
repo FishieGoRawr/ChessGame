@@ -1,0 +1,38 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ChessGame
+{
+    class Move
+    {
+        //DONNEES MEMBRES
+        private Player m_player;
+        private Tile m_start;
+        private Tile m_end;
+        private Piece m_movedPiece;
+        private Piece m_killedPiece;
+
+        //ACCESSEURS
+        public Player Player { get => m_player; set => m_player = value; }
+        public Piece MovedPiece { get => m_movedPiece; set => m_movedPiece = value; }
+        public Piece KilledPiece { get => m_killedPiece; set => m_killedPiece = value; }
+        internal Tile Start { get => m_start; set => m_start = value; }
+        internal Tile End { get => m_end; set => m_end = value; }
+
+        //CONSTRUCTEURS
+        public Move(Player p_player, Tile p_start)
+        {
+            this.m_player = p_player;
+            this.m_start = p_start;
+            this.m_end = null;
+            this.m_movedPiece = m_start.CurrentPiece;
+            this.m_killedPiece = null;
+        }
+
+        //METHODES
+
+    }
+}

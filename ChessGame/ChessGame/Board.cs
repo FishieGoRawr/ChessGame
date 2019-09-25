@@ -9,6 +9,7 @@ namespace ChessGame
     class Board
     {
         private Tile[] m_tiles;
+        private Tile m_selectedTile;
         private int m_width;
         public string m_background;
 
@@ -18,6 +19,7 @@ namespace ChessGame
             this.Width = p_width;
             this.m_tiles = new Tile[64];
             this.m_background = "board";
+            this.m_selectedTile = null;
 
             for (int i = 0; i < m_tiles.Length; i++)
             {
@@ -37,6 +39,7 @@ namespace ChessGame
         //ACCESSEUR
 
         public int Width { get => m_width; set => m_width = value; }
+        public Tile SelectedTile { get => m_selectedTile; set => m_selectedTile = value; }
 
         public Tile this[int x, int y]
         {
@@ -104,11 +107,44 @@ namespace ChessGame
             }
         }
 
+        public bool trySelectTile(int[] coord, char currentColor)
+        {
+            char pieceColor = this[coord[0], coord[1]].getPieceColor();
+
+            if (pieceColor == currentColor)
+            {
+                this.m_selectedTile = this[coord[0], coord[1]];
+                return true;
+            }
+
+            return false;
+        }
+
+        //public void selectTile(int[] coord)
+        //{
+        //    this.m_selectedTile = this[coord[0], coord[1]];
+        //}
+
+        public void initMove()
+        {
+
+        }
+
         public override string ToString()
         {
             string serializedBoard = "";
 
             serializedBoard += m_background;
+
+            if (this.m_selectedTile != null)
+            {
+                serializedBoard += "|" + this.m_selectedTile.ToString();
+            }
+            else
+            {
+                serializedBoard += "|00,none";
+            }
+
 
             for (int i = 0; i < m_tiles.Length; i++)
             {
