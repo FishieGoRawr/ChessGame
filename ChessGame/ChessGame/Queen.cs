@@ -12,5 +12,16 @@ namespace ChessGame
         {
 
         }
+
+        public override bool canMove(int[] coordFrom, int[] coordTo)
+        {
+            int Xmovement = coordFrom[0] - coordTo[0];
+            int Ymovement = coordFrom[1] - coordTo[1];
+            bool validMovement = false;
+
+            validMovement = (Math.Abs(Ymovement) > 0 && Xmovement == 0) || (Math.Abs(Xmovement) > 0 && Ymovement == 0) || (Math.Abs(Ymovement) == Math.Abs(Xmovement));
+
+            return validMovement;
+        }
     }
 }

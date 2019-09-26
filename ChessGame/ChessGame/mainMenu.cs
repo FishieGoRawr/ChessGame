@@ -43,8 +43,9 @@ namespace ChessGame
                 case "p1":
                     cmbSelectPlayer1.Items.Clear();
                     foreach (var player in m_chessGame.PlayerList)
+                    { 
                         cmbSelectPlayer1.Items.Add(player.Name);
-
+                    }
                     cmbSelectPlayer1.Items.Remove(cmbSelectPlayer2.SelectedItem.ToString());
                     break;
                 case "p2":
@@ -114,9 +115,9 @@ namespace ChessGame
 
         private void BtnStartGame_Click(object sender, EventArgs e)
         {
-            if (cmbSelectPlayer1.SelectedItem.ToString() == cmbSelectPlayer2.SelectedItem.ToString())
-                MessageBox.Show("Jouer avec vous même ne serait pas très efficace... Veuillez choisir 2 joueurs différents!", "Choisir 2 joueurs différents.", MessageBoxButtons.OK);
-            else
+            //if (cmbSelectPlayer1.SelectedItem.ToString() == cmbSelectPlayer2.SelectedItem.ToString())
+            //    MessageBox.Show("Jouer avec vous même ne serait pas très efficace... Veuillez choisir 2 joueurs différents!", "Choisir 2 joueurs différents.", MessageBoxButtons.OK);
+            //else
                 m_chessGame.createGame();
 
         }

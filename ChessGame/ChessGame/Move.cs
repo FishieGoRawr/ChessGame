@@ -48,10 +48,7 @@ namespace ChessGame
         public bool isValidMovement()
         {
             bool validMovement = this.m_movedPiece.canMove(getCoordFrom(), getCoordTo());
-            if (validMovement && m_movedPiece.GetType().BaseType.Name == "firstMovePiece")
-            {
-                ((firstMovePiece)m_movedPiece).m_firstMove = false;
-            }
+
             return validMovement;
         }
     }

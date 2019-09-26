@@ -67,7 +67,11 @@ namespace ChessGame
                     bool validMovement = this.m_move.isValidMovement();
                     if (validMovement)
                     {
-                        move(m_move.getCoordFrom(), m_move.getCoordTo());
+                        bool isCollisionning = this.m_board.isCollisionning(m_move.getCoordFrom(), m_move.getCoordTo());
+                        if (!isCollisionning)
+                        {
+                            move(m_move.getCoordFrom(), m_move.getCoordTo());
+                        }
                     }
                 }
 
