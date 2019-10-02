@@ -12,6 +12,7 @@ namespace ChessGame
         private Tile m_selectedTile;
         private int m_width;
         public string m_background;
+        public string m_possibleTiles;
 
         //CONSTRUCTEUR
         public Board(int p_width)
@@ -20,6 +21,7 @@ namespace ChessGame
             this.m_tiles = new Tile[64];
             this.m_background = "board";
             this.m_selectedTile = null;
+            this.m_possibleTiles = "";
 
             for (int i = 0; i < m_tiles.Length; i++)
             {
@@ -125,16 +127,42 @@ namespace ChessGame
         //    this.m_selectedTile = this[coord[0], coord[1]];
         //}
 
-        public bool isDestinationValid(Tile tileFrom, Tile tileTo)
+        public bool isDestinationValid(Tile tileFrom, Tile tileTo, char p_turn)
         {
             bool isValid = false;
+            char colorWeCanEat;
+            if (p_turn == 'W')
+            {
+                colorWeCanEat = 'B';
+            }
+            else
+            {
+                colorWeCanEat = 'W';
+            }
 
             if (!tileTo.isOccupied())
             {
                 isValid = true;
             }
+            else if (tileTo.isOccupied() && tileTo.getPieceColor() == colorWeCanEat)
+            {
+                isValid = true;
+            }
 
             return isValid;
+        }
+
+        public void markPossible(int[] coordFrom, int[] coordTo)
+        {
+            this.m_possibleTiles = "";
+            string pieceType = this[coordFrom[0], coordFrom[1]].CurrentPiece.GetType().Name;
+
+            int Xmovement = coordFrom[0] - coordTo[0];
+            int Ymovement = coordFrom[1] - coordTo[1];
+            Tile startTile = this[coordFrom[0], coordFrom[1]];
+            Tile endTile = this[coordTo[0], coordTo[1]];
+
+            detect(pieceType, Xmovement, Ymovement, startTile, endTile, true);
         }
 
         public bool isCollisionning(int[] coordFrom, int[] coordTo)
@@ -143,191 +171,188 @@ namespace ChessGame
 
             int Xmovement = coordFrom[0] - coordTo[0];
             int Ymovement = coordFrom[1] - coordTo[1];
+            Tile startTile = this[coordFrom[0], coordFrom[1]];
+            Tile endTile = this[coordTo[0], coordTo[1]];
 
-            switch (pieceType)
+            return detect(pieceType, Xmovement, Ymovement, startTile, endTile);
+        }
+
+        //idk jvoulais pas copier coller le fcking gros switch case..XD
+        public bool detect(String p_pieceName, int Xmovement, int Ymovement, Tile p_startTile, Tile p_endTile, bool forPossibleTiles = false)
+        {
+            if (forPossibleTiles)
             {
-                case "Pawn":
-                    //If the movement direction is up
-                    if (Ymovement > 0)
-                    {
-                        return detectCollision(this[coordFrom[0], coordFrom[1]], new int[] { 0, -1 }, this[coordTo[0], coordTo[1]]);
-                    }
-                    //If the movement direction is down
-                    else
-                    {
-                        return detectCollision(this[coordFrom[0], coordFrom[1]], new int[] { 0, 1 }, this[coordTo[0], coordTo[1]]);
-                    }
-                    break;
-                case "Bishop":
-                    //If the movement direction is up
-                    if (Ymovement > 0)
-                    {
-                        //If the movement direction is left-up
-                        if (Xmovement > 0)
-                        {
-                            return detectCollision(this[coordFrom[0], coordFrom[1]], new int[] { -1, -1 }, this[coordTo[0], coordTo[1]]);
-                        }
-                        //If the movement direction is right-up
-                        else
-                        {
-                            return detectCollision(this[coordFrom[0], coordFrom[1]], new int[] { 1, -1 }, this[coordTo[0], coordTo[1]]);
-                        }
-
-                    }
-                    //If the movement direction is down
-                    else
-                    {
-                        //If the movement direction is left-down
-                        if (Xmovement > 0)
-                        {
-                            return detectCollision(this[coordFrom[0], coordFrom[1]], new int[] { -1, 1 }, this[coordTo[0], coordTo[1]]);
-                        }
-                        //If the movement direction is right-down
-                        else
-                        {
-                            return detectCollision(this[coordFrom[0], coordFrom[1]], new int[] { 1, 1 }, this[coordTo[0], coordTo[1]]);
-                        }
-                    }
-                    break;
-                case "Rook":
-                    //If the movement direction is in Y
-                    if (Xmovement == 0)
-                    {
+                detectPossible(p_startTile, new int[] { -1, 0 }, p_startTile);   //Left
+                detectPossible(p_startTile, new int[] { 1, 0 }, p_startTile);    //Right
+                detectPossible(p_startTile, new int[] { 0, -1 }, p_startTile);   //Up
+                detectPossible(p_startTile, new int[] { 0, 1 }, p_startTile);    //Down
+                detectPossible(p_startTile, new int[] { -1, -1 }, p_startTile);  //Left - Up
+                detectPossible(p_startTile, new int[] { 1, -1 }, p_startTile);   //Right - Up
+                detectPossible(p_startTile, new int[] { -1, 1 }, p_startTile);   //Left - Down
+                detectPossible(p_startTile, new int[] { 1, 1 }, p_startTile);    //Right - Down
+            }
+            else
+            {
+                switch (p_pieceName)
+                {
+                    case "Pawn":
+                        //If the movement direction is up
                         if (Ymovement > 0)
                         {
-                            return detectCollision(this[coordFrom[0], coordFrom[1]], new int[]{ 0, -1 }, this[coordTo[0], coordTo[1]]);
+                            return detectCollision(p_startTile, new int[] { 0, -1 }, p_endTile);
                         }
+                        //If the movement direction is down
                         else
                         {
-                            return detectCollision(this[coordFrom[0], coordFrom[1]], new int[] { 0, 1 }, this[coordTo[0], coordTo[1]]);
+                            return detectCollision(p_startTile, new int[] { 0, 1 }, p_endTile);
                         }
-
-                    }
-                    else
-                    {
-                        //int offSet = 0;
-                        ////If the movement direction is in Y
-                        //if (Xmovement == 0)
-                        //{
-                        //    while (Math.Abs(offSet) != Math.Abs(Ymovement))
-                        //    {
-                        //        if (offSet != 0 && this[coordFrom[0], coordFrom[1] + offSet].isOccupied())
-                        //        {
-                        //            return true;
-                        //        }
-                        //        if (Ymovement > 0)
-                        //        {
-                        //            offSet--; //upward movement
-                        //        }
-                        //        else
-                        //        {
-                        //            offSet++; //downward movement
-                        //        }
-                        //    }
-                        //}
-                        //else
-                        //{
-                        //    while (Math.Abs(offSet) != Math.Abs(Xmovement))
-                        //    {
-                        //        if (offSet != 0 && this[coordFrom[0] + offSet, coordFrom[1]].isOccupied())
-                        //        {
-                        //            return true;
-                        //        }
-                        //        if (Xmovement > 0)
-                        //        {
-                        //            offSet--; //left movement
-                        //        }
-                        //        else
-                        //        {
-                        //            offSet++; //right movement
-                        //        }
-                        //    }
-
-                        //}
-                        if (Xmovement > 0)
-                        {
-                            return detectCollision(this[coordFrom[0], coordFrom[1]], new int[] { -1, 0 }, this[coordTo[0], coordTo[1]]);
-                        }
-                        else
-                        {
-                            return detectCollision(this[coordFrom[0], coordFrom[1]], new int[] { 1, 0 }, this[coordTo[0], coordTo[1]]);
-                        }
-                    }
-
-
-                    break;
-                case "King":
-                    if (this[coordFrom[0] + Xmovement, coordTo[1] + Ymovement].isOccupied())
-                    {
-                        return false;
-                    }
-                    break;
-                case "Queen":
-                    //If the movement direction is in Y
-                    if (Xmovement == 0)
-                    {
+                        break;
+                    case "Bishop":
+                        //If the movement direction is up
                         if (Ymovement > 0)
                         {
-                            return detectCollision(this[coordFrom[0], coordFrom[1]], new int[] { 0, -1 }, this[coordTo[0], coordTo[1]]);
-                        }
-                        else
-                        {
-                            return detectCollision(this[coordFrom[0], coordFrom[1]], new int[] { 0, 1 }, this[coordTo[0], coordTo[1]]);
-                        }
+                            //If the movement direction is left-up
+                            if (Xmovement > 0)
+                            {
+                                return detectCollision(p_startTile, new int[] { -1, -1 }, p_endTile);
+                            }
+                            //If the movement direction is right-up
+                            else
+                            {
+                                return detectCollision(p_startTile, new int[] { 1, -1 }, p_endTile);
+                            }
 
-                    }
-                    else if (Ymovement == 0)
-                    {
-                        if (Xmovement > 0)
-                        {
-                            return detectCollision(this[coordFrom[0], coordFrom[1]], new int[] { -1, 0 }, this[coordTo[0], coordTo[1]]);
                         }
+                        //If the movement direction is down
                         else
                         {
-                            return detectCollision(this[coordFrom[0], coordFrom[1]], new int[] { 1, 0 }, this[coordTo[0], coordTo[1]]);
+                            //If the movement direction is left-down
+                            if (Xmovement > 0)
+                            {
+                                return detectCollision(p_startTile, new int[] { -1, 1 }, p_endTile);
+                            }
+                            //If the movement direction is right-down
+                            else
+                            {
+                                return detectCollision(p_startTile, new int[] { 1, 1 }, p_endTile);
+                            }
                         }
-                    }
-                    //If the movement direction is up but diagonal
-                    else if (Ymovement > 0 && Xmovement != 0)
-                    {
-                        //If the movement direction is left-up
-                        if (Xmovement > 0)
+                        break;
+                    case "Rook":
+                        //If the movement direction is in Y
+                        if (Xmovement == 0)
                         {
-                            return detectCollision(this[coordFrom[0], coordFrom[1]], new int[] { -1, -1 }, this[coordTo[0], coordTo[1]]);
-                        }
-                        //If the movement direction is right-up
-                        else
-                        {
-                            return detectCollision(this[coordFrom[0], coordFrom[1]], new int[] { 1, -1 }, this[coordTo[0], coordTo[1]]);
-                        }
+                            if (Ymovement > 0)
+                            {
+                                return detectCollision(p_startTile, new int[] { 0, -1 }, p_endTile);
+                            }
+                            else
+                            {
+                                return detectCollision(p_startTile, new int[] { 0, 1 }, p_endTile);
+                            }
 
-                    }
-                    //If the movement direction is down but diagonal
-                    else if (Ymovement < 0 && Xmovement != 0)
-                    {
-                        //If the movement direction is left-down
-                        if (Xmovement > 0)
-                        {
-                            return detectCollision(this[coordFrom[0], coordFrom[1]], new int[] { -1, 1 }, this[coordTo[0], coordTo[1]]);
                         }
-                        //If the movement direction is right-down
                         else
                         {
-                            return detectCollision(this[coordFrom[0], coordFrom[1]], new int[] { 1, 1 }, this[coordTo[0], coordTo[1]]);
+                            if (Xmovement > 0)
+                            {
+                                return detectCollision(p_startTile, new int[] { -1, 0 }, p_endTile);
+                            }
+                            else
+                            {
+                                return detectCollision(p_startTile, new int[] { 1, 0 }, p_endTile);
+                            }
                         }
-                    }
+                        break;
+                    case "King":
+                        if (p_endTile.isOccupied())
+                        {
+                            return false;
+                        }
+                        break;
+                    case "Queen":
+                        //If the movement direction is in Y
+                        if (Xmovement == 0)
+                        {
+                            if (Ymovement > 0)
+                            {
+                                return detectCollision(p_startTile, new int[] { 0, -1 }, p_endTile);
+                            }
+                            else
+                            {
+                                return detectCollision(p_startTile, new int[] { 0, 1 }, p_endTile);
+                            }
 
-                    break;
-                default:
-                    break;
+                        }
+                        else if (Ymovement == 0)
+                        {
+                            if (Xmovement > 0)
+                            {
+                                return detectCollision(p_startTile, new int[] { -1, 0 }, p_endTile);
+                            }
+                            else
+                            {
+                                return detectCollision(p_startTile, new int[] { 1, 0 }, p_endTile);
+                            }
+                        }
+                        //If the movement direction is up but diagonal
+                        else if (Ymovement > 0 && Xmovement != 0)
+                        {
+                            //If the movement direction is left-up
+                            if (Xmovement > 0)
+                            {
+                                return detectCollision(p_startTile, new int[] { -1, -1 }, p_endTile);
+                            }
+                            //If the movement direction is right-up
+                            else
+                            {
+                                return detectCollision(p_startTile, new int[] { 1, -1 }, p_endTile);
+                            }
+
+                        }
+                        //If the movement direction is down but diagonal
+                        else if (Ymovement < 0 && Xmovement != 0)
+                        {
+                            //If the movement direction is left-down
+                            if (Xmovement > 0)
+                            {
+                                return detectCollision(p_startTile, new int[] { -1, 1 }, p_endTile);
+                            }
+                            //If the movement direction is right-down
+                            else
+                            {
+                                return detectCollision(p_startTile, new int[] { 1, 1 }, p_endTile);
+                            }
+                        }
+                        break;
+                    default:
+                        break;
+                }
+
             }
             return false;
         }
 
-        //recursive algorithm to detect collision
-        public bool detectCollision(Tile p_currentTile,int[] direction, Tile p_endTile)
+        //recursive algorithm to detect possible tiles
+        public void detectPossible(Tile p_startTile, int[] direction, Tile p_currentTile)
         {
-            if ((p_currentTile.X + direction[0] > 0 && p_currentTile.X + direction[0] < m_width) && (p_currentTile.Y + direction[1] > 0 && p_currentTile.Y + direction[1] < m_width))
+            if ((p_currentTile.X + direction[0] >= 0 && p_currentTile.X + direction[0] < m_width) && (p_currentTile.Y + direction[1] >= 0 && p_currentTile.Y + direction[1] < m_width))
+            {
+                Tile nextTile = this[p_currentTile.X + direction[0], p_currentTile.Y + direction[1]];
+
+                int[] coordFrom = { p_startTile.X, p_startTile.Y };
+                int[] coordTo = { nextTile.X, nextTile.Y };
+                if (p_startTile.CurrentPiece.canMove(coordFrom, coordTo) && !nextTile.isOccupied())
+                {
+                    m_possibleTiles += "|" + nextTile.ToString() + "H";
+                    detectPossible(p_startTile, direction, nextTile);
+                }
+            }
+        }
+
+        public bool detectCollision(Tile p_currentTile, int[] direction, Tile p_endTile)
+        {
+            if ((p_currentTile.X + direction[0] >= 0 && p_currentTile.X + direction[0] < m_width) && (p_currentTile.Y + direction[1] >= 0 && p_currentTile.Y + direction[1] < m_width))
             {
                 Tile nextTile = this[p_currentTile.X + direction[0], p_currentTile.Y + direction[1]];
                 if (p_currentTile == p_endTile)
@@ -351,10 +376,11 @@ namespace ChessGame
 
         public void movePiece(int[] coordFrom, int[] coordTo)
         {
-            if (this[coordFrom[0], coordFrom[1]].GetType().BaseType.Name == "firstMovePiece")
+            if (this[coordFrom[0], coordFrom[1]].CurrentPiece.GetType().BaseType.Name == "firstMovePiece")
             {
                 ((firstMovePiece)this[coordFrom[0], coordFrom[1]].CurrentPiece).m_firstMove = false;
             }
+
             this[coordTo[0], coordTo[1]].CurrentPiece = this[coordFrom[0], coordFrom[1]].CurrentPiece;
             this[coordFrom[0], coordFrom[1]].CurrentPiece = null;
             this.m_selectedTile = null;
@@ -389,6 +415,10 @@ namespace ChessGame
             if (this.m_selectedTile != null)
             {
                 serializedBoard += "|" + this.m_selectedTile.ToString();
+                if (this.m_possibleTiles != "")
+                {
+                    serializedBoard += this.m_possibleTiles;
+                }
             }
             else
             {

@@ -29,7 +29,7 @@ namespace ChessGame
             return serializedPiece;
         }
 
-        public virtual bool canMove(int[] coordFrom, int[] coordTo)
+        public virtual bool canMove(int[] coordFrom, int[] coordTo, bool isEating = false)
         {
             return false;
         }

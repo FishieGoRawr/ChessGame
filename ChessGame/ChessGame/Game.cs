@@ -37,7 +37,6 @@ namespace ChessGame
         public void highlightTile(int[] coordFrom)
         {
             //if (m_board[p_x,p_y].CurrentPiece != null)
-            //{
             bool isMove = m_board.isMoving(coordFrom, m_turn);
 
             //If the player is trying to select a piece
@@ -46,6 +45,7 @@ namespace ChessGame
                 bool isValidTile = m_board.trySelectTile(coordFrom, m_turn);
                 if (isValidTile)
                 {
+                    m_board.markPossible(coordFrom, coordFrom);
                     refreshBoard();
                     if (this.m_turn == 'W')
                     {
@@ -61,7 +61,7 @@ namespace ChessGame
             else
             {
                 m_move.End = m_board[coordFrom[0], coordFrom[1]];
-                bool destValid = this.m_board.isDestinationValid(m_move.Start, m_move.End);
+                bool destValid = this.m_board.isDestinationValid(m_move.Start, m_move.End, this.m_turn);
                 if (destValid)
                 {
                     bool validMovement = this.m_move.isValidMovement();
@@ -71,6 +71,16 @@ namespace ChessGame
                         if (!isCollisionning)
                         {
                             move(m_move.getCoordFrom(), m_move.getCoordTo());
+                            switchTurns();
+                        }
+                        else
+                        {
+                            //If the tile we land onto contains a piece of the opposite color
+                            if (this.m_board[m_move.getCoordTo()[0], m_move.getCoordTo()[1]].getPieceColor() != m_turn && this.m_board[m_move.getCoordTo()[0], m_move.getCoordTo()[1]].getPieceColor() != 'N')
+                            {
+                                move(m_move.getCoordFrom(), m_move.getCoordTo());
+                                switchTurns();
+                            }
                         }
                     }
                 }
@@ -90,5 +100,17 @@ namespace ChessGame
         //{
         //    return this.m_board.isSameColorPiece(coordFrom, m_turn);
         //}
+
+        public void switchTurns()
+        {
+            if (this.m_turn == 'W')
+            {
+                this.m_turn = 'B';
+            }
+            else
+            {
+                this.m_turn = 'W';
+            }
+        }
     }
 }

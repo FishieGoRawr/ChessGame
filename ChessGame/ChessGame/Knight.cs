@@ -12,7 +12,7 @@ namespace ChessGame
         {
         }
 
-        public override bool canMove(int[] coordFrom, int[] coordTo)
+        public override bool canMove(int[] coordFrom, int[] coordTo, bool isEating = false)
         {
             int Xmovement = coordFrom[0] - coordTo[0];
             int Ymovement = coordFrom[1] - coordTo[1];

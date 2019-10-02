@@ -47,6 +47,17 @@ namespace ChessGame
 
             Bitmap bitmap = new Bitmap(@imagePath);
             g.DrawImage(bitmap, p_x * tileWidth, p_y * tileHeight, tileWidth, tileHeight);
+            bitmap.Dispose();
+        }
+
+        public void highLightCase(int p_x, int p_y, Graphics g)
+        {
+            int tileWidth = board.Width / 8;
+            int tileHeight = board.Height / 8;
+            SolidBrush semiTransBrush = new SolidBrush(Color.FromArgb(128, 0, 255, 0));
+            //g.CompositingQuality = System.Drawing.Drawing2D.CompositingQuality.GammaCorrected;
+            g.FillRectangle(semiTransBrush, p_x * tileWidth, p_y * tileHeight, tileWidth, tileHeight);
+            semiTransBrush.Dispose();
         }
 
         public void drawBoard(string p_serializedBoard)
@@ -70,6 +81,7 @@ namespace ChessGame
 
             myBuffer.Graphics.DrawImage(backGround, 0, 0, board.Width, board.Height);
 
+            backGround.Dispose();
             //Highlighting the tile that is currently selected
             string[] selTemp = boardTiles[1].Split(',');
             string selName = selTemp[1];
@@ -89,7 +101,14 @@ namespace ChessGame
                     int x = ((temp[0])[0]) - 48;
                     int y = ((temp[0])[1]) - 48;
                     char color = temp[1][0];
-                    drawPiece(x, y, color, name, myBuffer.Graphics);
+                    if (name.EndsWith("H"))
+                    {
+                        highLightCase(x, y, myBuffer.Graphics);
+                    }
+                    else
+                    {
+                        drawPiece(x, y, color, name, myBuffer.Graphics);
+                    }
                 }
             }
             myBuffer.Render();

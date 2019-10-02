@@ -47,7 +47,25 @@ namespace ChessGame
 
         public bool isValidMovement()
         {
-            bool validMovement = this.m_movedPiece.canMove(getCoordFrom(), getCoordTo());
+            bool validMovement = false;
+            if (this.MovedPiece.GetType().Name != "Pawn")
+            {
+                validMovement = this.m_movedPiece.canMove(getCoordFrom(), getCoordTo());
+            }
+            else
+            {
+                //If we are eating another piece
+                if (!this.m_end.isOccupied())
+                {
+                    validMovement = this.m_movedPiece.canMove(getCoordFrom(), getCoordTo(), false);
+                }
+                else
+                {
+                    validMovement = this.m_movedPiece.canMove(getCoordFrom(), getCoordTo(), true);
+                }
+
+            }
+
 
             return validMovement;
         }
