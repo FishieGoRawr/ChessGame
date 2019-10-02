@@ -182,14 +182,29 @@ namespace ChessGame
         {
             if (forPossibleTiles)
             {
-                detectPossible(p_startTile, new int[] { -1, 0 }, p_startTile);   //Left
-                detectPossible(p_startTile, new int[] { 1, 0 }, p_startTile);    //Right
-                detectPossible(p_startTile, new int[] { 0, -1 }, p_startTile);   //Up
-                detectPossible(p_startTile, new int[] { 0, 1 }, p_startTile);    //Down
-                detectPossible(p_startTile, new int[] { -1, -1 }, p_startTile);  //Left - Up
-                detectPossible(p_startTile, new int[] { 1, -1 }, p_startTile);   //Right - Up
-                detectPossible(p_startTile, new int[] { -1, 1 }, p_startTile);   //Left - Down
-                detectPossible(p_startTile, new int[] { 1, 1 }, p_startTile);    //Right - Down
+                if (p_startTile.CurrentPiece.GetType().Name != "Knight")
+                {
+                    detectPossible(p_startTile, new int[] { -1, 0 }, p_startTile);   //Left
+                    detectPossible(p_startTile, new int[] { 1, 0 }, p_startTile);    //Right
+                    detectPossible(p_startTile, new int[] { 0, -1 }, p_startTile);   //Up
+                    detectPossible(p_startTile, new int[] { 0, 1 }, p_startTile);    //Down
+                    detectPossible(p_startTile, new int[] { -1, -1 }, p_startTile);  //Left - Up
+                    detectPossible(p_startTile, new int[] { 1, -1 }, p_startTile);   //Right - Up
+                    detectPossible(p_startTile, new int[] { -1, 1 }, p_startTile);   //Left - Down
+                    detectPossible(p_startTile, new int[] { 1, 1 }, p_startTile);    //Right - Down
+                }
+                else
+                {
+                    detectPossible(p_startTile, new int[] { -1, -2 }, p_startTile);  //Up - Left
+                    detectPossible(p_startTile, new int[] { 1, -2 }, p_startTile);   //Up - Right
+                    detectPossible(p_startTile, new int[] { -1, 2 }, p_startTile);  //Down - Left
+                    detectPossible(p_startTile, new int[] { 1, 2 }, p_startTile);    //Down - Right
+                    detectPossible(p_startTile, new int[] { -2, -1 }, p_startTile);  //Left - Up
+                    detectPossible(p_startTile, new int[] { 2, -1 }, p_startTile);   //Right - Up
+                    detectPossible(p_startTile, new int[] { -2, 1 }, p_startTile);   //Left - Down
+                    detectPossible(p_startTile, new int[] { 2, 1 }, p_startTile);    //Right - Down
+                }
+
             }
             else
             {
