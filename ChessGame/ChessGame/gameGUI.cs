@@ -50,11 +50,23 @@ namespace ChessGame
             bitmap.Dispose();
         }
 
-        public void highLightCase(int p_x, int p_y, Graphics g)
+        public void highLightCase(int p_x, int p_y, Graphics g, char p_color)
         {
             int tileWidth = board.Width / 8;
             int tileHeight = board.Height / 8;
-            SolidBrush semiTransBrush = new SolidBrush(Color.FromArgb(128, 0, 255, 0));
+            SolidBrush semiTransBrush;
+            switch (p_color)
+            {
+                case 'G':
+                    semiTransBrush = new SolidBrush(Color.FromArgb(128, 0, 255, 0));
+                    break;
+                case 'R':
+                    semiTransBrush = new SolidBrush(Color.FromArgb(128, 255, 0, 0));
+                    break;
+                default:
+                    semiTransBrush = new SolidBrush(Color.FromArgb(128, 0, 255, 0));
+                    break;
+            }
             //g.CompositingQuality = System.Drawing.Drawing2D.CompositingQuality.GammaCorrected;
             g.FillRectangle(semiTransBrush, p_x * tileWidth, p_y * tileHeight, tileWidth, tileHeight);
             semiTransBrush.Dispose();
@@ -103,7 +115,11 @@ namespace ChessGame
                     char color = temp[1][0];
                     if (name.EndsWith("H"))
                     {
-                        highLightCase(x, y, myBuffer.Graphics);
+                        highLightCase(x, y, myBuffer.Graphics, 'G');
+                    }
+                    else if(name.EndsWith("E"))
+                    {
+                        highLightCase(x, y, myBuffer.Graphics, 'R');
                     }
                     else
                     {

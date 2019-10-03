@@ -362,7 +362,62 @@ namespace ChessGame
                     m_possibleTiles += "|" + nextTile.ToString() + "H";
                     detectPossible(p_startTile, direction, nextTile);
                 }
+                else if (p_startTile.CurrentPiece.canMove(coordFrom, coordTo, true) && nextTile.isOccupied() && nextTile.getPieceColor() != p_startTile.getPieceColor())
+                {
+                    //If the next case is an eatable piece
+                    m_possibleTiles += "|" + nextTile.ToString() + "E";
+                }
+
             }
+        }
+
+        public bool detectCheck(char p_turn)
+        {
+            string serializedBoard = this.ToString();
+
+            string[] boardTiles = serializedBoard.Split('|');
+
+            int kingX = 0;
+            int kingY = 0;
+            for (int i = 2; i < boardTiles.Length; i++)
+            {
+                string[] temp = boardTiles[i].Split(',');
+                string name = temp[1];
+                if (name != "null" && name.EndsWith("king"))
+                {
+                    char color = temp[1][0];
+                    if (Char.ToUpper(color) == p_turn)
+                    {
+                        kingX = ((temp[0])[0]) - 48;
+                        kingY = ((temp[0])[1]) - 48;
+                    }
+                }
+            }
+
+            for (int i = 2; i < boardTiles.Length; i++)
+            {
+                string[] temp = boardTiles[i].Split(',');
+                string name = temp[1];
+                if (name != "null")
+                {
+                    int x = ((temp[0])[0]) - 48;
+                    int y = ((temp[0])[1]) - 48;
+                    char color = temp[1][0];
+                    if (!name.EndsWith("H") && !name.EndsWith("E") && Char.ToUpper(color) != p_turn)
+                    {
+                        //If the currentPiece can eat the ennemy's King
+                        if (this[x,y].CurrentPiece.canMove(new int[] { x, y },new int[] { kingX, kingY }, true))
+                        {
+                            if (this[x, y].getPieceColor() != p_turn && !isCollisionning(new int[] { x, y }, new int[] { kingX, kingY }))
+                            {
+                                Console.WriteLine(p_turn + " Check Detected !");
+                                return true;
+                            }
+                        }
+                    }
+                }
+            }
+            return false;
         }
 
         public bool detectCollision(Tile p_currentTile, int[] direction, Tile p_endTile)
@@ -374,11 +429,18 @@ namespace ChessGame
                 {
                     return false;
                 }
+                else if(nextTile.isOccupied())
+                {
+                    return true;
+                }
+                else if (nextTile.isOccupied() && nextTile == p_endTile)
+                {
+                    return false;
+                }
                 else if (!nextTile.isOccupied())
                 {
                     return detectCollision(nextTile, direction, p_endTile);
                 }
-                else
                 {
                     return true;
                 }

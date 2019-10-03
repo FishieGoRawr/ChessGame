@@ -75,17 +75,12 @@ namespace ChessGame
                         }
                         else
                         {
-                            //If the tile we land onto contains a piece of the opposite color
-                            if (this.m_board[m_move.getCoordTo()[0], m_move.getCoordTo()[1]].getPieceColor() != m_turn && this.m_board[m_move.getCoordTo()[0], m_move.getCoordTo()[1]].getPieceColor() != 'N')
-                            {
-                                move(m_move.getCoordFrom(), m_move.getCoordTo());
-                                switchTurns();
-                            }
                         }
                     }
                 }
 
             }
+            m_board.detectCheck(this.m_turn);
 
             //}
         }
