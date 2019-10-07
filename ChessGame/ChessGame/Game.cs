@@ -73,20 +73,23 @@ namespace ChessGame
                             //If the board is in a check state
                             if (m_board.isCheckState)
                             {
-                                //trying move on temp board
-                                Board tempBoard = new Board(m_board.ToString());
-                                tempBoard.movePiece(m_move.getCoordFrom(), m_move.getCoordTo());
-                                //Does the move puts us in check position on the temp board
-                                if (!tempBoard.detectCheck(m_turn))
+                                if (askBoardCheck() && askBoardCheckPat())
+                                {
+                                    Console.WriteLine(m_turn + "checkPat Detected");
+                                }
+                                else if (askBoardCheck())
                                 {
                                     this.m_board.isCheckState = false;
                                     move(m_move.getCoordFrom(), m_move.getCoordTo());
                                     switchTurns();
                                 }
-
                             }
                             else
                             {
+                                if (askBoardCheck() && askBoardCheckPat())
+                                {
+                                    Console.WriteLine(m_turn + "checkPat Detected");
+                                }
                                 move(m_move.getCoordFrom(), m_move.getCoordTo());
                                 switchTurns();
                                 this.m_board.isCheckState = m_board.detectCheck(this.m_turn);
@@ -105,6 +108,52 @@ namespace ChessGame
             //}
         }
 
+        public bool askBoardCheck()
+        {
+            //trying move on temp board
+            Board tempBoard = new Board(m_board.ToString());
+            tempBoard.movePiece(m_move.getCoordFrom(), m_move.getCoordTo());
+            //Does the move puts us in check position on the temp board
+            return tempBoard.detectCheck(m_turn);
+        }
+
+        public bool askBoardCheckPat()
+        {
+            //trying move on temp board
+            Board tempBoard = new Board(m_board.ToString());
+            for (int x = -1; x <= 1; x++)
+            {
+                for (int y = -1; y <= 1; y++)
+                {
+                    if (x != 0 || y != 0)
+                    {
+                        int[] direction = new int[] { x, y };
+                        int[] start = m_board.getKingCoord(m_turn);
+                        int[] end = new int[]{start[0], start[1]};
+                        if ((end[0] + direction[0] > 0 && end[0] + direction[0] < 8) && (end[1] + direction[1] > 0 && end[1] + direction[1] < 8))
+                        {
+                            end[0] += direction[0];
+                            end[1] += direction[1];
+                            if (!m_board[end[0], end[1]].isOccupied())
+                            {
+                                tempBoard.movePiece(start, end);
+
+                                //Does the move puts us in check position on the temp board
+                                if (!tempBoard.detectCheck(m_turn))
+                                {
+                                    return false;
+                                }
+                                tempBoard.movePiece(end, start);
+                            }
+                        }
+
+                    }
+                }
+            }
+            
+
+            return true;
+        }
 
         public void move(int[] coordFrom, int[] coordTo)
         {

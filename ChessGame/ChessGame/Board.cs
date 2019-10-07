@@ -55,7 +55,7 @@ namespace ChessGame
                 m_tiles[i] = new Tile((i % m_width), (i / m_width));
             }
 
-            for (int i = 2; i < m_tiles.Length + 3; i++)
+            for (int i = 2; i < m_tiles.Length + 2; i++)
             {
                 string[] temp = boardTiles[i].Split(',');
                 string name = temp[1];
@@ -375,6 +375,30 @@ namespace ChessGame
             }
         }
 
+        public int[] getKingCoord(char p_color)
+        {
+            string serializedBoard = this.ToString();
+
+            string[] boardTiles = serializedBoard.Split('|');
+
+            int[] kingCoord = new int[2];
+            for (int i = 2; i < boardTiles.Length; i++)
+            {
+                string[] temp = boardTiles[i].Split(',');
+                string name = temp[1];
+                if (name != "null" && name.EndsWith("king"))
+                {
+                    char color = temp[1][0];
+                    if (Char.ToUpper(color) == p_color)
+                    {
+                        kingCoord[0] = ((temp[0])[0]) - 48;
+                        kingCoord[1] = ((temp[0])[1]) - 48;
+                    }
+                }
+            }
+            return kingCoord;
+        }
+
         public bool detectCheck(char p_turn)
         {
             string serializedBoard = this.ToString();
@@ -467,6 +491,8 @@ namespace ChessGame
             this[coordFrom[0], coordFrom[1]].CurrentPiece = null;
             this.m_selectedTile = null;
         }
+
+
 
         //Are we trying to move
         public bool isMoving(int[] coordFrom, char p_turn)
