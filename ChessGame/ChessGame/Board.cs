@@ -13,11 +13,13 @@ namespace ChessGame
         private int m_width;
         public string m_background;
         public string m_possibleTiles;
+        public bool isCheckState;
 
         //CONSTRUCTEUR
         public Board(int p_width)
         {
             this.Width = p_width;
+            this.isCheckState = false;
             this.m_tiles = new Tile[64];
             this.m_background = "board";
             this.m_selectedTile = null;
@@ -41,6 +43,8 @@ namespace ChessGame
 
             this.m_selectedTile = null;
 
+            this.isCheckState = false;
+
             this.m_possibleTiles = "";
 
             this.m_tiles = new Tile[64];
@@ -51,7 +55,7 @@ namespace ChessGame
                 m_tiles[i] = new Tile((i % m_width), (i / m_width));
             }
 
-            for (int i = 2; i < m_tiles.Length + 2; i++)
+            for (int i = 2; i < m_tiles.Length + 3; i++)
             {
                 string[] temp = boardTiles[i].Split(',');
                 string name = temp[1];

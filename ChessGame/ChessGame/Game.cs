@@ -70,15 +70,28 @@ namespace ChessGame
                         bool isCollisionning = this.m_board.isCollisionning(m_move.getCoordFrom(), m_move.getCoordTo());
                         if (!isCollisionning)
                         {
-                            Board tempBoard = new Board(m_board.ToString());
-                            
-                            move(m_move.getCoordFrom(), m_move.getCoordTo());
-                            switchTurns();
-                            bool isCheck = m_board.detectCheck(this.m_turn);
-                            if (true)
+                            //If the board is in a check state
+                            if (m_board.isCheckState)
                             {
+                                //trying move on temp board
+                                Board tempBoard = new Board(m_board.ToString());
+                                tempBoard.movePiece(m_move.getCoordFrom(), m_move.getCoordTo());
+                                //Does the move puts us in check position on the temp board
+                                if (!tempBoard.detectCheck(m_turn))
+                                {
+                                    this.m_board.isCheckState = false;
+                                    move(m_move.getCoordFrom(), m_move.getCoordTo());
+                                    switchTurns();
+                                }
 
                             }
+                            else
+                            {
+                                move(m_move.getCoordFrom(), m_move.getCoordTo());
+                                switchTurns();
+                                this.m_board.isCheckState = m_board.detectCheck(this.m_turn);
+                            }
+                            refreshBoard();
                         }
                         else
                         {
@@ -96,13 +109,11 @@ namespace ChessGame
         public void move(int[] coordFrom, int[] coordTo)
         {
             m_board.movePiece(coordFrom, coordTo);
-            refreshBoard();
         }
 
         public void revertMove()
         {
             m_board.movePiece(m_move.getCoordTo(), m_move.getCoordFrom());
-            refreshBoard();
         }
         //public bool isSelectedPieceValid(int[] coordFrom)
         //{
