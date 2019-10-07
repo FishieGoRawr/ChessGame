@@ -70,8 +70,15 @@ namespace ChessGame
                         bool isCollisionning = this.m_board.isCollisionning(m_move.getCoordFrom(), m_move.getCoordTo());
                         if (!isCollisionning)
                         {
+                            Board tempBoard = new Board(m_board.ToString());
+                            
                             move(m_move.getCoordFrom(), m_move.getCoordTo());
                             switchTurns();
+                            bool isCheck = m_board.detectCheck(this.m_turn);
+                            if (true)
+                            {
+
+                            }
                         }
                         else
                         {
@@ -80,7 +87,7 @@ namespace ChessGame
                 }
 
             }
-            m_board.detectCheck(this.m_turn);
+
 
             //}
         }
@@ -89,6 +96,12 @@ namespace ChessGame
         public void move(int[] coordFrom, int[] coordTo)
         {
             m_board.movePiece(coordFrom, coordTo);
+            refreshBoard();
+        }
+
+        public void revertMove()
+        {
+            m_board.movePiece(m_move.getCoordTo(), m_move.getCoordFrom());
             refreshBoard();
         }
         //public bool isSelectedPieceValid(int[] coordFrom)
