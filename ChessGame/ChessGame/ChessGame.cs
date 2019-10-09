@@ -96,6 +96,13 @@ namespace ChessGame
             sw.Close();
         }
 
+        public void endGame(Player winner, Player loser)
+        {
+            winner.WinCount++;
+            loser.LossCount++;
+            savePlayerList();
+        }
+
         public void createGame(List<Player> playerList, string p_player1, string p_player2)
         {
             //Creating a new chess game with the 2 selected players
