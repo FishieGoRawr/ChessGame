@@ -35,8 +35,6 @@ namespace ChessGame
             this.m_gameGUI = new gameGUI(this, m_pWhite, m_pBlack);
             this.m_gameGUI.Show();
 
-            Console.WriteLine("\n" + m_pWhite.Name);
-            Console.WriteLine(m_pBlack.Name);
             refreshBoard();
         }
 
