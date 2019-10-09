@@ -12,13 +12,24 @@ namespace ChessGame
         int m_selectedX;
         int m_selectedY;
 
-        public gameGUI(Game p_game)
+        public gameGUI(Game p_game, Player m_pWhite, Player m_pBlack)
         {
             InitializeComponent();
             m_game = p_game;
             m_selectedX = -1;
             m_selectedY = -1;
             m_ressourceFolderPath = @"..\..\Resources\Pieces\";
+
+            //Setting labels
+            lblP1Name.Text = m_pWhite.Name;
+            lblP1Win.Text = m_pWhite.WinCount.ToString();
+            lblP1Lost.Text = m_pWhite.LossCount.ToString();
+            lblP1Elo.Text = "N/A";
+
+            lblP2Name.Text = m_pBlack.Name;
+            lblP2Win.Text = m_pBlack.WinCount.ToString();
+            lblP2Lost.Text = m_pBlack.LossCount.ToString();
+            lblP2Elo.Text = "N/A";
         }
 
         private void board_MouseUP(object sender, MouseEventArgs e)
@@ -32,10 +43,9 @@ namespace ChessGame
 
                 m_game.highlightTile(clickedCoord);
 
-                Console.WriteLine(clickedCoord[0] + ", " + clickedCoord[1]);
+                lsbGameEvents.Items.Add(clickedCoord[0] + ", " + clickedCoord[1]);
             }
         }
-
 
         public void drawPiece(int p_x, int p_y, char p_color, string p_name, Graphics g)
         {
@@ -74,7 +84,6 @@ namespace ChessGame
 
         public void drawBoard(string p_serializedBoard)
         {
-
             string[] boardTiles = p_serializedBoard.Split('|');
 
             // This example assumes the existence of a form called Form1.
@@ -117,7 +126,7 @@ namespace ChessGame
                     {
                         highLightCase(x, y, myBuffer.Graphics, 'G');
                     }
-                    else if(name.EndsWith("E"))
+                    else if (name.EndsWith("E"))
                     {
                         highLightCase(x, y, myBuffer.Graphics, 'R');
                     }
