@@ -16,7 +16,7 @@ namespace ChessGame
         List<Piece> m_whiteEaten;
         List<Piece> m_blackEaten;
 
-        public Game()
+        public Game(List<Player> playerList, string p1Name, string p2Name)
         {
             this.m_board = new Board(8);
             this.m_turn = 'W';
@@ -25,6 +25,18 @@ namespace ChessGame
             this.m_gameGUI = new gameGUI(this);
             this.m_gameGUI.Show();
 
+            //Getting player object from name
+            for (int i = 0; i < playerList.Count - 1; i++)
+            {
+                if (p1Name == playerList[i].Name)
+                    m_pWhite = playerList[i];
+
+                if (p2Name == playerList[i].Name)
+                    m_pBlack = playerList[i];
+            }
+
+            Console.WriteLine("\n" + m_pWhite.Name);
+            Console.WriteLine(m_pBlack.Name);
             refreshBoard();
         }
 

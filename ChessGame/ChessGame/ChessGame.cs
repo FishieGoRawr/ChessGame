@@ -96,10 +96,10 @@ namespace ChessGame
             sw.Close();
         }
 
-        public void createGame()
+        public void createGame(List<Player> playerList, string p_player1, string p_player2)
         {
             //Creating a new chess game with the 2 selected players
-            m_game = new Game();
+            m_game = new Game(playerList, p_player1, p_player2);
         }
     }
 }
