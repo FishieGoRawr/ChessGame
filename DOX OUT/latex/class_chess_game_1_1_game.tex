@@ -1,0 +1,95 @@
+\hypertarget{class_chess_game_1_1_game}{}\doxysection{Chess\+Game.\+Game Class Reference}
+\label{class_chess_game_1_1_game}\index{ChessGame.Game@{ChessGame.Game}}
+
+
+Classe principale du jeu. Stock la majorité des composentes requises pour jouée une partie.  
+
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_chess_game_1_1_game_a288f6b5743e497a6296b70cc808f8462}\label{class_chess_game_1_1_game_a288f6b5743e497a6296b70cc808f8462}} 
+{\bfseries Game} (List$<$ \mbox{\hyperlink{class_chess_game_1_1_player}{Player}} $>$ player\+List, string p1\+Name, string p2\+Name)
+\item 
+\mbox{\Hypertarget{class_chess_game_1_1_game_a0e46a56d5a7e07c9a5843c8806580e24}\label{class_chess_game_1_1_game_a0e46a56d5a7e07c9a5843c8806580e24}} 
+void {\bfseries refresh\+Board} ()
+\item 
+\mbox{\Hypertarget{class_chess_game_1_1_game_a24ec658203e8fc85cc961df2537e6894}\label{class_chess_game_1_1_game_a24ec658203e8fc85cc961df2537e6894}} 
+void {\bfseries highlight\+Tile} (int\mbox{[}$\,$\mbox{]} coord\+From)
+\item 
+\mbox{\Hypertarget{class_chess_game_1_1_game_ac07065f0ad2d30a6e300bdcf22b2fbae}\label{class_chess_game_1_1_game_ac07065f0ad2d30a6e300bdcf22b2fbae}} 
+bool {\bfseries ask\+Board\+Check} ()
+\item 
+\mbox{\Hypertarget{class_chess_game_1_1_game_aa192350a9fa1747a730b5b81fbe32ef5}\label{class_chess_game_1_1_game_aa192350a9fa1747a730b5b81fbe32ef5}} 
+bool {\bfseries ask\+Board\+Check\+Pat} ()
+\item 
+\mbox{\Hypertarget{class_chess_game_1_1_game_a3caa4bc3d72175d32f06de553531a245}\label{class_chess_game_1_1_game_a3caa4bc3d72175d32f06de553531a245}} 
+bool {\bfseries ask\+Board\+Check\+Mat} ()
+\item 
+\mbox{\Hypertarget{class_chess_game_1_1_game_a1dc924c719f0c817372a0bdb9de9445f}\label{class_chess_game_1_1_game_a1dc924c719f0c817372a0bdb9de9445f}} 
+void {\bfseries move} (int\mbox{[}$\,$\mbox{]} coord\+From, int\mbox{[}$\,$\mbox{]} coord\+To)
+\item 
+\mbox{\Hypertarget{class_chess_game_1_1_game_a7293fa2e306f1c7d5c885a69674e9fb7}\label{class_chess_game_1_1_game_a7293fa2e306f1c7d5c885a69674e9fb7}} 
+string {\bfseries get\+Current\+Player\+Name} ()
+\item 
+\mbox{\Hypertarget{class_chess_game_1_1_game_a9b198ea92d7069e66194a8f7ae2aec25}\label{class_chess_game_1_1_game_a9b198ea92d7069e66194a8f7ae2aec25}} 
+void {\bfseries revert\+Move} ()
+\item 
+\mbox{\Hypertarget{class_chess_game_1_1_game_a2a841fb7c547ac684e1e8dbfd8be348e}\label{class_chess_game_1_1_game_a2a841fb7c547ac684e1e8dbfd8be348e}} 
+void {\bfseries switch\+Turns} ()
+\item 
+\mbox{\Hypertarget{class_chess_game_1_1_game_ab9923b1125ac17a32e80c9138dea44df}\label{class_chess_game_1_1_game_ab9923b1125ac17a32e80c9138dea44df}} 
+void {\bfseries end\+Game} (\mbox{\hyperlink{class_chess_game_1_1_player}{Player}} winner, \mbox{\hyperlink{class_chess_game_1_1_player}{Player}} loser)
+\item 
+\mbox{\Hypertarget{class_chess_game_1_1_game_ad73ea078cbc2cbe4ea687b391f07d20d}\label{class_chess_game_1_1_game_ad73ea078cbc2cbe4ea687b391f07d20d}} 
+string {\bfseries serialize\+Player\+List} ()
+\item 
+\mbox{\Hypertarget{class_chess_game_1_1_game_aa7bbf0eaef10167c66ddff6ddaee4aca}\label{class_chess_game_1_1_game_aa7bbf0eaef10167c66ddff6ddaee4aca}} 
+void {\bfseries save\+Player\+List} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_chess_game_1_1_game_a0e21fa1d3f21a48875061a1a618fd576}\label{class_chess_game_1_1_game_a0e21fa1d3f21a48875061a1a618fd576}} 
+bool {\bfseries Turn}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_chess_game_1_1_game_a6a287ce1b5be5c70cc55789f686cb9dc}\label{class_chess_game_1_1_game_a6a287ce1b5be5c70cc55789f686cb9dc}} 
+\mbox{\hyperlink{class_chess_game_1_1_player}{Player}} {\bfseries m\+\_\+p\+White}
+\item 
+\mbox{\Hypertarget{class_chess_game_1_1_game_a4cb1b67cd34674ff449488e4a73019b6}\label{class_chess_game_1_1_game_a4cb1b67cd34674ff449488e4a73019b6}} 
+\mbox{\hyperlink{class_chess_game_1_1_player}{Player}} {\bfseries m\+\_\+p\+Black}
+\item 
+\mbox{\Hypertarget{class_chess_game_1_1_game_a4391b05a1a3813f98eaccea298b5576c}\label{class_chess_game_1_1_game_a4391b05a1a3813f98eaccea298b5576c}} 
+char {\bfseries m\+\_\+turn}
+\item 
+\mbox{\Hypertarget{class_chess_game_1_1_game_a76b42626d88f84d3521418a677a09ce1}\label{class_chess_game_1_1_game_a76b42626d88f84d3521418a677a09ce1}} 
+\mbox{\hyperlink{class_chess_game_1_1_board}{Board}} {\bfseries m\+\_\+board}
+\item 
+\mbox{\Hypertarget{class_chess_game_1_1_game_a5456308b29e6209319d79ec2119ef8e1}\label{class_chess_game_1_1_game_a5456308b29e6209319d79ec2119ef8e1}} 
+\mbox{\hyperlink{class_chess_game_1_1game_g_u_i}{game\+G\+UI}} {\bfseries m\+\_\+game\+G\+UI}
+\item 
+\mbox{\Hypertarget{class_chess_game_1_1_game_a2b358de175ed929d0438a0557c9ebe99}\label{class_chess_game_1_1_game_a2b358de175ed929d0438a0557c9ebe99}} 
+\mbox{\hyperlink{class_chess_game_1_1_move}{Move}} {\bfseries m\+\_\+move}
+\item 
+\mbox{\Hypertarget{class_chess_game_1_1_game_a8b079fcac280d26d3ddc2b00eee94e50}\label{class_chess_game_1_1_game_a8b079fcac280d26d3ddc2b00eee94e50}} 
+List$<$ \mbox{\hyperlink{class_chess_game_1_1_piece}{Piece}} $>$ {\bfseries m\+\_\+white\+Eaten}
+\item 
+\mbox{\Hypertarget{class_chess_game_1_1_game_ad43ab1452b98a70b97984805eaf81e7f}\label{class_chess_game_1_1_game_ad43ab1452b98a70b97984805eaf81e7f}} 
+List$<$ \mbox{\hyperlink{class_chess_game_1_1_piece}{Piece}} $>$ {\bfseries m\+\_\+black\+Eaten}
+\item 
+\mbox{\Hypertarget{class_chess_game_1_1_game_a41de25a355b1b08a7e383ae29f0bf6ad}\label{class_chess_game_1_1_game_a41de25a355b1b08a7e383ae29f0bf6ad}} 
+List$<$ \mbox{\hyperlink{class_chess_game_1_1_player}{Player}} $>$ {\bfseries m\+\_\+player\+List}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Classe principale du jeu. Stock la majorité des composentes requises pour jouée une partie. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+P\+:/École/\+Automne 2019/\+Prog I\+I\+I/\+T\+P Jeux d\textquotesingle{}échec/\+Chess\+Game/\+Chess\+Game/\+Chess\+Game/Game.\+cs\end{DoxyCompactItemize}

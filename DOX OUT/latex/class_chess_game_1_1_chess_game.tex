@@ -1,0 +1,160 @@
+\hypertarget{class_chess_game_1_1_chess_game}{}\doxysection{Chess\+Game.\+Chess\+Game Class Reference}
+\label{class_chess_game_1_1_chess_game}\index{ChessGame.ChessGame@{ChessGame.ChessGame}}
+
+
+Controleur principal de notre programme d\textquotesingle{}échec. Sert principalement à \char`\"{}hoster\char`\"{} des parties et fournir les joueurs (et leurs statistiques) au programme.  
+
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_chess_game_1_1_chess_game_a69843897053ee6dc9bd791394984ed67}{Chess\+Game}} ()
+\begin{DoxyCompactList}\small\item\em Constructeur de base du controlleur. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_chess_game_1_1_chess_game_a04a8c5189a85a9b7dd7ebe5027591abe}{create\+New\+Player}} (string player\+Name)
+\begin{DoxyCompactList}\small\item\em Permet de créer un nouveau joueur. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_chess_game_1_1_chess_game_a9331a9659699483555f6ac8f6d77bc86}{create\+Player\+From\+File}} ()
+\begin{DoxyCompactList}\small\item\em Remplie la liste de joueur à partir du fichier sauvegardé sur disque \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_chess_game_1_1_chess_game_ac22b600f609226a6cc535d0db8f9825c}{serialize\+Player\+List}} ()
+\begin{DoxyCompactList}\small\item\em Permet de sérialisé la liste des joueurs pour l\textquotesingle{}écriture sur disque. Stock le nom, nombre de victoires et défaites pour chaque joueurs. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_chess_game_1_1_chess_game_aed02e330cc523c8d736c66b4cc2c4614}{save\+Player\+List}} ()
+\begin{DoxyCompactList}\small\item\em Sauvegarde la liste de joueurs sérialisé sur disque. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_chess_game_1_1_chess_game_a22e0bd7d8b38d03a2b920513d3a3d336}{create\+Game}} (List$<$ \mbox{\hyperlink{class_chess_game_1_1_player}{Player}} $>$ player\+List, string p\+\_\+player1, string p\+\_\+player2)
+\begin{DoxyCompactList}\small\item\em Crée une nouvelle partie avec 2 joueurs. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+List$<$ \mbox{\hyperlink{class_chess_game_1_1_player}{Player}} $>$ \mbox{\hyperlink{class_chess_game_1_1_chess_game_a52934c9f0af4b20e8a031e80e456f669}{Player\+List}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Accesseur de la liste de joueur. Retourne un objet de type \char`\"{}\+Player\char`\"{} \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{class_chess_game_1_1_chess_game_afc8265c114e130b9af1c041888304ab7}{Main}} ()
+\begin{DoxyCompactList}\small\item\em Crée un nouveau controlleur au début du programme. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_chess_game_1_1_chess_game_a7d56aa2decf529da5ceb8dd715a8bfc0}\label{class_chess_game_1_1_chess_game_a7d56aa2decf529da5ceb8dd715a8bfc0}} 
+\mbox{\hyperlink{class_chess_game_1_1_game}{Game}} \mbox{\hyperlink{class_chess_game_1_1_chess_game_a7d56aa2decf529da5ceb8dd715a8bfc0}{m\+\_\+game}}
+\begin{DoxyCompactList}\small\item\em Stock une partie d\textquotesingle{}échec avec 2 joueurs. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_chess_game_1_1_chess_game_aaa5d2568bb723c70e0868fc79eb4d059}\label{class_chess_game_1_1_chess_game_aaa5d2568bb723c70e0868fc79eb4d059}} 
+\mbox{\hyperlink{class_chess_game_1_1main_menu}{main\+Menu}} \mbox{\hyperlink{class_chess_game_1_1_chess_game_aaa5d2568bb723c70e0868fc79eb4d059}{m\+\_\+menu}}
+\begin{DoxyCompactList}\small\item\em Stock le menu principal de la partie. Permet de sélectionné 2 joueurs et d\textquotesingle{}ajouter/supprimer des joueurs. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_chess_game_1_1_chess_game_a6a3d7fc61fe0c1c6f9379c63ca8704dc}\label{class_chess_game_1_1_chess_game_a6a3d7fc61fe0c1c6f9379c63ca8704dc}} 
+List$<$ \mbox{\hyperlink{class_chess_game_1_1_player}{Player}} $>$ \mbox{\hyperlink{class_chess_game_1_1_chess_game_a6a3d7fc61fe0c1c6f9379c63ca8704dc}{m\+\_\+list\+Player}}
+\begin{DoxyCompactList}\small\item\em Liste de tout les joueurs dans le programme, ainsi que leur statistiques. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Controleur principal de notre programme d\textquotesingle{}échec. Sert principalement à \char`\"{}hoster\char`\"{} des parties et fournir les joueurs (et leurs statistiques) au programme. 
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_chess_game_1_1_chess_game_a69843897053ee6dc9bd791394984ed67}\label{class_chess_game_1_1_chess_game_a69843897053ee6dc9bd791394984ed67}} 
+\index{ChessGame.ChessGame@{ChessGame.ChessGame}!ChessGame@{ChessGame}}
+\index{ChessGame@{ChessGame}!ChessGame.ChessGame@{ChessGame.ChessGame}}
+\doxysubsubsection{\texorpdfstring{ChessGame()}{ChessGame()}}
+{\footnotesize\ttfamily Chess\+Game.\+Chess\+Game.\+Chess\+Game (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Constructeur de base du controlleur. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_chess_game_1_1_chess_game_a22e0bd7d8b38d03a2b920513d3a3d336}\label{class_chess_game_1_1_chess_game_a22e0bd7d8b38d03a2b920513d3a3d336}} 
+\index{ChessGame.ChessGame@{ChessGame.ChessGame}!createGame@{createGame}}
+\index{createGame@{createGame}!ChessGame.ChessGame@{ChessGame.ChessGame}}
+\doxysubsubsection{\texorpdfstring{createGame()}{createGame()}}
+{\footnotesize\ttfamily void Chess\+Game.\+Chess\+Game.\+create\+Game (\begin{DoxyParamCaption}\item[{List$<$ \mbox{\hyperlink{class_chess_game_1_1_player}{Player}} $>$}]{player\+List,  }\item[{string}]{p\+\_\+player1,  }\item[{string}]{p\+\_\+player2 }\end{DoxyParamCaption})}
+
+
+
+Crée une nouvelle partie avec 2 joueurs. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em player\+List} & Liste des joueurs pour permettre la sauvegarde plus tard. \\
+\hline
+{\em p\+\_\+player1} & Nom du joueur \#1. \\
+\hline
+{\em p\+\_\+player2} & Nom du joueur \#2. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_chess_game_1_1_chess_game_a04a8c5189a85a9b7dd7ebe5027591abe}\label{class_chess_game_1_1_chess_game_a04a8c5189a85a9b7dd7ebe5027591abe}} 
+\index{ChessGame.ChessGame@{ChessGame.ChessGame}!createNewPlayer@{createNewPlayer}}
+\index{createNewPlayer@{createNewPlayer}!ChessGame.ChessGame@{ChessGame.ChessGame}}
+\doxysubsubsection{\texorpdfstring{createNewPlayer()}{createNewPlayer()}}
+{\footnotesize\ttfamily void Chess\+Game.\+Chess\+Game.\+create\+New\+Player (\begin{DoxyParamCaption}\item[{string}]{player\+Name }\end{DoxyParamCaption})}
+
+
+
+Permet de créer un nouveau joueur. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em player\+Name} & Nom du joueur à ajouté.\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_chess_game_1_1_chess_game_a9331a9659699483555f6ac8f6d77bc86}\label{class_chess_game_1_1_chess_game_a9331a9659699483555f6ac8f6d77bc86}} 
+\index{ChessGame.ChessGame@{ChessGame.ChessGame}!createPlayerFromFile@{createPlayerFromFile}}
+\index{createPlayerFromFile@{createPlayerFromFile}!ChessGame.ChessGame@{ChessGame.ChessGame}}
+\doxysubsubsection{\texorpdfstring{createPlayerFromFile()}{createPlayerFromFile()}}
+{\footnotesize\ttfamily void Chess\+Game.\+Chess\+Game.\+create\+Player\+From\+File (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Remplie la liste de joueur à partir du fichier sauvegardé sur disque 
+
+\mbox{\Hypertarget{class_chess_game_1_1_chess_game_afc8265c114e130b9af1c041888304ab7}\label{class_chess_game_1_1_chess_game_afc8265c114e130b9af1c041888304ab7}} 
+\index{ChessGame.ChessGame@{ChessGame.ChessGame}!Main@{Main}}
+\index{Main@{Main}!ChessGame.ChessGame@{ChessGame.ChessGame}}
+\doxysubsubsection{\texorpdfstring{Main()}{Main()}}
+{\footnotesize\ttfamily static void Chess\+Game.\+Chess\+Game.\+Main (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Crée un nouveau controlleur au début du programme. 
+
+\mbox{\Hypertarget{class_chess_game_1_1_chess_game_aed02e330cc523c8d736c66b4cc2c4614}\label{class_chess_game_1_1_chess_game_aed02e330cc523c8d736c66b4cc2c4614}} 
+\index{ChessGame.ChessGame@{ChessGame.ChessGame}!savePlayerList@{savePlayerList}}
+\index{savePlayerList@{savePlayerList}!ChessGame.ChessGame@{ChessGame.ChessGame}}
+\doxysubsubsection{\texorpdfstring{savePlayerList()}{savePlayerList()}}
+{\footnotesize\ttfamily void Chess\+Game.\+Chess\+Game.\+save\+Player\+List (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Sauvegarde la liste de joueurs sérialisé sur disque. 
+
+\mbox{\Hypertarget{class_chess_game_1_1_chess_game_ac22b600f609226a6cc535d0db8f9825c}\label{class_chess_game_1_1_chess_game_ac22b600f609226a6cc535d0db8f9825c}} 
+\index{ChessGame.ChessGame@{ChessGame.ChessGame}!serializePlayerList@{serializePlayerList}}
+\index{serializePlayerList@{serializePlayerList}!ChessGame.ChessGame@{ChessGame.ChessGame}}
+\doxysubsubsection{\texorpdfstring{serializePlayerList()}{serializePlayerList()}}
+{\footnotesize\ttfamily string Chess\+Game.\+Chess\+Game.\+serialize\+Player\+List (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Permet de sérialisé la liste des joueurs pour l\textquotesingle{}écriture sur disque. Stock le nom, nombre de victoires et défaites pour chaque joueurs. 
+
+\begin{DoxyReturn}{Returns}
+Retourne un string contenant la liste de joueur sérialisée. 
+\end{DoxyReturn}
+
+
+\doxysubsection{Property Documentation}
+\mbox{\Hypertarget{class_chess_game_1_1_chess_game_a52934c9f0af4b20e8a031e80e456f669}\label{class_chess_game_1_1_chess_game_a52934c9f0af4b20e8a031e80e456f669}} 
+\index{ChessGame.ChessGame@{ChessGame.ChessGame}!PlayerList@{PlayerList}}
+\index{PlayerList@{PlayerList}!ChessGame.ChessGame@{ChessGame.ChessGame}}
+\doxysubsubsection{\texorpdfstring{PlayerList}{PlayerList}}
+{\footnotesize\ttfamily List$<$\mbox{\hyperlink{class_chess_game_1_1_player}{Player}}$>$ Chess\+Game.\+Chess\+Game.\+Player\+List\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Accesseur de la liste de joueur. Retourne un objet de type \char`\"{}\+Player\char`\"{} 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+P\+:/École/\+Automne 2019/\+Prog I\+I\+I/\+T\+P Jeux d\textquotesingle{}échec/\+Chess\+Game/\+Chess\+Game/\+Chess\+Game/Chess\+Game.\+cs\end{DoxyCompactItemize}

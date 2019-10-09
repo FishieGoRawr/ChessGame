@@ -6,16 +6,29 @@ using System.Threading.Tasks;
 
 namespace ChessGame
 {
+    /// <summary>
+    /// Classe qui sert à contenir le plateau de jeu.
+    /// </summary>
     class Board
     {
+        /// <value name="m_tiles">Tableau de tuiles. Contient toute les tuiles d'un jeu d'échec. </value>
         private Tile[] m_tiles;
+        /// <value name="m_selectedTile">Tuile présentement sélectionnée par le joueur. </value>
         private Tile m_selectedTile;
+        /// <value name="m_width">Largeur et hauteur du board en nombre de cases. </value>
         private int m_width;
+        /// <value name="m_background">Nom du fichier sur disque pour le fond du jeu. </value>
         public string m_background;
+        /// <value name="m_possibleTiles">Liste les tuiles possibles pour le déplacement sous forme de String. </value>
         public string m_possibleTiles;
+        /// <value name="isCheckState">Vérifie si il y à un échec sur le plateau. </value>
         public bool isCheckState;
 
         //CONSTRUCTEUR
+        /// <summary>
+        /// Constructeur de base d'un (nouveau) plateau d'échec.
+        /// </summary>
+        /// <param name="p_width">Largeur et hauteur du plateau en tuiles. </param>
         public Board(int p_width)
         {
             this.Width = p_width;
@@ -36,6 +49,10 @@ namespace ChessGame
         }
 
         //Reprendre une partie en cours avec un board serialisé
+        /// <summary>
+        /// Constructeur permettant de reprendre une partie à partir d'un board sérialisé.
+        /// </summary>
+        /// <param name="p_serializedBoard">Plateau sérialisé sous forme de String. </param>
         public Board(string p_serializedBoard)
         {
             string[] boardTiles = p_serializedBoard.Split('|');
@@ -122,17 +139,32 @@ namespace ChessGame
         }
 
         //ACCESSEUR
-
+        /// <summary>
+        /// Retourne/attribue la valeur de la largeur/hauteur du plateau.
+        /// </summary>
         public int Width { get => m_width; set => m_width = value; }
+
+        /// <summary>
+        /// Retourne/attribue la tuile sélectionnée.
+        /// </summary>
         public Tile SelectedTile { get => m_selectedTile; set => m_selectedTile = value; }
 
+        /// <summary>
+        /// Indexeur permettant de retournée la tuile au coordonnée passée en paramètres.
+        /// </summary>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        /// <returns>Retourne une des tuiles du plateau. </returns>
         public Tile this[int x, int y]
         {
             get { return m_tiles[x + Width * y]; }
         }
 
         //METHODES
-
+        /// <summary>
+        /// Place les pièces au positions initiales sur le tableau.
+        /// </summary>
+        /// <param name="p_piecesColor">Couleur de la pièce à placer. </param>
         public void disposePieces(char p_piecesColor)
         {
             int startingY = 0;
@@ -192,6 +224,12 @@ namespace ChessGame
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="coord">Tente de sélectionner la tuile au coordonnées données. </param>
+        /// <param name="currentColor">Couleur du joueur qui tente de sélectionner. </param>
+        /// <returns></returns>
         public bool trySelectTile(int[] coord, char currentColor)
         {
             char pieceColor = this[coord[0], coord[1]].getPieceColor();
@@ -205,11 +243,13 @@ namespace ChessGame
             return false;
         }
 
-        //public void selectTile(int[] coord)
-        //{
-        //    this.m_selectedTile = this[coord[0], coord[1]];
-        //}
-
+        /// <summary>
+        /// Permet de savoir si la destionation (2e clic) est valide.
+        /// </summary>
+        /// <param name="tileFrom">La tuile d'ou la pièce part. </param>
+        /// <param name="tileTo">La tuile vers ou la pièce s'en va. </param>
+        /// <param name="p_turn">À qui est le tour. </param>
+        /// <returns></returns>
         public bool isDestinationValid(Tile tileFrom, Tile tileTo, char p_turn)
         {
             bool isValid = false;
@@ -235,6 +275,11 @@ namespace ChessGame
             return isValid;
         }
 
+        /// <summary>
+        /// Fonction pour évaluer les tuiles possibles pour le déplacement (Jouer un tour)
+        /// </summary>
+        /// <param name="coordFrom"></param>
+        /// <param name="coordTo"></param>
         public void markPossible(int[] coordFrom, int[] coordTo)
         {
             this.m_possibleTiles = "";
@@ -248,6 +293,12 @@ namespace ChessGame
             detect(pieceType, Xmovement, Ymovement, startTile, endTile, true);
         }
 
+        /// <summary>
+        /// Détecte si la pièce qu'on tente de bougé à une collision avec une autre pièce.
+        /// </summary>
+        /// <param name="coordFrom">Coordonnée de départ. </param>
+        /// <param name="coordTo">Coordonnée de fin. </param>
+        /// <returns>Vrai si la pièce subit une collision, faux si le chemin est libre. </returns>
         public bool isCollisionning(int[] coordFrom, int[] coordTo)
         {
             string pieceType = this[coordFrom[0], coordFrom[1]].CurrentPiece.GetType().Name;
@@ -260,7 +311,16 @@ namespace ChessGame
             return detect(pieceType, Xmovement, Ymovement, startTile, endTile);
         }
 
-        //idk jvoulais pas copier coller le fcking gros switch case..XD
+        /// <summary>
+        /// Détecter les cases possible, soit pour les collisions, soit pour l'affichage des cases possible. Mix des deux méthodes plus haut.
+        /// </summary>
+        /// <param name="p_pieceName">Nom de la pièce.</param>
+        /// <param name="Xmovement">Mouvement en X.</param>
+        /// <param name="Ymovement">Mouvement en Y.</param>
+        /// <param name="p_startTile">Tuile de départ de la pièce.</param>
+        /// <param name="p_endTile">Tuile de fin de la pièce.</param>
+        /// <param name="forPossibleTiles">Si vrai, fait juste détecter les cases possibles. </param>
+        /// <returns>Vrai si la pièce entre en collision, faux si le chemin est libre. </returns>
         public bool detect(String p_pieceName, int Xmovement, int Ymovement, Tile p_startTile, Tile p_endTile, bool forPossibleTiles = false)
         {
             if (forPossibleTiles)
@@ -354,7 +414,12 @@ namespace ChessGame
             return false;
         }
 
-        //recursive algorithm to detect possible tiles
+        /// <summary>
+        /// Fonction récursive pour savoir si la tuile est une tuile possible.
+        /// </summary>
+        /// <param name="p_startTile">Tuile de départ. </param>
+        /// <param name="direction">Direction du mouvement. </param>
+        /// <param name="p_currentTile">Tuile ou on est rendu.</param>
         public void detectPossible(Tile p_startTile, int[] direction, Tile p_currentTile)
         {
             if ((p_currentTile.X + direction[0] >= 0 && p_currentTile.X + direction[0] < m_width) && (p_currentTile.Y + direction[1] >= 0 && p_currentTile.Y + direction[1] < m_width))
@@ -377,6 +442,11 @@ namespace ChessGame
             }
         }
 
+        /// <summary>
+        /// Retourne les coordonnées du roi de la couleur passée en paramètres.
+        /// </summary>
+        /// <param name="p_color">Couleur qui sert à déterminer quel roi on cherche. </param>
+        /// <returns>Tableau de "int" avec les positions X, Y du roi cherché.</returns>
         public int[] getKingCoord(char p_color)
         {
             string serializedBoard = this.ToString();
@@ -401,6 +471,11 @@ namespace ChessGame
             return kingCoord;
         }
 
+        /// <summary>
+        /// Sert à détecter les échecs des deux cotés, selon le tour passé en parametres.
+        /// </summary>
+        /// <param name="p_turn">À qui est le tour</param>
+        /// <returns>Vrai si le roi adverse est en échec, faux s'il est OK. </returns>
         public bool detectCheck(char p_turn)
         {
             string serializedBoard = this.ToString();
@@ -449,6 +524,13 @@ namespace ChessGame
             return false;
         }
 
+        /// <summary>
+        /// Fonction récursive pour savoir si la tuile est une tuile possible.
+        /// </summary>
+        /// <param name="p_currentTile">Tuile de départ.</param>
+        /// <param name="direction">Direction du mouvement.</param>
+        /// <param name="p_endTile">Tuile de fin. </param>
+        /// <returns></returns>
         public bool detectCollision(Tile p_currentTile, int[] direction, Tile p_endTile)
         {
             if ((p_currentTile.X + direction[0] >= 0 && p_currentTile.X + direction[0] < m_width) && (p_currentTile.Y + direction[1] >= 0 && p_currentTile.Y + direction[1] < m_width))
@@ -481,6 +563,11 @@ namespace ChessGame
             }
         }
 
+        /// <summary>
+        /// Permet de finalement déplacer la pièce sur le plateau.
+        /// </summary>
+        /// <param name="coordFrom">Position de départ de la pièce. </param>
+        /// <param name="coordTo">Position de fin de la pièce. </param>
         public void movePiece(int[] coordFrom, int[] coordTo)
         {
             if (this[coordFrom[0], coordFrom[1]].CurrentPiece.GetType().BaseType.Name == "firstMovePiece")
@@ -493,9 +580,12 @@ namespace ChessGame
             this.m_selectedTile = null;
         }
 
-
-
-        //Are we trying to move
+        /// <summary>
+        /// Demande au board si le joueur tente de faire un mouvement ou s'il tente de trouver les tuiles possibles.
+        /// </summary>
+        /// <param name="coordFrom">Coordonnées de départ du mouvement. </param>
+        /// <param name="p_turn">À qui est le tour. </param>
+        /// <returns></returns>
         public bool isMoving(int[] coordFrom, char p_turn)
         {
             if (this.m_selectedTile != null)
@@ -515,6 +605,10 @@ namespace ChessGame
             }
         }
 
+        /// <summary>
+        /// Sérialise le plateau pour la sauvegarde ou autre.
+        /// </summary>
+        /// <returns>String contenant le plateau sérialisé. </returns>
         public override string ToString()
         {
             string serializedBoard = "";

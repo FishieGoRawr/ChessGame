@@ -1,0 +1,411 @@
+\hypertarget{class_chess_game_1_1_board}{}\doxysection{Chess\+Game.\+Board Class Reference}
+\label{class_chess_game_1_1_board}\index{ChessGame.Board@{ChessGame.Board}}
+
+
+Classe qui sert à contenir le plateau de jeu.  
+
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_chess_game_1_1_board_a25478b9145573697b7d739bcfc4a1f08}{Board}} (int p\+\_\+width)
+\begin{DoxyCompactList}\small\item\em Constructeur de base d\textquotesingle{}un (nouveau) plateau d\textquotesingle{}échec. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_chess_game_1_1_board_a5d80570d725f97d1a6dc79dc134d15ac}{Board}} (string p\+\_\+serialized\+Board)
+\begin{DoxyCompactList}\small\item\em Constructeur permettant de reprendre une partie à partir d\textquotesingle{}un board sérialisé. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_chess_game_1_1_board_a181f11510864b200732a90244ed4259c}{dispose\+Pieces}} (char p\+\_\+pieces\+Color)
+\begin{DoxyCompactList}\small\item\em Place les pièces au positions initiales sur le tableau. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_chess_game_1_1_board_aa35a446d87a8c2137a010bb471c16caf}{try\+Select\+Tile}} (int\mbox{[}$\,$\mbox{]} coord, char current\+Color)
+\item 
+bool \mbox{\hyperlink{class_chess_game_1_1_board_adaf4e39209915493c6aedefbd866b425}{is\+Destination\+Valid}} (\mbox{\hyperlink{class_chess_game_1_1_tile}{Tile}} tile\+From, \mbox{\hyperlink{class_chess_game_1_1_tile}{Tile}} tile\+To, char p\+\_\+turn)
+\begin{DoxyCompactList}\small\item\em Permet de savoir si la destionation (2e clic) est valide. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_chess_game_1_1_board_a57a71475ac776ce73b287be8a89779d1}{mark\+Possible}} (int\mbox{[}$\,$\mbox{]} coord\+From, int\mbox{[}$\,$\mbox{]} coord\+To)
+\begin{DoxyCompactList}\small\item\em Fonction pour évaluer les tuiles possibles pour le déplacement (Jouer un tour) \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_chess_game_1_1_board_a550f15457a92a8ba0b46440fe490030b}{is\+Collisionning}} (int\mbox{[}$\,$\mbox{]} coord\+From, int\mbox{[}$\,$\mbox{]} coord\+To)
+\begin{DoxyCompactList}\small\item\em Détecte si la pièce qu\textquotesingle{}on tente de bougé à une collision avec une autre pièce. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_chess_game_1_1_board_ad53db6e057bddaf4d148397f61391948}{detect}} (String p\+\_\+piece\+Name, int Xmovement, int Ymovement, \mbox{\hyperlink{class_chess_game_1_1_tile}{Tile}} p\+\_\+start\+Tile, \mbox{\hyperlink{class_chess_game_1_1_tile}{Tile}} p\+\_\+end\+Tile, bool for\+Possible\+Tiles=false)
+\begin{DoxyCompactList}\small\item\em Détecter les cases possible, soit pour les collisions, soit pour l\textquotesingle{}affichage des cases possible. Mix des deux méthodes plus haut. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_chess_game_1_1_board_a6fc0ef6536b3762881061a64055f2ed8}{detect\+Possible}} (\mbox{\hyperlink{class_chess_game_1_1_tile}{Tile}} p\+\_\+start\+Tile, int\mbox{[}$\,$\mbox{]} direction, \mbox{\hyperlink{class_chess_game_1_1_tile}{Tile}} p\+\_\+current\+Tile)
+\begin{DoxyCompactList}\small\item\em Fonction récursive pour savoir si la tuile est une tuile possible. \end{DoxyCompactList}\item 
+int\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_chess_game_1_1_board_a19de35818185c2e4c53b450bc8d60b67}{get\+King\+Coord}} (char p\+\_\+color)
+\begin{DoxyCompactList}\small\item\em Retourne les coordonnées du roi de la couleur passée en paramètres. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_chess_game_1_1_board_ab19389c2aec0d0dee72c3fce75d23d11}{detect\+Check}} (char p\+\_\+turn)
+\begin{DoxyCompactList}\small\item\em Sert à détecter les échecs des deux cotés, selon le tour passé en parametres. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_chess_game_1_1_board_a5e724d61349747251b212ef0ae300a45}{detect\+Collision}} (\mbox{\hyperlink{class_chess_game_1_1_tile}{Tile}} p\+\_\+current\+Tile, int\mbox{[}$\,$\mbox{]} direction, \mbox{\hyperlink{class_chess_game_1_1_tile}{Tile}} p\+\_\+end\+Tile)
+\begin{DoxyCompactList}\small\item\em Fonction récursive pour savoir si la tuile est une tuile possible. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_chess_game_1_1_board_ae0d24a8c388f7a0aa138cc0c756d86bb}{move\+Piece}} (int\mbox{[}$\,$\mbox{]} coord\+From, int\mbox{[}$\,$\mbox{]} coord\+To)
+\begin{DoxyCompactList}\small\item\em Permet de finalement déplacer la pièce sur le plateau. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_chess_game_1_1_board_af2cd3db35e46019b38cd23b742b4073e}{is\+Moving}} (int\mbox{[}$\,$\mbox{]} coord\+From, char p\+\_\+turn)
+\begin{DoxyCompactList}\small\item\em Demande au board si le joueur tente de faire un mouvement ou s\textquotesingle{}il tente de trouver les tuiles possibles. \end{DoxyCompactList}\item 
+override string \mbox{\hyperlink{class_chess_game_1_1_board_aff021b79fdaf297e5ba0717eb4cdb77c}{To\+String}} ()
+\begin{DoxyCompactList}\small\item\em Sérialise le plateau pour la sauvegarde ou autre. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_chess_game_1_1_board_a5ce71ef63bed9b9c922e9fd63dd642ea}\label{class_chess_game_1_1_board_a5ce71ef63bed9b9c922e9fd63dd642ea}} 
+string \mbox{\hyperlink{class_chess_game_1_1_board_a5ce71ef63bed9b9c922e9fd63dd642ea}{m\+\_\+background}}
+\begin{DoxyCompactList}\small\item\em Nom du fichier sur disque pour le fond du jeu. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_chess_game_1_1_board_aab4f3fb705bf7eff4b56becc80ecf635}\label{class_chess_game_1_1_board_aab4f3fb705bf7eff4b56becc80ecf635}} 
+string \mbox{\hyperlink{class_chess_game_1_1_board_aab4f3fb705bf7eff4b56becc80ecf635}{m\+\_\+possible\+Tiles}}
+\begin{DoxyCompactList}\small\item\em Liste les tuiles possibles pour le déplacement sous forme de String. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_chess_game_1_1_board_a2ee155baf233607effa13284b3794fbd}\label{class_chess_game_1_1_board_a2ee155baf233607effa13284b3794fbd}} 
+bool \mbox{\hyperlink{class_chess_game_1_1_board_a2ee155baf233607effa13284b3794fbd}{is\+Check\+State}}
+\begin{DoxyCompactList}\small\item\em Vérifie si il y à un échec sur le plateau. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_chess_game_1_1_board_a4b33578e697d2f2cef2d630ba7720a91}{Width}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Retourne/attribue la valeur de la largeur/hauteur du plateau. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_chess_game_1_1_tile}{Tile}} \mbox{\hyperlink{class_chess_game_1_1_board_ac731ceb726634377162480df8dcfe6f3}{Selected\+Tile}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Retourne/attribue la tuile sélectionnée. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_chess_game_1_1_tile}{Tile}} \mbox{\hyperlink{class_chess_game_1_1_board_ae21cbb3e01df01fbf7d141457b559690}{this\mbox{[}int x, int y\mbox{]}}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Indexeur permettant de retournée la tuile au coordonnée passée en paramètres. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_chess_game_1_1_board_a83fb696367a9955664a7f67b9c5feaaa}\label{class_chess_game_1_1_board_a83fb696367a9955664a7f67b9c5feaaa}} 
+\mbox{\hyperlink{class_chess_game_1_1_tile}{Tile}}\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_chess_game_1_1_board_a83fb696367a9955664a7f67b9c5feaaa}{m\+\_\+tiles}}
+\begin{DoxyCompactList}\small\item\em Tableau de tuiles. Contient toute les tuiles d\textquotesingle{}un jeu d\textquotesingle{}échec. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_chess_game_1_1_board_a818c9b270e952f81779706ec274aafdb}\label{class_chess_game_1_1_board_a818c9b270e952f81779706ec274aafdb}} 
+\mbox{\hyperlink{class_chess_game_1_1_tile}{Tile}} \mbox{\hyperlink{class_chess_game_1_1_board_a818c9b270e952f81779706ec274aafdb}{m\+\_\+selected\+Tile}}
+\begin{DoxyCompactList}\small\item\em Tuile présentement sélectionnée par le joueur. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_chess_game_1_1_board_a0ae151d6fbd4cb1483d87af26e048071}\label{class_chess_game_1_1_board_a0ae151d6fbd4cb1483d87af26e048071}} 
+int \mbox{\hyperlink{class_chess_game_1_1_board_a0ae151d6fbd4cb1483d87af26e048071}{m\+\_\+width}}
+\begin{DoxyCompactList}\small\item\em Largeur et hauteur du board en nombre de cases. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Classe qui sert à contenir le plateau de jeu. 
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_chess_game_1_1_board_a25478b9145573697b7d739bcfc4a1f08}\label{class_chess_game_1_1_board_a25478b9145573697b7d739bcfc4a1f08}} 
+\index{ChessGame.Board@{ChessGame.Board}!Board@{Board}}
+\index{Board@{Board}!ChessGame.Board@{ChessGame.Board}}
+\doxysubsubsection{\texorpdfstring{Board()}{Board()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Chess\+Game.\+Board.\+Board (\begin{DoxyParamCaption}\item[{int}]{p\+\_\+width }\end{DoxyParamCaption})}
+
+
+
+Constructeur de base d\textquotesingle{}un (nouveau) plateau d\textquotesingle{}échec. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+width} & Largeur et hauteur du plateau en tuiles. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_chess_game_1_1_board_a5d80570d725f97d1a6dc79dc134d15ac}\label{class_chess_game_1_1_board_a5d80570d725f97d1a6dc79dc134d15ac}} 
+\index{ChessGame.Board@{ChessGame.Board}!Board@{Board}}
+\index{Board@{Board}!ChessGame.Board@{ChessGame.Board}}
+\doxysubsubsection{\texorpdfstring{Board()}{Board()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Chess\+Game.\+Board.\+Board (\begin{DoxyParamCaption}\item[{string}]{p\+\_\+serialized\+Board }\end{DoxyParamCaption})}
+
+
+
+Constructeur permettant de reprendre une partie à partir d\textquotesingle{}un board sérialisé. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+serialized\+Board} & Plateau sérialisé sous forme de String. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_chess_game_1_1_board_ad53db6e057bddaf4d148397f61391948}\label{class_chess_game_1_1_board_ad53db6e057bddaf4d148397f61391948}} 
+\index{ChessGame.Board@{ChessGame.Board}!detect@{detect}}
+\index{detect@{detect}!ChessGame.Board@{ChessGame.Board}}
+\doxysubsubsection{\texorpdfstring{detect()}{detect()}}
+{\footnotesize\ttfamily bool Chess\+Game.\+Board.\+detect (\begin{DoxyParamCaption}\item[{String}]{p\+\_\+piece\+Name,  }\item[{int}]{Xmovement,  }\item[{int}]{Ymovement,  }\item[{\mbox{\hyperlink{class_chess_game_1_1_tile}{Tile}}}]{p\+\_\+start\+Tile,  }\item[{\mbox{\hyperlink{class_chess_game_1_1_tile}{Tile}}}]{p\+\_\+end\+Tile,  }\item[{bool}]{for\+Possible\+Tiles = {\ttfamily false} }\end{DoxyParamCaption})}
+
+
+
+Détecter les cases possible, soit pour les collisions, soit pour l\textquotesingle{}affichage des cases possible. Mix des deux méthodes plus haut. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+piece\+Name} & Nom de la pièce.\\
+\hline
+{\em Xmovement} & Mouvement en X.\\
+\hline
+{\em Ymovement} & Mouvement en Y.\\
+\hline
+{\em p\+\_\+start\+Tile} & Tuile de départ de la pièce.\\
+\hline
+{\em p\+\_\+end\+Tile} & Tuile de fin de la pièce.\\
+\hline
+{\em for\+Possible\+Tiles} & Si vrai, fait juste détecter les cases possibles. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Vrai si la pièce entre en collision, faux si le chemin est libre. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_chess_game_1_1_board_ab19389c2aec0d0dee72c3fce75d23d11}\label{class_chess_game_1_1_board_ab19389c2aec0d0dee72c3fce75d23d11}} 
+\index{ChessGame.Board@{ChessGame.Board}!detectCheck@{detectCheck}}
+\index{detectCheck@{detectCheck}!ChessGame.Board@{ChessGame.Board}}
+\doxysubsubsection{\texorpdfstring{detectCheck()}{detectCheck()}}
+{\footnotesize\ttfamily bool Chess\+Game.\+Board.\+detect\+Check (\begin{DoxyParamCaption}\item[{char}]{p\+\_\+turn }\end{DoxyParamCaption})}
+
+
+
+Sert à détecter les échecs des deux cotés, selon le tour passé en parametres. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+turn} & À qui est le tour\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Vrai si le roi adverse est en échec, faux s\textquotesingle{}il est OK. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_chess_game_1_1_board_a5e724d61349747251b212ef0ae300a45}\label{class_chess_game_1_1_board_a5e724d61349747251b212ef0ae300a45}} 
+\index{ChessGame.Board@{ChessGame.Board}!detectCollision@{detectCollision}}
+\index{detectCollision@{detectCollision}!ChessGame.Board@{ChessGame.Board}}
+\doxysubsubsection{\texorpdfstring{detectCollision()}{detectCollision()}}
+{\footnotesize\ttfamily bool Chess\+Game.\+Board.\+detect\+Collision (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_chess_game_1_1_tile}{Tile}}}]{p\+\_\+current\+Tile,  }\item[{int\mbox{[}$\,$\mbox{]}}]{direction,  }\item[{\mbox{\hyperlink{class_chess_game_1_1_tile}{Tile}}}]{p\+\_\+end\+Tile }\end{DoxyParamCaption})}
+
+
+
+Fonction récursive pour savoir si la tuile est une tuile possible. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+current\+Tile} & Tuile de départ.\\
+\hline
+{\em direction} & Direction du mouvement.\\
+\hline
+{\em p\+\_\+end\+Tile} & Tuile de fin. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_chess_game_1_1_board_a6fc0ef6536b3762881061a64055f2ed8}\label{class_chess_game_1_1_board_a6fc0ef6536b3762881061a64055f2ed8}} 
+\index{ChessGame.Board@{ChessGame.Board}!detectPossible@{detectPossible}}
+\index{detectPossible@{detectPossible}!ChessGame.Board@{ChessGame.Board}}
+\doxysubsubsection{\texorpdfstring{detectPossible()}{detectPossible()}}
+{\footnotesize\ttfamily void Chess\+Game.\+Board.\+detect\+Possible (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_chess_game_1_1_tile}{Tile}}}]{p\+\_\+start\+Tile,  }\item[{int\mbox{[}$\,$\mbox{]}}]{direction,  }\item[{\mbox{\hyperlink{class_chess_game_1_1_tile}{Tile}}}]{p\+\_\+current\+Tile }\end{DoxyParamCaption})}
+
+
+
+Fonction récursive pour savoir si la tuile est une tuile possible. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+start\+Tile} & Tuile de départ. \\
+\hline
+{\em direction} & Direction du mouvement. \\
+\hline
+{\em p\+\_\+current\+Tile} & Tuile ou on est rendu.\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_chess_game_1_1_board_a181f11510864b200732a90244ed4259c}\label{class_chess_game_1_1_board_a181f11510864b200732a90244ed4259c}} 
+\index{ChessGame.Board@{ChessGame.Board}!disposePieces@{disposePieces}}
+\index{disposePieces@{disposePieces}!ChessGame.Board@{ChessGame.Board}}
+\doxysubsubsection{\texorpdfstring{disposePieces()}{disposePieces()}}
+{\footnotesize\ttfamily void Chess\+Game.\+Board.\+dispose\+Pieces (\begin{DoxyParamCaption}\item[{char}]{p\+\_\+pieces\+Color }\end{DoxyParamCaption})}
+
+
+
+Place les pièces au positions initiales sur le tableau. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+pieces\+Color} & Couleur de la pièce à placer. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_chess_game_1_1_board_a19de35818185c2e4c53b450bc8d60b67}\label{class_chess_game_1_1_board_a19de35818185c2e4c53b450bc8d60b67}} 
+\index{ChessGame.Board@{ChessGame.Board}!getKingCoord@{getKingCoord}}
+\index{getKingCoord@{getKingCoord}!ChessGame.Board@{ChessGame.Board}}
+\doxysubsubsection{\texorpdfstring{getKingCoord()}{getKingCoord()}}
+{\footnotesize\ttfamily int \mbox{[}$\,$\mbox{]} Chess\+Game.\+Board.\+get\+King\+Coord (\begin{DoxyParamCaption}\item[{char}]{p\+\_\+color }\end{DoxyParamCaption})}
+
+
+
+Retourne les coordonnées du roi de la couleur passée en paramètres. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+color} & Couleur qui sert à déterminer quel roi on cherche. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Tableau de \char`\"{}int\char`\"{} avec les positions X, Y du roi cherché.
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_chess_game_1_1_board_a550f15457a92a8ba0b46440fe490030b}\label{class_chess_game_1_1_board_a550f15457a92a8ba0b46440fe490030b}} 
+\index{ChessGame.Board@{ChessGame.Board}!isCollisionning@{isCollisionning}}
+\index{isCollisionning@{isCollisionning}!ChessGame.Board@{ChessGame.Board}}
+\doxysubsubsection{\texorpdfstring{isCollisionning()}{isCollisionning()}}
+{\footnotesize\ttfamily bool Chess\+Game.\+Board.\+is\+Collisionning (\begin{DoxyParamCaption}\item[{int\mbox{[}$\,$\mbox{]}}]{coord\+From,  }\item[{int\mbox{[}$\,$\mbox{]}}]{coord\+To }\end{DoxyParamCaption})}
+
+
+
+Détecte si la pièce qu\textquotesingle{}on tente de bougé à une collision avec une autre pièce. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em coord\+From} & Coordonnée de départ. \\
+\hline
+{\em coord\+To} & Coordonnée de fin. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Vrai si la pièce subit une collision, faux si le chemin est libre. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_chess_game_1_1_board_adaf4e39209915493c6aedefbd866b425}\label{class_chess_game_1_1_board_adaf4e39209915493c6aedefbd866b425}} 
+\index{ChessGame.Board@{ChessGame.Board}!isDestinationValid@{isDestinationValid}}
+\index{isDestinationValid@{isDestinationValid}!ChessGame.Board@{ChessGame.Board}}
+\doxysubsubsection{\texorpdfstring{isDestinationValid()}{isDestinationValid()}}
+{\footnotesize\ttfamily bool Chess\+Game.\+Board.\+is\+Destination\+Valid (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_chess_game_1_1_tile}{Tile}}}]{tile\+From,  }\item[{\mbox{\hyperlink{class_chess_game_1_1_tile}{Tile}}}]{tile\+To,  }\item[{char}]{p\+\_\+turn }\end{DoxyParamCaption})}
+
+
+
+Permet de savoir si la destionation (2e clic) est valide. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tile\+From} & La tuile d\textquotesingle{}ou la pièce part. \\
+\hline
+{\em tile\+To} & La tuile vers ou la pièce s\textquotesingle{}en va. \\
+\hline
+{\em p\+\_\+turn} & À qui est le tour. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_chess_game_1_1_board_af2cd3db35e46019b38cd23b742b4073e}\label{class_chess_game_1_1_board_af2cd3db35e46019b38cd23b742b4073e}} 
+\index{ChessGame.Board@{ChessGame.Board}!isMoving@{isMoving}}
+\index{isMoving@{isMoving}!ChessGame.Board@{ChessGame.Board}}
+\doxysubsubsection{\texorpdfstring{isMoving()}{isMoving()}}
+{\footnotesize\ttfamily bool Chess\+Game.\+Board.\+is\+Moving (\begin{DoxyParamCaption}\item[{int\mbox{[}$\,$\mbox{]}}]{coord\+From,  }\item[{char}]{p\+\_\+turn }\end{DoxyParamCaption})}
+
+
+
+Demande au board si le joueur tente de faire un mouvement ou s\textquotesingle{}il tente de trouver les tuiles possibles. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em coord\+From} & Coordonnées de départ du mouvement. \\
+\hline
+{\em p\+\_\+turn} & À qui est le tour. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_chess_game_1_1_board_a57a71475ac776ce73b287be8a89779d1}\label{class_chess_game_1_1_board_a57a71475ac776ce73b287be8a89779d1}} 
+\index{ChessGame.Board@{ChessGame.Board}!markPossible@{markPossible}}
+\index{markPossible@{markPossible}!ChessGame.Board@{ChessGame.Board}}
+\doxysubsubsection{\texorpdfstring{markPossible()}{markPossible()}}
+{\footnotesize\ttfamily void Chess\+Game.\+Board.\+mark\+Possible (\begin{DoxyParamCaption}\item[{int\mbox{[}$\,$\mbox{]}}]{coord\+From,  }\item[{int\mbox{[}$\,$\mbox{]}}]{coord\+To }\end{DoxyParamCaption})}
+
+
+
+Fonction pour évaluer les tuiles possibles pour le déplacement (Jouer un tour) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em coord\+From} & \\
+\hline
+{\em coord\+To} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_chess_game_1_1_board_ae0d24a8c388f7a0aa138cc0c756d86bb}\label{class_chess_game_1_1_board_ae0d24a8c388f7a0aa138cc0c756d86bb}} 
+\index{ChessGame.Board@{ChessGame.Board}!movePiece@{movePiece}}
+\index{movePiece@{movePiece}!ChessGame.Board@{ChessGame.Board}}
+\doxysubsubsection{\texorpdfstring{movePiece()}{movePiece()}}
+{\footnotesize\ttfamily void Chess\+Game.\+Board.\+move\+Piece (\begin{DoxyParamCaption}\item[{int\mbox{[}$\,$\mbox{]}}]{coord\+From,  }\item[{int\mbox{[}$\,$\mbox{]}}]{coord\+To }\end{DoxyParamCaption})}
+
+
+
+Permet de finalement déplacer la pièce sur le plateau. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em coord\+From} & Position de départ de la pièce. \\
+\hline
+{\em coord\+To} & Position de fin de la pièce. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_chess_game_1_1_board_aff021b79fdaf297e5ba0717eb4cdb77c}\label{class_chess_game_1_1_board_aff021b79fdaf297e5ba0717eb4cdb77c}} 
+\index{ChessGame.Board@{ChessGame.Board}!ToString@{ToString}}
+\index{ToString@{ToString}!ChessGame.Board@{ChessGame.Board}}
+\doxysubsubsection{\texorpdfstring{ToString()}{ToString()}}
+{\footnotesize\ttfamily override string Chess\+Game.\+Board.\+To\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Sérialise le plateau pour la sauvegarde ou autre. 
+
+\begin{DoxyReturn}{Returns}
+String contenant le plateau sérialisé. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_chess_game_1_1_board_aa35a446d87a8c2137a010bb471c16caf}\label{class_chess_game_1_1_board_aa35a446d87a8c2137a010bb471c16caf}} 
+\index{ChessGame.Board@{ChessGame.Board}!trySelectTile@{trySelectTile}}
+\index{trySelectTile@{trySelectTile}!ChessGame.Board@{ChessGame.Board}}
+\doxysubsubsection{\texorpdfstring{trySelectTile()}{trySelectTile()}}
+{\footnotesize\ttfamily bool Chess\+Game.\+Board.\+try\+Select\+Tile (\begin{DoxyParamCaption}\item[{int\mbox{[}$\,$\mbox{]}}]{coord,  }\item[{char}]{current\+Color }\end{DoxyParamCaption})}
+
+
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em coord} & Tente de sélectionner la tuile au coordonnées données. \\
+\hline
+{\em current\+Color} & Couleur du joueur qui tente de sélectionner. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+\doxysubsection{Property Documentation}
+\mbox{\Hypertarget{class_chess_game_1_1_board_ac731ceb726634377162480df8dcfe6f3}\label{class_chess_game_1_1_board_ac731ceb726634377162480df8dcfe6f3}} 
+\index{ChessGame.Board@{ChessGame.Board}!SelectedTile@{SelectedTile}}
+\index{SelectedTile@{SelectedTile}!ChessGame.Board@{ChessGame.Board}}
+\doxysubsubsection{\texorpdfstring{SelectedTile}{SelectedTile}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_chess_game_1_1_tile}{Tile}} Chess\+Game.\+Board.\+Selected\+Tile\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Retourne/attribue la tuile sélectionnée. 
+
+\mbox{\Hypertarget{class_chess_game_1_1_board_ae21cbb3e01df01fbf7d141457b559690}\label{class_chess_game_1_1_board_ae21cbb3e01df01fbf7d141457b559690}} 
+\index{ChessGame.Board@{ChessGame.Board}!this\mbox{[}int x, int y\mbox{]}@{this[int x, int y]}}
+\index{this\mbox{[}int x, int y\mbox{]}@{this[int x, int y]}!ChessGame.Board@{ChessGame.Board}}
+\doxysubsubsection{\texorpdfstring{this[int x, int y]}{this[int x, int y]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_chess_game_1_1_tile}{Tile}} Chess\+Game.\+Board.\+this\mbox{[}int x, int y\mbox{]}\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Indexeur permettant de retournée la tuile au coordonnée passée en paramètres. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & \\
+\hline
+{\em y} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Retourne une des tuiles du plateau. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_chess_game_1_1_board_a4b33578e697d2f2cef2d630ba7720a91}\label{class_chess_game_1_1_board_a4b33578e697d2f2cef2d630ba7720a91}} 
+\index{ChessGame.Board@{ChessGame.Board}!Width@{Width}}
+\index{Width@{Width}!ChessGame.Board@{ChessGame.Board}}
+\doxysubsubsection{\texorpdfstring{Width}{Width}}
+{\footnotesize\ttfamily int Chess\+Game.\+Board.\+Width\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Retourne/attribue la valeur de la largeur/hauteur du plateau. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+P\+:/École/\+Automne 2019/\+Prog I\+I\+I/\+T\+P Jeux d\textquotesingle{}échec/\+Chess\+Game/\+Chess\+Game/\+Chess\+Game/Board.\+cs\end{DoxyCompactItemize}

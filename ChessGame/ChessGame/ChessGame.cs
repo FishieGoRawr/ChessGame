@@ -7,20 +7,32 @@ using System.IO;
 
 namespace ChessGame
 {
+    /// <summary>
+    /// Controleur principal de notre programme d'échec. Sert principalement à "hoster" des parties et fournir les joueurs (et leurs statistiques) au programme.
+    /// </summary>
     public class ChessGame
     {
         //DONNÉE MEMBRE
+        /// <value>Stock une partie d'échec avec 2 joueurs. </value>
         private Game m_game;
+        /// <value>Stock le menu principal de la partie. Permet de sélectionné 2 joueurs et d'ajouter/supprimer des joueurs. </value>
         private mainMenu m_menu;
+        /// <value>Liste de tout les joueurs dans le programme, ainsi que leur statistiques. </value>
         private List<Player> m_listPlayer;
 
         //ACCESSEUR
+        /// <summary>
+        /// Accesseur de la liste de joueur. Retourne un objet de type "Player"
+        /// </summary>
         public List<Player> PlayerList
         {
             get { return m_listPlayer; }
         }
 
         //CONSTRUCTEUR
+        /// <summary>
+        /// Constructeur de base du controlleur.
+        /// </summary>
         public ChessGame()
         {
             m_listPlayer = new List<Player>();
@@ -29,6 +41,9 @@ namespace ChessGame
         }
 
         //MÉTHODES
+        /// <summary>
+        /// Crée un nouveau controlleur au début du programme.
+        /// </summary>
         [STAThread]
         static void Main()
         {
@@ -38,16 +53,22 @@ namespace ChessGame
             ChessGame game = new ChessGame();
         }
 
-        public void createNewPlayer(string playerName) //Crée un nouveau joueur
+        /// <summary>
+        /// Permet de créer un nouveau joueur.
+        /// </summary>
+        /// <param name="playerName">Nom du joueur à ajouté.</param>
+        public void createNewPlayer(string playerName)
         {
             m_listPlayer.Add(new Player(playerName));
         }
 
-        public void createPlayerFromFile() //Remplie la liste de joueur à partir du fichier sauvegardé sur disque
+        /// <summary>
+        /// Remplie la liste de joueur à partir du fichier sauvegardé sur disque
+        /// </summary>
+        public void createPlayerFromFile()
         {
             try
             {
-
                 List<string> playerList = new List<string>();
                 string line;
                 StreamReader sr = new StreamReader("playerList.txt");
@@ -72,9 +93,12 @@ namespace ChessGame
             }
         }
 
-        public string serializePlayerList() //Sérialize la liste de joueur pour facilité l'écriture sur disque
+        /// <summary>
+        /// Permet de sérialisé la liste des joueurs pour l'écriture sur disque. Stock le nom, nombre de victoires et défaites pour chaque joueurs.
+        /// </summary>
+        /// <returns>Retourne un string contenant la liste de joueur sérialisée. </returns>
+        public string serializePlayerList()
         {
-
             string serializedList = "";
 
             foreach (var player in m_listPlayer)
@@ -88,6 +112,9 @@ namespace ChessGame
             return serializedList;
         }
 
+        /// <summary>
+        /// Sauvegarde la liste de joueurs sérialisé sur disque.
+        /// </summary>
         public void savePlayerList() //Sauvegarde la liste de joueurs sur disque
         {
             StreamWriter sw = new StreamWriter(AppDomain.CurrentDomain.BaseDirectory + "playerList.txt");
@@ -96,13 +123,12 @@ namespace ChessGame
             sw.Close();
         }
 
-        public void endGame(Player winner, Player loser)
-        {
-            winner.WinCount++;
-            loser.LossCount++;
-            savePlayerList();
-        }
-
+        /// <summary>
+        /// Crée une nouvelle partie avec 2 joueurs.
+        /// </summary>
+        /// <param name="playerList">Liste des joueurs pour permettre la sauvegarde plus tard. </param>
+        /// <param name="p_player1">Nom du joueur #1. </param>
+        /// <param name="p_player2">Nom du joueur #2. </param>
         public void createGame(List<Player> playerList, string p_player1, string p_player2)
         {
             //Creating a new chess game with the 2 selected players

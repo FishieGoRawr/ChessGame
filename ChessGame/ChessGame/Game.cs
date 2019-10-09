@@ -8,8 +8,12 @@ using System.IO;
 
 namespace ChessGame
 {
+    /// <summary>
+    /// Classe principale du jeu. Stock la majorité des composentes requises pour jouée une partie.
+    /// </summary>
     public class Game
     {
+        /// <value> </value>
         Player m_pWhite, m_pBlack;      //Both players currently playing the game 
         char m_turn;                    //Represent who's player turn it is to play (true = white player | false = black player)
         Board m_board;

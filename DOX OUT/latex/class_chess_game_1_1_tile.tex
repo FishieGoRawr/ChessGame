@@ -1,0 +1,167 @@
+\hypertarget{class_chess_game_1_1_tile}{}\doxysection{Chess\+Game.\+Tile Class Reference}
+\label{class_chess_game_1_1_tile}\index{ChessGame.Tile@{ChessGame.Tile}}
+
+
+Permet de créer des tuiles.  
+
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_chess_game_1_1_tile_a73d0fb336c953185553c926ecf23542c}{Tile}} (int p\+\_\+X, int p\+\_\+Y, \mbox{\hyperlink{class_chess_game_1_1_piece}{Piece}} p\+\_\+current\+Piece=null)
+\begin{DoxyCompactList}\small\item\em Constrcuteur de base d\textquotesingle{}une tuile. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_chess_game_1_1_tile_a3626a0f64fe3fae725f7be5f8df88b38}{is\+Occupied}} ()
+\begin{DoxyCompactList}\small\item\em Permet de savoir si la case est occupée par une pièce. \end{DoxyCompactList}\item 
+char \mbox{\hyperlink{class_chess_game_1_1_tile_a0728a8c96b631f81df444490d2651143}{get\+Piece\+Color}} ()
+\begin{DoxyCompactList}\small\item\em Permet de savoir la couleur de la pièce sur la tuile. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_chess_game_1_1_tile_a6d83f27aca9f85d4ca6e58ea9abdd152}{add\+Piece}} (string p\+\_\+name, char p\+\_\+color, string p\+\_\+is\+First\+Move=\char`\"{}\char`\"{})
+\begin{DoxyCompactList}\small\item\em Permet d\textquotesingle{}ajouter une pièce sur le plateau. \end{DoxyCompactList}\item 
+override string \mbox{\hyperlink{class_chess_game_1_1_tile_a2c034571f95a0d15b59e65aa8553b395}{To\+String}} ()
+\begin{DoxyCompactList}\small\item\em Permet de sérialisé une tuile. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_chess_game_1_1_tile_a41dfb70df81e58bf3676267b431badc0}{X}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Retourne la valeur de X de la tuile. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_chess_game_1_1_tile_a529b9c7ae924e7c08eff5e71c2cf7a63}{Y}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Retourne la valeur de Y de la tuile. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_chess_game_1_1_piece}{Piece}} \mbox{\hyperlink{class_chess_game_1_1_tile_ac85c5b5140629c9f4628c112ccc67e20}{Current\+Piece}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Retourne la pièce qui se trouve sur la tuile. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_chess_game_1_1_tile_ad7ed0d7fe692c1e3477ec74b11e56006}\label{class_chess_game_1_1_tile_ad7ed0d7fe692c1e3477ec74b11e56006}} 
+int \mbox{\hyperlink{class_chess_game_1_1_tile_ad7ed0d7fe692c1e3477ec74b11e56006}{m\+\_\+X}}
+\begin{DoxyCompactList}\small\item\em Valeur en X de la tuile. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_chess_game_1_1_tile_aa9569171e54275d37a226994b1c62c78}\label{class_chess_game_1_1_tile_aa9569171e54275d37a226994b1c62c78}} 
+int \mbox{\hyperlink{class_chess_game_1_1_tile_aa9569171e54275d37a226994b1c62c78}{m\+\_\+Y}}
+\begin{DoxyCompactList}\small\item\em Valeur en Y de la tuile. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_chess_game_1_1_tile_a70a1619801d54a2f70c7c8aa6e38155f}\label{class_chess_game_1_1_tile_a70a1619801d54a2f70c7c8aa6e38155f}} 
+\mbox{\hyperlink{class_chess_game_1_1_piece}{Piece}} \mbox{\hyperlink{class_chess_game_1_1_tile_a70a1619801d54a2f70c7c8aa6e38155f}{m\+\_\+current\+Piece}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_chess_game_1_1_piece}{Piece}} sur la tuile. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Permet de créer des tuiles. 
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_chess_game_1_1_tile_a73d0fb336c953185553c926ecf23542c}\label{class_chess_game_1_1_tile_a73d0fb336c953185553c926ecf23542c}} 
+\index{ChessGame.Tile@{ChessGame.Tile}!Tile@{Tile}}
+\index{Tile@{Tile}!ChessGame.Tile@{ChessGame.Tile}}
+\doxysubsubsection{\texorpdfstring{Tile()}{Tile()}}
+{\footnotesize\ttfamily Chess\+Game.\+Tile.\+Tile (\begin{DoxyParamCaption}\item[{int}]{p\+\_\+X,  }\item[{int}]{p\+\_\+Y,  }\item[{\mbox{\hyperlink{class_chess_game_1_1_piece}{Piece}}}]{p\+\_\+current\+Piece = {\ttfamily null} }\end{DoxyParamCaption})}
+
+
+
+Constrcuteur de base d\textquotesingle{}une tuile. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+X} & Valeur en X de la tuile.\\
+\hline
+{\em p\+\_\+Y} & Valeur en Y de la tuile.\\
+\hline
+{\em p\+\_\+current\+Piece} & Pièce sur la tuile, toujours null par défaut.\\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_chess_game_1_1_tile_a6d83f27aca9f85d4ca6e58ea9abdd152}\label{class_chess_game_1_1_tile_a6d83f27aca9f85d4ca6e58ea9abdd152}} 
+\index{ChessGame.Tile@{ChessGame.Tile}!addPiece@{addPiece}}
+\index{addPiece@{addPiece}!ChessGame.Tile@{ChessGame.Tile}}
+\doxysubsubsection{\texorpdfstring{addPiece()}{addPiece()}}
+{\footnotesize\ttfamily void Chess\+Game.\+Tile.\+add\+Piece (\begin{DoxyParamCaption}\item[{string}]{p\+\_\+name,  }\item[{char}]{p\+\_\+color,  }\item[{string}]{p\+\_\+is\+First\+Move = {\ttfamily \char`\"{}\char`\"{}} }\end{DoxyParamCaption})}
+
+
+
+Permet d\textquotesingle{}ajouter une pièce sur le plateau. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+name} & Nom de la pièce.\\
+\hline
+{\em p\+\_\+color} & Couleur de la pièce.\\
+\hline
+{\em p\+\_\+is\+First\+Move} & Si la pièce à déjà bougée.\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_chess_game_1_1_tile_a0728a8c96b631f81df444490d2651143}\label{class_chess_game_1_1_tile_a0728a8c96b631f81df444490d2651143}} 
+\index{ChessGame.Tile@{ChessGame.Tile}!getPieceColor@{getPieceColor}}
+\index{getPieceColor@{getPieceColor}!ChessGame.Tile@{ChessGame.Tile}}
+\doxysubsubsection{\texorpdfstring{getPieceColor()}{getPieceColor()}}
+{\footnotesize\ttfamily char Chess\+Game.\+Tile.\+get\+Piece\+Color (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Permet de savoir la couleur de la pièce sur la tuile. 
+
+\begin{DoxyReturn}{Returns}
+Retourne \textquotesingle{}W\textquotesingle{} si blanche, \textquotesingle{}B\textquotesingle{} si noire.
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_chess_game_1_1_tile_a3626a0f64fe3fae725f7be5f8df88b38}\label{class_chess_game_1_1_tile_a3626a0f64fe3fae725f7be5f8df88b38}} 
+\index{ChessGame.Tile@{ChessGame.Tile}!isOccupied@{isOccupied}}
+\index{isOccupied@{isOccupied}!ChessGame.Tile@{ChessGame.Tile}}
+\doxysubsubsection{\texorpdfstring{isOccupied()}{isOccupied()}}
+{\footnotesize\ttfamily bool Chess\+Game.\+Tile.\+is\+Occupied (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Permet de savoir si la case est occupée par une pièce. 
+
+\begin{DoxyReturn}{Returns}
+Vrai si pièce présentement dans la tuile, sinon, faux.
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_chess_game_1_1_tile_a2c034571f95a0d15b59e65aa8553b395}\label{class_chess_game_1_1_tile_a2c034571f95a0d15b59e65aa8553b395}} 
+\index{ChessGame.Tile@{ChessGame.Tile}!ToString@{ToString}}
+\index{ToString@{ToString}!ChessGame.Tile@{ChessGame.Tile}}
+\doxysubsubsection{\texorpdfstring{ToString()}{ToString()}}
+{\footnotesize\ttfamily override string Chess\+Game.\+Tile.\+To\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Permet de sérialisé une tuile. 
+
+\begin{DoxyReturn}{Returns}
+String contenant la tuile sérialisée.
+\end{DoxyReturn}
+
+
+\doxysubsection{Property Documentation}
+\mbox{\Hypertarget{class_chess_game_1_1_tile_ac85c5b5140629c9f4628c112ccc67e20}\label{class_chess_game_1_1_tile_ac85c5b5140629c9f4628c112ccc67e20}} 
+\index{ChessGame.Tile@{ChessGame.Tile}!CurrentPiece@{CurrentPiece}}
+\index{CurrentPiece@{CurrentPiece}!ChessGame.Tile@{ChessGame.Tile}}
+\doxysubsubsection{\texorpdfstring{CurrentPiece}{CurrentPiece}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_chess_game_1_1_piece}{Piece}} Chess\+Game.\+Tile.\+Current\+Piece\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Retourne la pièce qui se trouve sur la tuile. 
+
+\mbox{\Hypertarget{class_chess_game_1_1_tile_a41dfb70df81e58bf3676267b431badc0}\label{class_chess_game_1_1_tile_a41dfb70df81e58bf3676267b431badc0}} 
+\index{ChessGame.Tile@{ChessGame.Tile}!X@{X}}
+\index{X@{X}!ChessGame.Tile@{ChessGame.Tile}}
+\doxysubsubsection{\texorpdfstring{X}{X}}
+{\footnotesize\ttfamily int Chess\+Game.\+Tile.\+X\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Retourne la valeur de X de la tuile. 
+
+\mbox{\Hypertarget{class_chess_game_1_1_tile_a529b9c7ae924e7c08eff5e71c2cf7a63}\label{class_chess_game_1_1_tile_a529b9c7ae924e7c08eff5e71c2cf7a63}} 
+\index{ChessGame.Tile@{ChessGame.Tile}!Y@{Y}}
+\index{Y@{Y}!ChessGame.Tile@{ChessGame.Tile}}
+\doxysubsubsection{\texorpdfstring{Y}{Y}}
+{\footnotesize\ttfamily int Chess\+Game.\+Tile.\+Y\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Retourne la valeur de Y de la tuile. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+P\+:/École/\+Automne 2019/\+Prog I\+I\+I/\+T\+P Jeux d\textquotesingle{}échec/\+Chess\+Game/\+Chess\+Game/\+Chess\+Game/Tile.\+cs\end{DoxyCompactItemize}

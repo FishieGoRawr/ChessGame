@@ -6,13 +6,28 @@ using System.Threading.Tasks;
 
 namespace ChessGame
 {
+    /// <summary>
+    /// Classe permettant de créer un pion.
+    /// </summary>
     class Pawn : firstMovePiece
     {
+        /// <summary>
+        /// Constructeur de base d'un pion.
+        /// </summary>
+        /// <param name="p_alive"> Si le pion est en vie.</param>
+        /// <param name="p_color">La couleur du pion. </param>
+        /// <param name="p_firstMove">Si le pion à déjà bougé. </param>
         public Pawn(bool p_alive, char p_color, bool p_firstMove = false) : base(p_alive, p_color, p_firstMove)
-        {
-            
+        {            
         }
 
+        /// <summary>
+        /// Sert à savoir si le pion peut se déplacer a des coordonnées données.
+        /// </summary>
+        /// <param name="coordFrom">Point de départ de la pièce. </param>
+        /// <param name="coordTo">Point de fin de la pièce. </param>
+        /// <param name="isEating">Si la pièce tente de manger. </param>
+        /// <returns></returns>
         public override bool canMove(int[]coordFrom, int[] coordTo, bool isEating = false)
         {
             int Xmovement = coordFrom[0] - coordTo[0];
