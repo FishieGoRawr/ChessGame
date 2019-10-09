@@ -42,9 +42,12 @@ namespace ChessGame
                 int[] clickedCoord = { (e.X / tileWidth), (e.Y / tileHeight) };
 
                 m_game.highlightTile(clickedCoord);
-
-                lsbGameEvents.Items.Add(clickedCoord[0] + ", " + clickedCoord[1]);
             }
+        }
+
+        public void writeEvent(String p_message)
+        {
+            lsbGameEvents.Items.Add(p_message);
         }
 
         public void drawPiece(int p_x, int p_y, char p_color, string p_name, Graphics g)

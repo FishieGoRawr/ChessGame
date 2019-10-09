@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading;
+using System.IO;
 
 namespace ChessGame
 {
@@ -15,11 +17,13 @@ namespace ChessGame
         Move m_move;
         List<Piece> m_whiteEaten;
         List<Piece> m_blackEaten;
+        List<Player> m_playerList;
 
         public Game(List<Player> playerList, string p1Name, string p2Name)
         {
             this.m_board = new Board(8);
             this.m_turn = 'W';
+            m_playerList = playerList;
 
             //Getting player object from name
             for (int i = 0; i < playerList.Count; i++)
@@ -82,17 +86,13 @@ namespace ChessGame
                         if (!isCollisionning)
                         {
                             //If the board is in a check state
-                            if (!this.m_board.isCheckState)
+                            if (!askBoardCheck())
                             {
                                 move(m_move.getCoordFrom(), m_move.getCoordTo());
                                 switchTurns();
                                 if (m_board.detectCheck(m_turn))
                                 {
-                                    Console.WriteLine(m_turn + "check Detected !");
-                                    if (askBoardCheckMat())
-                                    {
-                                        Console.WriteLine(m_turn + "checkMat Detected !");
-                                    }
+                                    m_gameGUI.writeEvent(getCurrentPlayerName() + ": Déplacement invalide vers X(" + (m_move.getCoordTo()[0] + 1) + "), Y(" + (m_move.getCoordTo()[1] + 1) + "), car vous êtes en échec!");
                                 }
                             }
                             else
@@ -105,8 +105,23 @@ namespace ChessGame
 
 
                             this.m_board.isCheckState = m_board.detectCheck(this.m_turn);
-                            //}
+
                             refreshBoard();
+                            if (askBoardCheckMat())
+                            {
+
+                                switchTurns();
+                                m_gameGUI.writeEvent(getCurrentPlayerName() + ": a gagné!");
+                                m_gameGUI.Refresh();
+                                refreshBoard();
+
+                                if (Turn)
+                                    endGame(m_pWhite, m_pBlack);
+                                else endGame(m_pBlack, m_pWhite);
+
+                                Thread.Sleep(3000);
+                                m_gameGUI.Close();
+                            }
                         }
                         else
                         {
@@ -234,8 +249,22 @@ namespace ChessGame
         public void move(int[] coordFrom, int[] coordTo)
         {
             m_board.movePiece(coordFrom, coordTo);
+            String playerName = getCurrentPlayerName();
+
+            m_gameGUI.writeEvent(playerName + ": Déplacement valide vers X(" + (coordTo[0] + 1) + "), Y(" + (coordTo[1] + 1) + ").");
         }
 
+        public string getCurrentPlayerName()
+        {
+            if (Turn)
+            {
+                return m_pWhite.Name;
+            }
+            else
+            {
+                return m_pBlack.Name;
+            }
+        }
         public void revertMove()
         {
             m_board.movePiece(m_move.getCoordTo(), m_move.getCoordFrom());
@@ -255,6 +284,37 @@ namespace ChessGame
             {
                 this.m_turn = 'W';
             }
+        }
+
+        public void endGame(Player winner, Player loser)
+        {
+            winner.WinCount++;
+            loser.LossCount++;
+            savePlayerList();
+        }
+
+        public string serializePlayerList() //Sérialize la liste de joueur pour facilité l'écriture sur disque
+        {
+
+            string serializedList = "";
+
+            foreach (var player in m_playerList)
+            {
+                if (!(player == m_playerList.Last()))
+                    serializedList += player.Name + "," + player.WinCount + "," + player.LossCount + "\n";
+                else
+                    serializedList += player.Name + "," + player.WinCount + "," + player.LossCount;
+            }
+
+            return serializedList;
+        }
+
+        public void savePlayerList() //Sauvegarde la liste de joueurs sur disque
+        {
+            StreamWriter sw = new StreamWriter(AppDomain.CurrentDomain.BaseDirectory + "playerList.txt");
+            sw.WriteLine(serializePlayerList());
+            sw.Flush();
+            sw.Close();
         }
 
         public bool Turn
