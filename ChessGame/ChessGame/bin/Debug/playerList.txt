@@ -1,4 +1,4 @@
-Alex,0,0
-Marc,0,0
+Alex,5,4
+Marc,4,5
 Chris,0,0
 momo,0,0

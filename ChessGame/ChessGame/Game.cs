@@ -21,10 +21,6 @@ namespace ChessGame
             this.m_board = new Board(8);
             this.m_turn = 'W';
 
-            //Creating UI and showing it 
-            this.m_gameGUI = new gameGUI(this);
-            this.m_gameGUI.Show();
-
             //Getting player object from name
             for (int i = 0; i < playerList.Count; i++)
             {
@@ -35,6 +31,10 @@ namespace ChessGame
                     m_pBlack = playerList[i];
             }
 
+            //Creating UI and showing it 
+            this.m_gameGUI = new gameGUI(this, m_pWhite, m_pBlack);
+            this.m_gameGUI.Show();
+
             Console.WriteLine("\n" + m_pWhite.Name);
             Console.WriteLine(m_pBlack.Name);
             refreshBoard();
@@ -44,7 +44,6 @@ namespace ChessGame
         {
             this.m_gameGUI.drawBoard(m_board.ToString());
         }
-
 
         public void highlightTile(int[] coordFrom)
         {
@@ -259,6 +258,16 @@ namespace ChessGame
             else
             {
                 this.m_turn = 'W';
+            }
+        }
+
+        public bool Turn
+        {
+            get
+            {
+                if (m_turn == 'W')
+                    return true;
+                else return false;
             }
         }
     }
