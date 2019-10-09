@@ -55,26 +55,6 @@ namespace ChessGame
                 m_tiles[i] = new Tile((i % m_width), (i / m_width));
             }
 
-            for (int i = 2; i < m_tiles.Length + 2; i++)
-            {
-                string[] temp = boardTiles[i].Split(',');
-                string name = temp[1];
-                if (name != "null")
-                {
-                    int x = ((temp[0])[0]) - 48;
-                    int y = ((temp[0])[1]) - 48;
-                    char color = Char.ToUpper(temp[1][0]);
-                    if (temp.Length == 3)
-                    {
-                        this[x, y].addPiece(name, color, temp[2]);
-                    }
-                    else
-                    {
-                        this[x, y].addPiece(name, color);
-                    }
-                }
-            }
-
             //Adding possible tiles
             int index = 2;
             bool endOfPossibleTiles = true;
@@ -101,6 +81,28 @@ namespace ChessGame
                     index++;
                 }
             }
+
+            for (int i = index - 1; i < boardTiles.Length; i++)
+            {
+                string[] temp = boardTiles[i].Split(',');
+                string name = temp[1];
+                if (name != "null")
+                {
+                    int x = ((temp[0])[0]) - 48;
+                    int y = ((temp[0])[1]) - 48;
+                    char color = Char.ToUpper(temp[1][0]);
+                    if (temp.Length == 3)
+                    {
+                        this[x, y].addPiece(name, color, temp[2]);
+                    }
+                    else
+                    {
+                        this[x, y].addPiece(name, color);
+                    }
+                }
+            }
+
+
                 //Getting the selected case
                 string[] selTemp = boardTiles[1].Split(',');
             string selName = selTemp[1];
@@ -174,8 +176,8 @@ namespace ChessGame
                                 }
                                 else
                                 {
-                                    this[3, y].CurrentPiece = new King(true, p_piecesColor, true);
-                                    this[4, y].CurrentPiece = new Queen(true, p_piecesColor);
+                                    this[4, y].CurrentPiece = new King(true, p_piecesColor, true);
+                                    this[3, y].CurrentPiece = new Queen(true, p_piecesColor);
                                 }
                                 break;
                             default:
