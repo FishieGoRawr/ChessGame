@@ -14,5 +14,16 @@ namespace ChessGame
         {
             this.m_firstMove = p_firstMove;
         }
+
+        public override string ToString()
+        {
+            string serializedPiece = "";
+
+            serializedPiece = this.m_color + "_" + this.GetType().Name + "," + this.m_firstMove.ToString();
+
+            serializedPiece = serializedPiece.ToLower();
+
+            return serializedPiece;
+        }
     }
 }

@@ -30,6 +30,7 @@ namespace ChessGame
             this.Y = p_Y;
         }
 
+        //Methodes
         public bool isOccupied()
         {
             return m_currentPiece != null;
@@ -42,6 +43,36 @@ namespace ChessGame
                 return m_currentPiece.m_color;
             }
             return 'N';
+        }
+
+        public void addPiece(string p_name, char p_color, string p_isFirstMove = "")
+        {
+            bool firstMove; 
+            Boolean.TryParse(p_isFirstMove, out firstMove);
+            p_name = Char.ToUpper(p_name[2])+ p_name.Substring(3);
+            switch (p_name)
+            {
+                case "Bishop":
+                    this.m_currentPiece = new Bishop(true, p_color);
+                    break;
+                case "King":
+                    this.m_currentPiece = new King(true, p_color, firstMove);
+                    break;
+                case "Knight":
+                    this.m_currentPiece = new Knight(true, p_color);
+                    break;
+                case "Pawn":
+                    this.m_currentPiece = new Pawn(true, p_color, firstMove);
+                    break;
+                case "Queen":
+                    this.m_currentPiece = new Queen(true, p_color);
+                    break;
+                case "Rook":
+                    this.m_currentPiece = new Rook(true, p_color, firstMove);
+                    break;
+                default:
+                    break;
+            }
         }
 
         public override string ToString()
