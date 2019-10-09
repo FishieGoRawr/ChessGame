@@ -82,36 +82,25 @@ namespace ChessGame
                         bool isCollisionning = this.m_board.isCollisionning(m_move.getCoordFrom(), m_move.getCoordTo());
                         if (!isCollisionning)
                         {
-                            ////If the board is in a check state
-                            //if (m_board.isCheckState)
-                            //{
-                            //    if (!askBoardCheck() && askBoardCheckPat())
-                            //    {
-                            //        Console.WriteLine(m_turn + "checkPat Detected");
-                            //    }
-                            //    else if (!askBoardCheck())
-                            //    {
-                            //        this.m_board.isCheckState = false;
-                            //        move(m_move.getCoordFrom(), m_move.getCoordTo());
-                            //        switchTurns();
-                            //    }
-                            //}
-                            //else
-                            //{
-                            if (!askBoardCheck())
+                            //If the board is in a check state
+                            if (!this.m_board.isCheckState)
                             {
                                 move(m_move.getCoordFrom(), m_move.getCoordTo());
                                 switchTurns();
                                 if (m_board.detectCheck(m_turn))
                                 {
-                                    if (askBoardCheckPat())
-                                    {
-                                        Console.WriteLine(m_turn + "checkPat Detected");
-                                    }
+                                    Console.WriteLine(m_turn + "check Detected !");
                                     if (askBoardCheckMat())
                                     {
-                                        Console.WriteLine(m_turn + "checkMat Detected");
+                                        Console.WriteLine(m_turn + "checkMat Detected !");
                                     }
+                                }
+                            }
+                            else
+                            {
+                                if (askBoardCheckPat())
+                                {
+                                    Console.WriteLine(m_turn + "checkPat Detected !");
                                 }
                             }
 
@@ -209,23 +198,30 @@ namespace ChessGame
                                     int[] end = new int[] { start[0], start[1] };
                                     Move tempMove = new Move(null, tempBoard[start[0], start[1]]);
 
-                                    while ((end[0] + direction[0] > 0 && end[0] + direction[0] < 8) && (end[1] + direction[1] > 0 && end[1] + direction[1] < 8) && tempMove.isValidMovement())
+                                    bool isOutOfIndex = true;
+                                    bool isPossible = false;
+                                    do
                                     {
-                                        end[0] += direction[0];
-                                        end[1] += direction[1];
-                                        tempMove.End = tempBoard[end[0], end[1]];
-                                        if (tempMove.isValidMovement())
+                                        isOutOfIndex = !((end[0] + direction[0] > 0 && end[0] + direction[0] < 8) && (end[1] + direction[1] > 0 && end[1] + direction[1] < 8));
+                                        if (!isOutOfIndex)
                                         {
-                                            tempBoard.movePiece(start, end);
-
-                                            //Does the move puts us in check position on the temp board
-                                            if (!tempBoard.detectCheck(m_turn))
+                                            end[0] += direction[0];
+                                            end[1] += direction[1];
+                                            tempMove.End = tempBoard[end[0], end[1]];
+                                            isPossible = (tempMove.isValidMovement() && !tempBoard.isCollisionning(tempMove.getCoordFrom(), tempMove.getCoordTo()) && tempBoard[tempMove.getCoordTo()[0], tempMove.getCoordTo()[1]].getPieceColor() != m_turn);
+                                            if (isPossible)
                                             {
-                                                return false;
+                                                tempBoard.movePiece(start, end);
+
+                                                //Does the move puts us in check position on the temp board
+                                                if (!tempBoard.detectCheck(m_turn))
+                                                {
+                                                    return false;
+                                                }
+                                                tempBoard.movePiece(end, start);
                                             }
-                                            tempBoard.movePiece(end, start);
                                         }
-                                    }
+                                    } while (!isOutOfIndex && isPossible);
 
                                 }
                             }

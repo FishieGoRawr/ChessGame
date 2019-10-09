@@ -440,7 +440,6 @@ namespace ChessGame
                         {
                             if (this[x, y].getPieceColor() != p_turn && !isCollisionning(new int[] { x, y }, new int[] { kingX, kingY }))
                             {
-                                Console.WriteLine(p_turn + " Check Detected !");
                                 return true;
                             }
                         }

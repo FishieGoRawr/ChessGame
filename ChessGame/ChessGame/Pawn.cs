@@ -20,7 +20,7 @@ namespace ChessGame
             bool validMovement = false;
 
             //If its the piece first movement
-            if (m_firstMove)
+            if (m_firstMove && !isEating)
             {
                 if (this.m_color == 'W')
                 {
