@@ -26,7 +26,7 @@ namespace ChessGame
             this.m_gameGUI.Show();
 
             //Getting player object from name
-            for (int i = 0; i < playerList.Count - 1; i++)
+            for (int i = 0; i < playerList.Count; i++)
             {
                 if (p1Name == playerList[i].Name)
                     m_pWhite = playerList[i];
