@@ -117,7 +117,7 @@
             this.cmbSelectPlayer2.Name = "cmbSelectPlayer2";
             this.cmbSelectPlayer2.Size = new System.Drawing.Size(177, 28);
             this.cmbSelectPlayer2.TabIndex = 1;
-            this.cmbSelectPlayer2.SelectedIndexChanged += new System.EventHandler(this.CmbSelectPlayer2_SelectedValueChanged);
+            this.cmbSelectPlayer2.DropDownClosed += new System.EventHandler(this.CmbSelectPlayer2_DropDownClosed);
             // 
             // cmbSelectPlayer1
             // 
@@ -126,7 +126,7 @@
             this.cmbSelectPlayer1.Name = "cmbSelectPlayer1";
             this.cmbSelectPlayer1.Size = new System.Drawing.Size(177, 28);
             this.cmbSelectPlayer1.TabIndex = 0;
-            this.cmbSelectPlayer1.SelectedIndexChanged += new System.EventHandler(this.CmbSelectPlayer1_SelectedValueChanged);
+            this.cmbSelectPlayer1.DropDownClosed += new System.EventHandler(this.CmbSelectPlayer1_DropDownClosed);
             // 
             // tabCreatePlayer
             // 

@@ -38,22 +38,36 @@ namespace ChessGame
 
         public void reloadCmbPlayerSelection(string choix)
         {
+            string tempName = "";
             switch (choix)
             {
                 case "p1":
+                    if (cmbSelectPlayer1.SelectedIndex != -1) //If something selected in cmb1, set tempName to selected name
+                        tempName = cmbSelectPlayer1.SelectedItem.ToString();
+
                     cmbSelectPlayer1.Items.Clear();
-                    foreach (var player in m_chessGame.PlayerList)
-                    { 
+
+                    foreach (var player in m_chessGame.PlayerList) //Loop through player list to populate the cmb
                         cmbSelectPlayer1.Items.Add(player.Name);
-                    }
-                    cmbSelectPlayer1.Items.Remove(cmbSelectPlayer2.SelectedItem.ToString());
+
+                    cmbSelectPlayer1.Items.Remove(cmbSelectPlayer2.SelectedItem.ToString()); //Remove the item selected in cmb2 from cmb1
+
+                    if (tempName != "") //If a name was selected, set it back to the good entry
+                        cmbSelectPlayer1.SelectedItem = tempName;
                     break;
                 case "p2":
+                    if (cmbSelectPlayer2.SelectedIndex != -1) //If something selected in cmb2, set tempName to selected name
+                        tempName = cmbSelectPlayer2.SelectedItem.ToString();
+
                     cmbSelectPlayer2.Items.Clear();
-                    foreach (var player in m_chessGame.PlayerList)
+
+                    foreach (var player in m_chessGame.PlayerList) //Loop through player list to populate the cmb
                         cmbSelectPlayer2.Items.Add(player.Name);
 
                     cmbSelectPlayer2.Items.Remove(cmbSelectPlayer1.SelectedItem.ToString());
+
+                    if (tempName != "") //If a name was selected, set it back to the good entry
+                        cmbSelectPlayer2.SelectedItem = tempName;
                     break;
                 default:
                     break;
@@ -115,21 +129,34 @@ namespace ChessGame
 
         private void BtnStartGame_Click(object sender, EventArgs e)
         {
-            //if (cmbSelectPlayer1.SelectedItem.ToString() == cmbSelectPlayer2.SelectedItem.ToString())
-            //    MessageBox.Show("Jouer avec vous même ne serait pas très efficace... Veuillez choisir 2 joueurs différents!", "Choisir 2 joueurs différents.", MessageBoxButtons.OK);
-            //else
-                m_chessGame.createGame();
+            string p1Name = "", p2Name = "";            
 
+            if (!(cmbSelectPlayer1.SelectedIndex == -1) && !(cmbSelectPlayer2.SelectedIndex == -1))
+            {
+                p1Name = cmbSelectPlayer1.SelectedItem.ToString();
+                p2Name = cmbSelectPlayer2.SelectedItem.ToString();
+
+                m_chessGame.createGame(m_chessGame.PlayerList, p1Name, p2Name);
+            }
+            else
+            {
+                if (cmbSelectPlayer1.SelectedIndex == -1)
+                    MessageBox.Show("Veuillez sélectionner le joueur #1.", "Aucun joueur #1 sélectionné", MessageBoxButtons.OK);
+                else
+                    MessageBox.Show("Veuillez sélectionner le joueur #2.", "Aucun joueur #2 sélectionné", MessageBoxButtons.OK);
+            }
         }
 
-        private void CmbSelectPlayer1_SelectedValueChanged(object sender, EventArgs e)
+        private void CmbSelectPlayer1_DropDownClosed(object sender, EventArgs e)
         {
             reloadCmbPlayerSelection("p2");
+            Console.WriteLine(cmbSelectPlayer1.SelectedIndex + "   " + cmbSelectPlayer2.SelectedIndex);
         }
 
-        private void CmbSelectPlayer2_SelectedValueChanged(object sender, EventArgs e)
+        private void CmbSelectPlayer2_DropDownClosed(object sender, EventArgs e)
         {
             reloadCmbPlayerSelection("p1");
+            Console.WriteLine(cmbSelectPlayer1.SelectedIndex + "   " + cmbSelectPlayer2.SelectedIndex);
         }
     }
 }
