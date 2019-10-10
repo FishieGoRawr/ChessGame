@@ -67,7 +67,7 @@ namespace ChessGame
         /// Permet la surbrillance d'une tuile.
         /// </summary>
         /// <param name="coordFrom">D'ou provient le mouvement.</param>
-        public void highlightTile(int[] coordFrom)
+        public void tryMove(int[] coordFrom)
         {
             //if (m_board[p_x,p_y].CurrentPiece != null)
             bool isMove = m_board.isMoving(coordFrom, m_turn);
