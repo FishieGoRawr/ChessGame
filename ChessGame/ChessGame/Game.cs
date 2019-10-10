@@ -47,7 +47,7 @@ namespace ChessGame
             this.m_gameGUI.drawBoard(m_board.ToString());
         }
 
-        public void highlightTile(int[] coordFrom)
+        public void tryMove(int[] coordFrom)
         {
             //if (m_board[p_x,p_y].CurrentPiece != null)
             bool isMove = m_board.isMoving(coordFrom, m_turn);
@@ -59,7 +59,6 @@ namespace ChessGame
                 if (isValidTile)
                 {
                     m_board.markPossible(coordFrom, coordFrom);
-                    refreshBoard();
                     if (this.m_turn == 'W')
                     {
                         this.m_move = new Move(this.m_pWhite, m_board.SelectedTile);
@@ -104,7 +103,7 @@ namespace ChessGame
 
                             this.m_board.isCheckState = m_board.detectCheck(this.m_turn);
 
-                            refreshBoard();
+ 
                             if (askBoardCheckMat())
                             {
 
@@ -120,17 +119,13 @@ namespace ChessGame
                                 Thread.Sleep(3000);
                                 m_gameGUI.Close();
                             }
-                        }
-                        else
-                        {
+                            refreshBoard();
                         }
                     }
                 }
 
             }
-
-
-            //}
+            refreshBoard();
         }
 
         public bool askBoardCheck()

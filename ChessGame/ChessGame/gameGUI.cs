@@ -41,7 +41,7 @@ namespace ChessGame
                 int tileHeight = boardPanel.Height / 8;
                 int[] clickedCoord = { (e.X / tileWidth), (e.Y / tileHeight) };
 
-                m_game.highlightTile(clickedCoord);
+                m_game.tryMove(clickedCoord);
             }
         }
 
