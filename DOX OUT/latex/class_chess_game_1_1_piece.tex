@@ -1,0 +1,103 @@
+\hypertarget{class_chess_game_1_1_piece}{}\doxysection{Chess\+Game.\+Piece Class Reference}
+\label{class_chess_game_1_1_piece}\index{ChessGame.Piece@{ChessGame.Piece}}
+
+
+Classe parent de tout les types de pièces.  
+
+
+Inheritance diagram for Chess\+Game.\+Piece\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.386364cm]{class_chess_game_1_1_piece}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_chess_game_1_1_piece_a232713bbffed6d97301089cc34874b40}{Piece}} (bool p\+\_\+alive, char p\+\_\+color)
+\begin{DoxyCompactList}\small\item\em Constructeur de base d\textquotesingle{}une pièce avec la couleur et son état. \end{DoxyCompactList}\item 
+override string \mbox{\hyperlink{class_chess_game_1_1_piece_a15155639a0f468f818f33ce864dc8882}{To\+String}} ()
+\begin{DoxyCompactList}\small\item\em Cette méthode permet de sérialiser une pièce pour permettre la sérialisation du plateau. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{class_chess_game_1_1_piece_ad0be22c199fc37439f82e9d2b856ab01}{can\+Move}} (int\mbox{[}$\,$\mbox{]} coord\+From, int\mbox{[}$\,$\mbox{]} coord\+To, bool is\+Eating=false)
+\begin{DoxyCompactList}\small\item\em Overrided par tout les autres classes enfant. Permet de savoir si la pièce peut bouger vers une coordonnée donnée. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_chess_game_1_1_piece_a5eb500a19086c086afc08990d1f41c44}\label{class_chess_game_1_1_piece_a5eb500a19086c086afc08990d1f41c44}} 
+char \mbox{\hyperlink{class_chess_game_1_1_piece_a5eb500a19086c086afc08990d1f41c44}{m\+\_\+color}}
+\begin{DoxyCompactList}\small\item\em Couleur de la pièce. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_chess_game_1_1_piece_a4b42c2a7f56c6c92983e37a435020429}\label{class_chess_game_1_1_piece_a4b42c2a7f56c6c92983e37a435020429}} 
+bool \mbox{\hyperlink{class_chess_game_1_1_piece_a4b42c2a7f56c6c92983e37a435020429}{m\+\_\+alive}}
+\begin{DoxyCompactList}\small\item\em État de la pièce (Morte/vivante). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Classe parent de tout les types de pièces. 
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_chess_game_1_1_piece_a232713bbffed6d97301089cc34874b40}\label{class_chess_game_1_1_piece_a232713bbffed6d97301089cc34874b40}} 
+\index{ChessGame.Piece@{ChessGame.Piece}!Piece@{Piece}}
+\index{Piece@{Piece}!ChessGame.Piece@{ChessGame.Piece}}
+\doxysubsubsection{\texorpdfstring{Piece()}{Piece()}}
+{\footnotesize\ttfamily Chess\+Game.\+Piece.\+Piece (\begin{DoxyParamCaption}\item[{bool}]{p\+\_\+alive,  }\item[{char}]{p\+\_\+color }\end{DoxyParamCaption})}
+
+
+
+Constructeur de base d\textquotesingle{}une pièce avec la couleur et son état. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+alive} & \\
+\hline
+{\em p\+\_\+color} & \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_chess_game_1_1_piece_ad0be22c199fc37439f82e9d2b856ab01}\label{class_chess_game_1_1_piece_ad0be22c199fc37439f82e9d2b856ab01}} 
+\index{ChessGame.Piece@{ChessGame.Piece}!canMove@{canMove}}
+\index{canMove@{canMove}!ChessGame.Piece@{ChessGame.Piece}}
+\doxysubsubsection{\texorpdfstring{canMove()}{canMove()}}
+{\footnotesize\ttfamily virtual bool Chess\+Game.\+Piece.\+can\+Move (\begin{DoxyParamCaption}\item[{int\mbox{[}$\,$\mbox{]}}]{coord\+From,  }\item[{int\mbox{[}$\,$\mbox{]}}]{coord\+To,  }\item[{bool}]{is\+Eating = {\ttfamily false} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Overrided par tout les autres classes enfant. Permet de savoir si la pièce peut bouger vers une coordonnée donnée. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em coord\+From} & \\
+\hline
+{\em coord\+To} & \\
+\hline
+{\em is\+Eating} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Retourne toujours faux. Un problème est survenue si on obtient faux de pièce.
+\end{DoxyReturn}
+
+
+Reimplemented in \mbox{\hyperlink{class_chess_game_1_1_pawn_af45837991aa0b28da890e5d11c384621}{Chess\+Game.\+Pawn}}, \mbox{\hyperlink{class_chess_game_1_1_bishop_ad9923df07884355823d5d4e35335988e}{Chess\+Game.\+Bishop}}, \mbox{\hyperlink{class_chess_game_1_1_king_a7681d16a6d83d664849e3210ab487726}{Chess\+Game.\+King}}, \mbox{\hyperlink{class_chess_game_1_1_rook_ab1d34fda15a32c2c06d9099c14ce6957}{Chess\+Game.\+Rook}}, \mbox{\hyperlink{class_chess_game_1_1_knight_a2c98fe2f79157763c98a988098e5f8d8}{Chess\+Game.\+Knight}}, and \mbox{\hyperlink{class_chess_game_1_1_queen_ae645e29860b22821236e414208d85808}{Chess\+Game.\+Queen}}.
+
+\mbox{\Hypertarget{class_chess_game_1_1_piece_a15155639a0f468f818f33ce864dc8882}\label{class_chess_game_1_1_piece_a15155639a0f468f818f33ce864dc8882}} 
+\index{ChessGame.Piece@{ChessGame.Piece}!ToString@{ToString}}
+\index{ToString@{ToString}!ChessGame.Piece@{ChessGame.Piece}}
+\doxysubsubsection{\texorpdfstring{ToString()}{ToString()}}
+{\footnotesize\ttfamily override string Chess\+Game.\+Piece.\+To\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Cette méthode permet de sérialiser une pièce pour permettre la sérialisation du plateau. 
+
+\begin{DoxyReturn}{Returns}
+Pièce sous format String
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Chess\+Game/\+Chess\+Game/Piece.\+cs\end{DoxyCompactItemize}

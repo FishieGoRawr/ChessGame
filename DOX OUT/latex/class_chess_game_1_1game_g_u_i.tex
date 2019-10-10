@@ -1,0 +1,199 @@
+\hypertarget{class_chess_game_1_1game_g_u_i}{}\doxysection{Chess\+Game.\+game\+G\+UI Class Reference}
+\label{class_chess_game_1_1game_g_u_i}\index{ChessGame.gameGUI@{ChessGame.gameGUI}}
+Inheritance diagram for Chess\+Game.\+game\+G\+UI\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_chess_game_1_1game_g_u_i}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_chess_game_1_1game_g_u_i_a03e979053b16c0638f5aec58ee225e32}\label{class_chess_game_1_1game_g_u_i_a03e979053b16c0638f5aec58ee225e32}} 
+{\bfseries game\+G\+UI} (\mbox{\hyperlink{class_chess_game_1_1_game}{Game}} p\+\_\+game, \mbox{\hyperlink{class_chess_game_1_1_player}{Player}} m\+\_\+p\+White, \mbox{\hyperlink{class_chess_game_1_1_player}{Player}} m\+\_\+p\+Black)
+\item 
+\mbox{\Hypertarget{class_chess_game_1_1game_g_u_i_a45f23fdff05254a84676dd000120dc3a}\label{class_chess_game_1_1game_g_u_i_a45f23fdff05254a84676dd000120dc3a}} 
+void {\bfseries write\+Event} (String p\+\_\+message)
+\item 
+\mbox{\Hypertarget{class_chess_game_1_1game_g_u_i_ac311357a7e5f020866d6530bd276e163}\label{class_chess_game_1_1game_g_u_i_ac311357a7e5f020866d6530bd276e163}} 
+void {\bfseries draw\+Piece} (int p\+\_\+x, int p\+\_\+y, char p\+\_\+color, string p\+\_\+name, Graphics g)
+\item 
+\mbox{\Hypertarget{class_chess_game_1_1game_g_u_i_a4f00cb21183f12cd35f6564242f49db8}\label{class_chess_game_1_1game_g_u_i_a4f00cb21183f12cd35f6564242f49db8}} 
+void {\bfseries high\+Light\+Case} (int p\+\_\+x, int p\+\_\+y, Graphics g, char p\+\_\+color)
+\item 
+\mbox{\Hypertarget{class_chess_game_1_1game_g_u_i_a9c2d61a1e247ccfe99f7fc51e91b6e27}\label{class_chess_game_1_1game_g_u_i_a9c2d61a1e247ccfe99f7fc51e91b6e27}} 
+void {\bfseries draw\+Board} (string p\+\_\+serialized\+Board)
+\item 
+\mbox{\Hypertarget{class_chess_game_1_1game_g_u_i_a2ca76e803f2f9a445d1911563f414e1f}\label{class_chess_game_1_1game_g_u_i_a2ca76e803f2f9a445d1911563f414e1f}} 
+void {\bfseries draw\+Rectangle} (int p\+\_\+x, int p\+\_\+y, Graphics g)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_chess_game_1_1game_g_u_i_a6b18c21ad120917838f7b4d730d55456}\label{class_chess_game_1_1game_g_u_i_a6b18c21ad120917838f7b4d730d55456}} 
+void {\bfseries board\+\_\+\+Mouse\+UP} (object sender, Mouse\+Event\+Args e)
+\item 
+\mbox{\Hypertarget{class_chess_game_1_1game_g_u_i_acad897b9d835605e9d399b6011a9c7dc}\label{class_chess_game_1_1game_g_u_i_acad897b9d835605e9d399b6011a9c7dc}} 
+void {\bfseries Board\+\_\+\+Paint} (object sender, Paint\+Event\+Args e)
+\item 
+protected override void \mbox{\hyperlink{class_chess_game_1_1game_g_u_i_ab8785135f8b9db87b9e3403133e7d5a9}{Dispose}} (bool disposing)
+\begin{DoxyCompactList}\small\item\em Clean up any resources being used. \end{DoxyCompactList}\item 
+private void \mbox{\hyperlink{class_chess_game_1_1game_g_u_i_acd8e6ffe986feb31476dc7893c63e68c}{Initialize\+Component}} ()
+\begin{DoxyCompactList}\small\item\em Required method for Designer support -\/ do not modify the contents of this method with the code editor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_chess_game_1_1game_g_u_i_a56c1161be31b8d6a4eb7951e57c175d8}\label{class_chess_game_1_1game_g_u_i_a56c1161be31b8d6a4eb7951e57c175d8}} 
+\mbox{\hyperlink{class_chess_game_1_1_game}{Game}} {\bfseries m\+\_\+game}
+\item 
+\mbox{\Hypertarget{class_chess_game_1_1game_g_u_i_aadf2234ac7e3d5616a0b6cfbf8d32306}\label{class_chess_game_1_1game_g_u_i_aadf2234ac7e3d5616a0b6cfbf8d32306}} 
+string {\bfseries m\+\_\+ressource\+Folder\+Path}
+\item 
+\mbox{\Hypertarget{class_chess_game_1_1game_g_u_i_a2464af725775bdb8a962a668ebc036dc}\label{class_chess_game_1_1game_g_u_i_a2464af725775bdb8a962a668ebc036dc}} 
+int {\bfseries m\+\_\+selectedX}
+\item 
+\mbox{\Hypertarget{class_chess_game_1_1game_g_u_i_aeaebc543e81f0b311b5d65e9f4351384}\label{class_chess_game_1_1game_g_u_i_aeaebc543e81f0b311b5d65e9f4351384}} 
+int {\bfseries m\+\_\+selectedY}
+\item 
+private System Component\+Model I\+Container \mbox{\hyperlink{class_chess_game_1_1game_g_u_i_aaf71f84feddcac8a9212969307054fdd}{components}} = null
+\begin{DoxyCompactList}\small\item\em Required designer variable. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_chess_game_1_1game_g_u_i_a815821ecd9f66b935d20817a3555263a}\label{class_chess_game_1_1game_g_u_i_a815821ecd9f66b935d20817a3555263a}} 
+private System Windows Forms Panel {\bfseries board}
+\item 
+\mbox{\Hypertarget{class_chess_game_1_1game_g_u_i_ab8af4eb97378bd0851ec907d12240a43}\label{class_chess_game_1_1game_g_u_i_ab8af4eb97378bd0851ec907d12240a43}} 
+private System Windows Forms Label {\bfseries label1}
+\item 
+\mbox{\Hypertarget{class_chess_game_1_1game_g_u_i_a423981016a88008d28ebb84789e202e8}\label{class_chess_game_1_1game_g_u_i_a423981016a88008d28ebb84789e202e8}} 
+private System Windows Forms List\+Box {\bfseries lsb\+Game\+Events}
+\item 
+\mbox{\Hypertarget{class_chess_game_1_1game_g_u_i_ac351097861637175930b9b4199a8c410}\label{class_chess_game_1_1game_g_u_i_ac351097861637175930b9b4199a8c410}} 
+private System Windows Forms Label {\bfseries lbl\+P1\+Name}
+\item 
+\mbox{\Hypertarget{class_chess_game_1_1game_g_u_i_aacac846bb06278da4d6ee25ceb139efb}\label{class_chess_game_1_1game_g_u_i_aacac846bb06278da4d6ee25ceb139efb}} 
+private System Windows Forms Label {\bfseries lbl\+P2\+Name}
+\item 
+\mbox{\Hypertarget{class_chess_game_1_1game_g_u_i_aac92ba6d8f0de0b34dd21c7dd885892f}\label{class_chess_game_1_1game_g_u_i_aac92ba6d8f0de0b34dd21c7dd885892f}} 
+private System Windows Forms Label {\bfseries label2}
+\item 
+\mbox{\Hypertarget{class_chess_game_1_1game_g_u_i_acf5bcbfd3471f415fb57e29b3d1004e8}\label{class_chess_game_1_1game_g_u_i_acf5bcbfd3471f415fb57e29b3d1004e8}} 
+private System Windows Forms Label {\bfseries label3}
+\item 
+\mbox{\Hypertarget{class_chess_game_1_1game_g_u_i_ad1732ab3865fc1b54460784883a7a6b2}\label{class_chess_game_1_1game_g_u_i_ad1732ab3865fc1b54460784883a7a6b2}} 
+private System Windows Forms Label {\bfseries lbl\+P1\+Win}
+\item 
+\mbox{\Hypertarget{class_chess_game_1_1game_g_u_i_a7577d809f27129d065af9130c18f4fda}\label{class_chess_game_1_1game_g_u_i_a7577d809f27129d065af9130c18f4fda}} 
+private System Windows Forms Label {\bfseries lbl\+P2\+Win}
+\item 
+\mbox{\Hypertarget{class_chess_game_1_1game_g_u_i_a4dae5d4c16374f0fd6bef048c1fff9c4}\label{class_chess_game_1_1game_g_u_i_a4dae5d4c16374f0fd6bef048c1fff9c4}} 
+private System Windows Forms Label {\bfseries lbl\+P1\+Lost}
+\item 
+\mbox{\Hypertarget{class_chess_game_1_1game_g_u_i_a230e2d0858d915875edfc34fa65186f5}\label{class_chess_game_1_1game_g_u_i_a230e2d0858d915875edfc34fa65186f5}} 
+private System Windows Forms Label {\bfseries lbl\+P2\+Lost}
+\item 
+\mbox{\Hypertarget{class_chess_game_1_1game_g_u_i_a817bdd6bd2c3013903510e8ed0832e9a}\label{class_chess_game_1_1game_g_u_i_a817bdd6bd2c3013903510e8ed0832e9a}} 
+private System Windows Forms Label {\bfseries label8}
+\item 
+\mbox{\Hypertarget{class_chess_game_1_1game_g_u_i_af619a0aa39fa4977988c5152f624353b}\label{class_chess_game_1_1game_g_u_i_af619a0aa39fa4977988c5152f624353b}} 
+private System Windows Forms Label {\bfseries lbl\+P2\+Elo}
+\item 
+\mbox{\Hypertarget{class_chess_game_1_1game_g_u_i_a3bb84c0d81174cf549829be822bf0fa7}\label{class_chess_game_1_1game_g_u_i_a3bb84c0d81174cf549829be822bf0fa7}} 
+private System Windows Forms Label {\bfseries lbl\+P1\+Elo}
+\item 
+\mbox{\Hypertarget{class_chess_game_1_1game_g_u_i_ad4ad6c184e52572d67401e165fa308a0}\label{class_chess_game_1_1game_g_u_i_ad4ad6c184e52572d67401e165fa308a0}} 
+private System Windows Forms Group\+Box {\bfseries group\+Box1}
+\item 
+\mbox{\Hypertarget{class_chess_game_1_1game_g_u_i_aede78dfaf844dac554f2babeff17faa4}\label{class_chess_game_1_1game_g_u_i_aede78dfaf844dac554f2babeff17faa4}} 
+private System Windows Forms Label {\bfseries label4}
+\item 
+\mbox{\Hypertarget{class_chess_game_1_1game_g_u_i_a70bcf55e6a5a97bf1eb41cd2e63726aa}\label{class_chess_game_1_1game_g_u_i_a70bcf55e6a5a97bf1eb41cd2e63726aa}} 
+private System Windows Forms Label {\bfseries label5}
+\item 
+\mbox{\Hypertarget{class_chess_game_1_1game_g_u_i_a02202bdba4ef1bc1e3a249031d0d4079}\label{class_chess_game_1_1game_g_u_i_a02202bdba4ef1bc1e3a249031d0d4079}} 
+private System Windows Forms Label {\bfseries label6}
+\item 
+\mbox{\Hypertarget{class_chess_game_1_1game_g_u_i_aa4543509b74d5c6fdc93883ba90cf944}\label{class_chess_game_1_1game_g_u_i_aa4543509b74d5c6fdc93883ba90cf944}} 
+private System Windows Forms Label {\bfseries label7}
+\item 
+\mbox{\Hypertarget{class_chess_game_1_1game_g_u_i_a79c9d3bf0f59af35c0e8030514c1c65d}\label{class_chess_game_1_1game_g_u_i_a79c9d3bf0f59af35c0e8030514c1c65d}} 
+private System Windows Forms Label {\bfseries label9}
+\item 
+\mbox{\Hypertarget{class_chess_game_1_1game_g_u_i_a3a60661685abb6be1730d4b21394fdf9}\label{class_chess_game_1_1game_g_u_i_a3a60661685abb6be1730d4b21394fdf9}} 
+private System Windows Forms Label {\bfseries label10}
+\item 
+\mbox{\Hypertarget{class_chess_game_1_1game_g_u_i_acd2f86c611e9d3f1a2e56f7011736c1a}\label{class_chess_game_1_1game_g_u_i_acd2f86c611e9d3f1a2e56f7011736c1a}} 
+private System Windows Forms Label {\bfseries label11}
+\item 
+\mbox{\Hypertarget{class_chess_game_1_1game_g_u_i_a6c8072e30a071aa598679600273d4e99}\label{class_chess_game_1_1game_g_u_i_a6c8072e30a071aa598679600273d4e99}} 
+private System Windows Forms Label {\bfseries label12}
+\item 
+\mbox{\Hypertarget{class_chess_game_1_1game_g_u_i_afd8c4cf393d9db413306cbdf5bde0ef2}\label{class_chess_game_1_1game_g_u_i_afd8c4cf393d9db413306cbdf5bde0ef2}} 
+private System Windows Forms Label {\bfseries label13}
+\item 
+\mbox{\Hypertarget{class_chess_game_1_1game_g_u_i_a63165f86d8fdec554bcbc973449605e3}\label{class_chess_game_1_1game_g_u_i_a63165f86d8fdec554bcbc973449605e3}} 
+private System Windows Forms Label {\bfseries label14}
+\item 
+\mbox{\Hypertarget{class_chess_game_1_1game_g_u_i_a1cb57b382f1197e6797807ace7cd753e}\label{class_chess_game_1_1game_g_u_i_a1cb57b382f1197e6797807ace7cd753e}} 
+private System Windows Forms Label {\bfseries label15}
+\item 
+\mbox{\Hypertarget{class_chess_game_1_1game_g_u_i_a59fb8b1433a4106de0b09e27c1556cb2}\label{class_chess_game_1_1game_g_u_i_a59fb8b1433a4106de0b09e27c1556cb2}} 
+private System Windows Forms Label {\bfseries label16}
+\item 
+\mbox{\Hypertarget{class_chess_game_1_1game_g_u_i_a90c510850c167a796a7330f3db1df7cd}\label{class_chess_game_1_1game_g_u_i_a90c510850c167a796a7330f3db1df7cd}} 
+private System Windows Forms Label {\bfseries label17}
+\item 
+\mbox{\Hypertarget{class_chess_game_1_1game_g_u_i_aefa46ffb19fb55a9997c8b97bcb75986}\label{class_chess_game_1_1game_g_u_i_aefa46ffb19fb55a9997c8b97bcb75986}} 
+private System Windows Forms Label {\bfseries label18}
+\item 
+\mbox{\Hypertarget{class_chess_game_1_1game_g_u_i_a2242481e3b08510dcb196dd8998b89a9}\label{class_chess_game_1_1game_g_u_i_a2242481e3b08510dcb196dd8998b89a9}} 
+private System Windows Forms Label {\bfseries label19}
+\item 
+\mbox{\Hypertarget{class_chess_game_1_1game_g_u_i_a15be5be48925b24eea95d1000bce6fc1}\label{class_chess_game_1_1game_g_u_i_a15be5be48925b24eea95d1000bce6fc1}} 
+private System Windows Forms Label {\bfseries label20}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_chess_game_1_1game_g_u_i_ab8785135f8b9db87b9e3403133e7d5a9}\label{class_chess_game_1_1game_g_u_i_ab8785135f8b9db87b9e3403133e7d5a9}} 
+\index{ChessGame.gameGUI@{ChessGame.gameGUI}!Dispose@{Dispose}}
+\index{Dispose@{Dispose}!ChessGame.gameGUI@{ChessGame.gameGUI}}
+\doxysubsubsection{\texorpdfstring{Dispose()}{Dispose()}}
+{\footnotesize\ttfamily protected override void Chess\+Game.\+game\+G\+U\+I.\+Dispose (\begin{DoxyParamCaption}\item[{bool}]{disposing }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Clean up any resources being used. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em disposing} & true if managed resources should be disposed; otherwise, false.\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_chess_game_1_1game_g_u_i_acd8e6ffe986feb31476dc7893c63e68c}\label{class_chess_game_1_1game_g_u_i_acd8e6ffe986feb31476dc7893c63e68c}} 
+\index{ChessGame.gameGUI@{ChessGame.gameGUI}!InitializeComponent@{InitializeComponent}}
+\index{InitializeComponent@{InitializeComponent}!ChessGame.gameGUI@{ChessGame.gameGUI}}
+\doxysubsubsection{\texorpdfstring{InitializeComponent()}{InitializeComponent()}}
+{\footnotesize\ttfamily private void Chess\+Game.\+game\+G\+U\+I.\+Initialize\+Component (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Required method for Designer support -\/ do not modify the contents of this method with the code editor. 
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_chess_game_1_1game_g_u_i_aaf71f84feddcac8a9212969307054fdd}\label{class_chess_game_1_1game_g_u_i_aaf71f84feddcac8a9212969307054fdd}} 
+\index{ChessGame.gameGUI@{ChessGame.gameGUI}!components@{components}}
+\index{components@{components}!ChessGame.gameGUI@{ChessGame.gameGUI}}
+\doxysubsubsection{\texorpdfstring{components}{components}}
+{\footnotesize\ttfamily private System Component\+Model I\+Container Chess\+Game.\+game\+G\+U\+I.\+components = null\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Required designer variable. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Chess\+Game/\+Chess\+Game/game\+G\+U\+I.\+cs\item 
+Chess\+Game/\+Chess\+Game/game\+G\+U\+I.\+Designer.\+cs\end{DoxyCompactItemize}

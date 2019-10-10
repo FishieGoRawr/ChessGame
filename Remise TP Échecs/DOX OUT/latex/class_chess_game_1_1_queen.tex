@@ -1,0 +1,80 @@
+\hypertarget{class_chess_game_1_1_queen}{}\doxysection{Chess\+Game.\+Queen Class Reference}
+\label{class_chess_game_1_1_queen}\index{ChessGame.Queen@{ChessGame.Queen}}
+
+
+Classe permettant de créer une reine.  
+
+
+Inheritance diagram for Chess\+Game.\+Queen\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_chess_game_1_1_queen}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_chess_game_1_1_queen_a1c279e8dd0d21cedf5ef0e5019cdb9ee}{Queen}} (bool p\+\_\+alive, char p\+\_\+color)
+\begin{DoxyCompactList}\small\item\em Constructeur par défaut d\textquotesingle{}une reine. \end{DoxyCompactList}\item 
+override bool \mbox{\hyperlink{class_chess_game_1_1_queen_ae645e29860b22821236e414208d85808}{can\+Move}} (int\mbox{[}$\,$\mbox{]} coord\+From, int\mbox{[}$\,$\mbox{]} coord\+To, bool is\+Eating=false)
+\begin{DoxyCompactList}\small\item\em Sert à déterminé si la reine peut bougé vers la direction donnée. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Classe permettant de créer une reine. 
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_chess_game_1_1_queen_a1c279e8dd0d21cedf5ef0e5019cdb9ee}\label{class_chess_game_1_1_queen_a1c279e8dd0d21cedf5ef0e5019cdb9ee}} 
+\index{ChessGame.Queen@{ChessGame.Queen}!Queen@{Queen}}
+\index{Queen@{Queen}!ChessGame.Queen@{ChessGame.Queen}}
+\doxysubsubsection{\texorpdfstring{Queen()}{Queen()}}
+{\footnotesize\ttfamily Chess\+Game.\+Queen.\+Queen (\begin{DoxyParamCaption}\item[{bool}]{p\+\_\+alive,  }\item[{char}]{p\+\_\+color }\end{DoxyParamCaption})}
+
+
+
+Constructeur par défaut d\textquotesingle{}une reine. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+alive} & Sert a savoir si la reine est en vie. \\
+\hline
+{\em p\+\_\+color} & Couleur de la reine. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_chess_game_1_1_queen_ae645e29860b22821236e414208d85808}\label{class_chess_game_1_1_queen_ae645e29860b22821236e414208d85808}} 
+\index{ChessGame.Queen@{ChessGame.Queen}!canMove@{canMove}}
+\index{canMove@{canMove}!ChessGame.Queen@{ChessGame.Queen}}
+\doxysubsubsection{\texorpdfstring{canMove()}{canMove()}}
+{\footnotesize\ttfamily override bool Chess\+Game.\+Queen.\+can\+Move (\begin{DoxyParamCaption}\item[{int\mbox{[}$\,$\mbox{]}}]{coord\+From,  }\item[{int\mbox{[}$\,$\mbox{]}}]{coord\+To,  }\item[{bool}]{is\+Eating = {\ttfamily false} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Sert à déterminé si la reine peut bougé vers la direction donnée. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em coord\+From} & Coordonnée de départ. \\
+\hline
+{\em coord\+To} & Coordonnée de fin. \\
+\hline
+{\em is\+Eating} & Sert à savoir si la riene tente de manger une pièce. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Vrai si la pièce peut bouger. Sinon, retourne faux.
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{class_chess_game_1_1_piece_ad0be22c199fc37439f82e9d2b856ab01}{Chess\+Game.\+Piece}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Chess\+Game/\+Chess\+Game/Queen.\+cs\end{DoxyCompactItemize}

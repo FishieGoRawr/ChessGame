@@ -1,0 +1,267 @@
+\hypertarget{class_chess_game_1_1_game}{}\doxysection{Chess\+Game.\+Game Class Reference}
+\label{class_chess_game_1_1_game}\index{ChessGame.Game@{ChessGame.Game}}
+
+
+Classe principale du jeu. Stock la majorité des composentes requises pour jouée une partie.  
+
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_chess_game_1_1_game_a288f6b5743e497a6296b70cc808f8462}{Game}} (List$<$ \mbox{\hyperlink{class_chess_game_1_1_player}{Player}} $>$ player\+List, string p1\+Name, string p2\+Name)
+\begin{DoxyCompactList}\small\item\em Constrcuteur de base d\textquotesingle{}une \mbox{\hyperlink{class_chess_game_1_1_game}{Game}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_chess_game_1_1_game_a0e46a56d5a7e07c9a5843c8806580e24}{refresh\+Board}} ()
+\begin{DoxyCompactList}\small\item\em Rafraichie le plateau, souvent appelé après un mouvement. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_chess_game_1_1_game_a24ec658203e8fc85cc961df2537e6894}{highlight\+Tile}} (int\mbox{[}$\,$\mbox{]} coord\+From)
+\begin{DoxyCompactList}\small\item\em Permet la surbrillance d\textquotesingle{}une tuile. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_chess_game_1_1_game_ac07065f0ad2d30a6e300bdcf22b2fbae}{ask\+Board\+Check}} ()
+\begin{DoxyCompactList}\small\item\em Demande au plateau de vérifiré la possibilité d\textquotesingle{}un échec. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_chess_game_1_1_game_aa192350a9fa1747a730b5b81fbe32ef5}{ask\+Board\+Check\+Pat}} ()
+\begin{DoxyCompactList}\small\item\em Demande au plateau de vérifiré la possibilité d\textquotesingle{}un échec et pat. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_chess_game_1_1_game_a3caa4bc3d72175d32f06de553531a245}{ask\+Board\+Check\+Mat}} ()
+\begin{DoxyCompactList}\small\item\em Demande au plateau de vérifiré la possibilité d\textquotesingle{}un échec et mat. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_chess_game_1_1_game_a1dc924c719f0c817372a0bdb9de9445f}{move}} (int\mbox{[}$\,$\mbox{]} coord\+From, int\mbox{[}$\,$\mbox{]} coord\+To)
+\begin{DoxyCompactList}\small\item\em Permet à une pièce de se déplacer. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_chess_game_1_1_game_a7293fa2e306f1c7d5c885a69674e9fb7}{get\+Current\+Player\+Name}} ()
+\begin{DoxyCompactList}\small\item\em Retourne le joueur qui est en train de jouer. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_chess_game_1_1_game_a9b198ea92d7069e66194a8f7ae2aec25}{revert\+Move}} ()
+\begin{DoxyCompactList}\small\item\em Remet le plateau a l\textquotesingle{}etat avant d\textquotesingle{}effectuer un mouvement. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_chess_game_1_1_game_a2a841fb7c547ac684e1e8dbfd8be348e}{switch\+Turns}} ()
+\begin{DoxyCompactList}\small\item\em Permet de changer de tours entre les joueurs. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_chess_game_1_1_game_ab9923b1125ac17a32e80c9138dea44df}{end\+Game}} (\mbox{\hyperlink{class_chess_game_1_1_player}{Player}} winner, \mbox{\hyperlink{class_chess_game_1_1_player}{Player}} loser)
+\begin{DoxyCompactList}\small\item\em Permet à une partie de se terminer et de sauvegarder les scores des joueurs. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_chess_game_1_1_game_ad73ea078cbc2cbe4ea687b391f07d20d}{serialize\+Player\+List}} ()
+\begin{DoxyCompactList}\small\item\em Sérialise la liste de joueurs pour la sauvegarder sur disque. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_chess_game_1_1_game_aa7bbf0eaef10167c66ddff6ddaee4aca}{save\+Player\+List}} ()
+\begin{DoxyCompactList}\small\item\em Permet de sauvegarder les joueurs et leurs statistiques sur disque. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_chess_game_1_1_game_a0e21fa1d3f21a48875061a1a618fd576}{Turn}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Retourne le tour du joueur en cours. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_chess_game_1_1_game_a6a287ce1b5be5c70cc55789f686cb9dc}\label{class_chess_game_1_1_game_a6a287ce1b5be5c70cc55789f686cb9dc}} 
+\mbox{\hyperlink{class_chess_game_1_1_player}{Player}} \mbox{\hyperlink{class_chess_game_1_1_game_a6a287ce1b5be5c70cc55789f686cb9dc}{m\+\_\+p\+White}}
+\begin{DoxyCompactList}\small\item\em Stock les joueurs de la partie. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_chess_game_1_1_game_a4cb1b67cd34674ff449488e4a73019b6}\label{class_chess_game_1_1_game_a4cb1b67cd34674ff449488e4a73019b6}} 
+\mbox{\hyperlink{class_chess_game_1_1_player}{Player}} {\bfseries m\+\_\+p\+Black}
+\item 
+\mbox{\Hypertarget{class_chess_game_1_1_game_a4391b05a1a3813f98eaccea298b5576c}\label{class_chess_game_1_1_game_a4391b05a1a3813f98eaccea298b5576c}} 
+char \mbox{\hyperlink{class_chess_game_1_1_game_a4391b05a1a3813f98eaccea298b5576c}{m\+\_\+turn}}
+\begin{DoxyCompactList}\small\item\em À qui est le tour. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_chess_game_1_1_game_a76b42626d88f84d3521418a677a09ce1}\label{class_chess_game_1_1_game_a76b42626d88f84d3521418a677a09ce1}} 
+\mbox{\hyperlink{class_chess_game_1_1_board}{Board}} \mbox{\hyperlink{class_chess_game_1_1_game_a76b42626d88f84d3521418a677a09ce1}{m\+\_\+board}}
+\begin{DoxyCompactList}\small\item\em Plateau de jeu. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_chess_game_1_1_game_a5456308b29e6209319d79ec2119ef8e1}\label{class_chess_game_1_1_game_a5456308b29e6209319d79ec2119ef8e1}} 
+\mbox{\hyperlink{class_chess_game_1_1game_g_u_i}{game\+G\+UI}} \mbox{\hyperlink{class_chess_game_1_1_game_a5456308b29e6209319d79ec2119ef8e1}{m\+\_\+game\+G\+UI}}
+\begin{DoxyCompactList}\small\item\em Affichage graphique du jeu. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_chess_game_1_1_game_a2b358de175ed929d0438a0557c9ebe99}\label{class_chess_game_1_1_game_a2b358de175ed929d0438a0557c9ebe99}} 
+\mbox{\hyperlink{class_chess_game_1_1_move}{Move}} \mbox{\hyperlink{class_chess_game_1_1_game_a2b358de175ed929d0438a0557c9ebe99}{m\+\_\+move}}
+\begin{DoxyCompactList}\small\item\em Mouvement. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_chess_game_1_1_game_a41de25a355b1b08a7e383ae29f0bf6ad}\label{class_chess_game_1_1_game_a41de25a355b1b08a7e383ae29f0bf6ad}} 
+List$<$ \mbox{\hyperlink{class_chess_game_1_1_player}{Player}} $>$ \mbox{\hyperlink{class_chess_game_1_1_game_a41de25a355b1b08a7e383ae29f0bf6ad}{m\+\_\+player\+List}}
+\begin{DoxyCompactList}\small\item\em Liste des joueurs. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Classe principale du jeu. Stock la majorité des composentes requises pour jouée une partie. 
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_chess_game_1_1_game_a288f6b5743e497a6296b70cc808f8462}\label{class_chess_game_1_1_game_a288f6b5743e497a6296b70cc808f8462}} 
+\index{ChessGame.Game@{ChessGame.Game}!Game@{Game}}
+\index{Game@{Game}!ChessGame.Game@{ChessGame.Game}}
+\doxysubsubsection{\texorpdfstring{Game()}{Game()}}
+{\footnotesize\ttfamily Chess\+Game.\+Game.\+Game (\begin{DoxyParamCaption}\item[{List$<$ \mbox{\hyperlink{class_chess_game_1_1_player}{Player}} $>$}]{player\+List,  }\item[{string}]{p1\+Name,  }\item[{string}]{p2\+Name }\end{DoxyParamCaption})}
+
+
+
+Constrcuteur de base d\textquotesingle{}une \mbox{\hyperlink{class_chess_game_1_1_game}{Game}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em player\+List} & Liste des joueurs\\
+\hline
+{\em p1\+Name} & Joueur \#1\\
+\hline
+{\em p2\+Name} & Joueur \#2\\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_chess_game_1_1_game_ac07065f0ad2d30a6e300bdcf22b2fbae}\label{class_chess_game_1_1_game_ac07065f0ad2d30a6e300bdcf22b2fbae}} 
+\index{ChessGame.Game@{ChessGame.Game}!askBoardCheck@{askBoardCheck}}
+\index{askBoardCheck@{askBoardCheck}!ChessGame.Game@{ChessGame.Game}}
+\doxysubsubsection{\texorpdfstring{askBoardCheck()}{askBoardCheck()}}
+{\footnotesize\ttfamily bool Chess\+Game.\+Game.\+ask\+Board\+Check (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Demande au plateau de vérifiré la possibilité d\textquotesingle{}un échec. 
+
+\begin{DoxyReturn}{Returns}
+Vrai si un des rois est en échec.
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_chess_game_1_1_game_a3caa4bc3d72175d32f06de553531a245}\label{class_chess_game_1_1_game_a3caa4bc3d72175d32f06de553531a245}} 
+\index{ChessGame.Game@{ChessGame.Game}!askBoardCheckMat@{askBoardCheckMat}}
+\index{askBoardCheckMat@{askBoardCheckMat}!ChessGame.Game@{ChessGame.Game}}
+\doxysubsubsection{\texorpdfstring{askBoardCheckMat()}{askBoardCheckMat()}}
+{\footnotesize\ttfamily bool Chess\+Game.\+Game.\+ask\+Board\+Check\+Mat (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Demande au plateau de vérifiré la possibilité d\textquotesingle{}un échec et mat. 
+
+\begin{DoxyReturn}{Returns}
+Vrai si un des rois est en échec et mat.
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_chess_game_1_1_game_aa192350a9fa1747a730b5b81fbe32ef5}\label{class_chess_game_1_1_game_aa192350a9fa1747a730b5b81fbe32ef5}} 
+\index{ChessGame.Game@{ChessGame.Game}!askBoardCheckPat@{askBoardCheckPat}}
+\index{askBoardCheckPat@{askBoardCheckPat}!ChessGame.Game@{ChessGame.Game}}
+\doxysubsubsection{\texorpdfstring{askBoardCheckPat()}{askBoardCheckPat()}}
+{\footnotesize\ttfamily bool Chess\+Game.\+Game.\+ask\+Board\+Check\+Pat (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Demande au plateau de vérifiré la possibilité d\textquotesingle{}un échec et pat. 
+
+\begin{DoxyReturn}{Returns}
+Vrai si un des rois est en échec et pat.
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_chess_game_1_1_game_ab9923b1125ac17a32e80c9138dea44df}\label{class_chess_game_1_1_game_ab9923b1125ac17a32e80c9138dea44df}} 
+\index{ChessGame.Game@{ChessGame.Game}!endGame@{endGame}}
+\index{endGame@{endGame}!ChessGame.Game@{ChessGame.Game}}
+\doxysubsubsection{\texorpdfstring{endGame()}{endGame()}}
+{\footnotesize\ttfamily void Chess\+Game.\+Game.\+end\+Game (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_chess_game_1_1_player}{Player}}}]{winner,  }\item[{\mbox{\hyperlink{class_chess_game_1_1_player}{Player}}}]{loser }\end{DoxyParamCaption})}
+
+
+
+Permet à une partie de se terminer et de sauvegarder les scores des joueurs. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em winner} & Joueur qui a gagner.\\
+\hline
+{\em loser} & Joueur qui a perdu.\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_chess_game_1_1_game_a7293fa2e306f1c7d5c885a69674e9fb7}\label{class_chess_game_1_1_game_a7293fa2e306f1c7d5c885a69674e9fb7}} 
+\index{ChessGame.Game@{ChessGame.Game}!getCurrentPlayerName@{getCurrentPlayerName}}
+\index{getCurrentPlayerName@{getCurrentPlayerName}!ChessGame.Game@{ChessGame.Game}}
+\doxysubsubsection{\texorpdfstring{getCurrentPlayerName()}{getCurrentPlayerName()}}
+{\footnotesize\ttfamily string Chess\+Game.\+Game.\+get\+Current\+Player\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Retourne le joueur qui est en train de jouer. 
+
+\begin{DoxyReturn}{Returns}
+Retourne le \mbox{\hyperlink{class_chess_game_1_1_player}{Player}} a qui est le tour.
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_chess_game_1_1_game_a24ec658203e8fc85cc961df2537e6894}\label{class_chess_game_1_1_game_a24ec658203e8fc85cc961df2537e6894}} 
+\index{ChessGame.Game@{ChessGame.Game}!highlightTile@{highlightTile}}
+\index{highlightTile@{highlightTile}!ChessGame.Game@{ChessGame.Game}}
+\doxysubsubsection{\texorpdfstring{highlightTile()}{highlightTile()}}
+{\footnotesize\ttfamily void Chess\+Game.\+Game.\+highlight\+Tile (\begin{DoxyParamCaption}\item[{int\mbox{[}$\,$\mbox{]}}]{coord\+From }\end{DoxyParamCaption})}
+
+
+
+Permet la surbrillance d\textquotesingle{}une tuile. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em coord\+From} & D\textquotesingle{}ou provient le mouvement.\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_chess_game_1_1_game_a1dc924c719f0c817372a0bdb9de9445f}\label{class_chess_game_1_1_game_a1dc924c719f0c817372a0bdb9de9445f}} 
+\index{ChessGame.Game@{ChessGame.Game}!move@{move}}
+\index{move@{move}!ChessGame.Game@{ChessGame.Game}}
+\doxysubsubsection{\texorpdfstring{move()}{move()}}
+{\footnotesize\ttfamily void Chess\+Game.\+Game.\+move (\begin{DoxyParamCaption}\item[{int\mbox{[}$\,$\mbox{]}}]{coord\+From,  }\item[{int\mbox{[}$\,$\mbox{]}}]{coord\+To }\end{DoxyParamCaption})}
+
+
+
+Permet à une pièce de se déplacer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em coord\+From} & Coordonnée de départ du mouvement.\\
+\hline
+{\em coord\+To} & Coordonnée de fin du mouvement.\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_chess_game_1_1_game_a0e46a56d5a7e07c9a5843c8806580e24}\label{class_chess_game_1_1_game_a0e46a56d5a7e07c9a5843c8806580e24}} 
+\index{ChessGame.Game@{ChessGame.Game}!refreshBoard@{refreshBoard}}
+\index{refreshBoard@{refreshBoard}!ChessGame.Game@{ChessGame.Game}}
+\doxysubsubsection{\texorpdfstring{refreshBoard()}{refreshBoard()}}
+{\footnotesize\ttfamily void Chess\+Game.\+Game.\+refresh\+Board (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Rafraichie le plateau, souvent appelé après un mouvement. 
+
+\mbox{\Hypertarget{class_chess_game_1_1_game_a9b198ea92d7069e66194a8f7ae2aec25}\label{class_chess_game_1_1_game_a9b198ea92d7069e66194a8f7ae2aec25}} 
+\index{ChessGame.Game@{ChessGame.Game}!revertMove@{revertMove}}
+\index{revertMove@{revertMove}!ChessGame.Game@{ChessGame.Game}}
+\doxysubsubsection{\texorpdfstring{revertMove()}{revertMove()}}
+{\footnotesize\ttfamily void Chess\+Game.\+Game.\+revert\+Move (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Remet le plateau a l\textquotesingle{}etat avant d\textquotesingle{}effectuer un mouvement. 
+
+\mbox{\Hypertarget{class_chess_game_1_1_game_aa7bbf0eaef10167c66ddff6ddaee4aca}\label{class_chess_game_1_1_game_aa7bbf0eaef10167c66ddff6ddaee4aca}} 
+\index{ChessGame.Game@{ChessGame.Game}!savePlayerList@{savePlayerList}}
+\index{savePlayerList@{savePlayerList}!ChessGame.Game@{ChessGame.Game}}
+\doxysubsubsection{\texorpdfstring{savePlayerList()}{savePlayerList()}}
+{\footnotesize\ttfamily void Chess\+Game.\+Game.\+save\+Player\+List (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Permet de sauvegarder les joueurs et leurs statistiques sur disque. 
+
+\mbox{\Hypertarget{class_chess_game_1_1_game_ad73ea078cbc2cbe4ea687b391f07d20d}\label{class_chess_game_1_1_game_ad73ea078cbc2cbe4ea687b391f07d20d}} 
+\index{ChessGame.Game@{ChessGame.Game}!serializePlayerList@{serializePlayerList}}
+\index{serializePlayerList@{serializePlayerList}!ChessGame.Game@{ChessGame.Game}}
+\doxysubsubsection{\texorpdfstring{serializePlayerList()}{serializePlayerList()}}
+{\footnotesize\ttfamily string Chess\+Game.\+Game.\+serialize\+Player\+List (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Sérialise la liste de joueurs pour la sauvegarder sur disque. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_chess_game_1_1_game_a2a841fb7c547ac684e1e8dbfd8be348e}\label{class_chess_game_1_1_game_a2a841fb7c547ac684e1e8dbfd8be348e}} 
+\index{ChessGame.Game@{ChessGame.Game}!switchTurns@{switchTurns}}
+\index{switchTurns@{switchTurns}!ChessGame.Game@{ChessGame.Game}}
+\doxysubsubsection{\texorpdfstring{switchTurns()}{switchTurns()}}
+{\footnotesize\ttfamily void Chess\+Game.\+Game.\+switch\+Turns (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Permet de changer de tours entre les joueurs. 
+
+
+
+\doxysubsection{Property Documentation}
+\mbox{\Hypertarget{class_chess_game_1_1_game_a0e21fa1d3f21a48875061a1a618fd576}\label{class_chess_game_1_1_game_a0e21fa1d3f21a48875061a1a618fd576}} 
+\index{ChessGame.Game@{ChessGame.Game}!Turn@{Turn}}
+\index{Turn@{Turn}!ChessGame.Game@{ChessGame.Game}}
+\doxysubsubsection{\texorpdfstring{Turn}{Turn}}
+{\footnotesize\ttfamily bool Chess\+Game.\+Game.\+Turn\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Retourne le tour du joueur en cours. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Chess\+Game/\+Chess\+Game/Game.\+cs\end{DoxyCompactItemize}

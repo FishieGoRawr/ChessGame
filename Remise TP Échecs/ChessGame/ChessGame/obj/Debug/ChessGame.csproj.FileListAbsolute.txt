@@ -1,0 +1,33 @@
+P:\École\Automne 2019\Prog III\TP Jeux d'échec\ChessGame\ChessGame\ChessGame\obj\Debug\ChessGame.csprojAssemblyReference.cache
+P:\École\Automne 2019\Prog III\TP Jeux d'échec\ChessGame\ChessGame\ChessGame\obj\Debug\ChessGame.Properties.Resources.resources
+P:\École\Automne 2019\Prog III\TP Jeux d'échec\ChessGame\ChessGame\ChessGame\obj\Debug\ChessGame.csproj.GenerateResource.cache
+P:\École\Automne 2019\Prog III\TP Jeux d'échec\ChessGame\ChessGame\ChessGame\obj\Debug\ChessGame.csproj.CoreCompileInputs.cache
+P:\École\Automne 2019\Prog III\TP Jeux d'échec\ChessGame\ChessGame\ChessGame\bin\Debug\ChessGame.exe.config
+P:\École\Automne 2019\Prog III\TP Jeux d'échec\ChessGame\ChessGame\ChessGame\bin\Debug\ChessGame.exe
+P:\École\Automne 2019\Prog III\TP Jeux d'échec\ChessGame\ChessGame\ChessGame\bin\Debug\ChessGame.pdb
+P:\École\Automne 2019\Prog III\TP Jeux d'échec\ChessGame\ChessGame\ChessGame\obj\Debug\ChessGame.exe
+P:\École\Automne 2019\Prog III\TP Jeux d'échec\ChessGame\ChessGame\ChessGame\obj\Debug\ChessGame.pdb
+P:\École\Automne 2019\Prog III\TP Jeux d'échec\ChessGame\ChessGame\ChessGame\obj\Debug\ChessGame.mainMenu.resources
+P:\CEGEP\3ieme année\Automne 2019\Conception et Développement Orientés Objets\Travaux pratiques\TP1\ChessGame\ChessGame\ChessGame\bin\Debug\ChessGame.exe.config
+P:\CEGEP\3ieme année\Automne 2019\Conception et Développement Orientés Objets\Travaux pratiques\TP1\ChessGame\ChessGame\ChessGame\bin\Debug\ChessGame.exe
+P:\CEGEP\3ieme année\Automne 2019\Conception et Développement Orientés Objets\Travaux pratiques\TP1\ChessGame\ChessGame\ChessGame\bin\Debug\ChessGame.pdb
+P:\CEGEP\3ieme année\Automne 2019\Conception et Développement Orientés Objets\Travaux pratiques\TP1\ChessGame\ChessGame\ChessGame\obj\Debug\ChessGame.csprojAssemblyReference.cache
+P:\CEGEP\3ieme année\Automne 2019\Conception et Développement Orientés Objets\Travaux pratiques\TP1\ChessGame\ChessGame\ChessGame\obj\Debug\ChessGame.mainMenu.resources
+P:\CEGEP\3ieme année\Automne 2019\Conception et Développement Orientés Objets\Travaux pratiques\TP1\ChessGame\ChessGame\ChessGame\obj\Debug\ChessGame.Properties.Resources.resources
+P:\CEGEP\3ieme année\Automne 2019\Conception et Développement Orientés Objets\Travaux pratiques\TP1\ChessGame\ChessGame\ChessGame\obj\Debug\ChessGame.csproj.GenerateResource.cache
+P:\CEGEP\3ieme année\Automne 2019\Conception et Développement Orientés Objets\Travaux pratiques\TP1\ChessGame\ChessGame\ChessGame\obj\Debug\ChessGame.csproj.CoreCompileInputs.cache
+P:\CEGEP\3ieme année\Automne 2019\Conception et Développement Orientés Objets\Travaux pratiques\TP1\ChessGame\ChessGame\ChessGame\obj\Debug\ChessGame.exe
+P:\CEGEP\3ieme année\Automne 2019\Conception et Développement Orientés Objets\Travaux pratiques\TP1\ChessGame\ChessGame\ChessGame\obj\Debug\ChessGame.pdb
+E:\documents-datadrive\School\Conception OO\ChessGame\ChessGame\ChessGame\bin\Debug\ChessGame.exe.config
+E:\documents-datadrive\School\Conception OO\ChessGame\ChessGame\ChessGame\bin\Debug\ChessGame.exe
+E:\documents-datadrive\School\Conception OO\ChessGame\ChessGame\ChessGame\bin\Debug\ChessGame.pdb
+E:\documents-datadrive\School\Conception OO\ChessGame\ChessGame\ChessGame\obj\Debug\ChessGame.csprojAssemblyReference.cache
+E:\documents-datadrive\School\Conception OO\ChessGame\ChessGame\ChessGame\obj\Debug\ChessGame.mainMenu.resources
+E:\documents-datadrive\School\Conception OO\ChessGame\ChessGame\ChessGame\obj\Debug\ChessGame.Properties.Resources.resources
+E:\documents-datadrive\School\Conception OO\ChessGame\ChessGame\ChessGame\obj\Debug\ChessGame.csproj.GenerateResource.cache
+E:\documents-datadrive\School\Conception OO\ChessGame\ChessGame\ChessGame\obj\Debug\ChessGame.csproj.CoreCompileInputs.cache
+E:\documents-datadrive\School\Conception OO\ChessGame\ChessGame\ChessGame\obj\Debug\ChessGame.exe
+E:\documents-datadrive\School\Conception OO\ChessGame\ChessGame\ChessGame\obj\Debug\ChessGame.pdb
+E:\documents-datadrive\School\Conception OO\ChessGame\ChessGame\ChessGame\obj\Debug\ChessGame.gameGUI.resources
+P:\CEGEP\3ieme année\Automne 2019\Conception et Développement Orientés Objets\Travaux pratiques\TP1\ChessGame\ChessGame\ChessGame\obj\Debug\ChessGame.gameGUI.resources
+P:\École\Automne 2019\Prog III\TP Jeux d'échec\ChessGame\ChessGame\ChessGame\obj\Debug\ChessGame.gameGUI.resources

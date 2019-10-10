@@ -8,17 +8,30 @@ using System.IO;
 
 namespace ChessGame
 {
+    /// <summary>
+    /// Classe principale du jeu. Stock la majorité des composentes requises pour jouée une partie.
+    /// </summary>
     public class Game
     {
-        Player m_pWhite, m_pBlack;      //Both players currently playing the game 
-        char m_turn;                    //Represent who's player turn it is to play (true = white player | false = black player)
+        /// <value>Stock les joueurs de la partie. </value>
+        Player m_pWhite, m_pBlack;
+        /// <value>À qui est le tour. </value>
+        char m_turn;
+        /// <value>Plateau de jeu. </value>
         Board m_board;
+        /// <value>Affichage graphique du jeu. </value>
         gameGUI m_gameGUI;
+        /// <value>Mouvement. </value>
         Move m_move;
-        List<Piece> m_whiteEaten;
-        List<Piece> m_blackEaten;
+        /// <value>Liste des joueurs. </value>
         List<Player> m_playerList;
 
+        /// <summary>
+        /// Constrcuteur de base d'une Game.
+        /// </summary>
+        /// <param name="playerList">Liste des joueurs</param>
+        /// <param name="p1Name">Joueur #1</param>
+        /// <param name="p2Name">Joueur #2</param>
         public Game(List<Player> playerList, string p1Name, string p2Name)
         {
             this.m_board = new Board(8);
@@ -42,11 +55,18 @@ namespace ChessGame
             refreshBoard();
         }
 
+        /// <summary>
+        /// Rafraichie le plateau, souvent appelé après un mouvement.
+        /// </summary>
         public void refreshBoard()
         {
             this.m_gameGUI.drawBoard(m_board.ToString());
         }
 
+        /// <summary>
+        /// Permet la surbrillance d'une tuile.
+        /// </summary>
+        /// <param name="coordFrom">D'ou provient le mouvement.</param>
         public void tryMove(int[] coordFrom)
         {
             //if (m_board[p_x,p_y].CurrentPiece != null)
@@ -61,11 +81,11 @@ namespace ChessGame
                     m_board.markPossible(coordFrom, coordFrom);
                     if (this.m_turn == 'W')
                     {
-                        this.m_move = new Move(this.m_pWhite, m_board.SelectedTile);
+                        this.m_move = new Move(m_board.SelectedTile);
                     }
                     else
                     {
-                        this.m_move = new Move(this.m_pBlack, m_board.SelectedTile);
+                        this.m_move = new Move(m_board.SelectedTile);
                     }
                 }
             }
@@ -128,6 +148,10 @@ namespace ChessGame
             refreshBoard();
         }
 
+        /// <summary>
+        /// Demande au plateau de vérifiré la possibilité d'un échec.
+        /// </summary>
+        /// <returns>Vrai si un des rois est en échec.</returns>
         public bool askBoardCheck()
         {
             //trying move on temp board
@@ -145,6 +169,10 @@ namespace ChessGame
 
         }
 
+        /// <summary>
+        /// Demande au plateau de vérifiré la possibilité d'un échec et pat.
+        /// </summary>
+        /// <returns>Vrai si un des rois est en échec et pat.</returns>
         public bool askBoardCheckPat()
         {
             //trying move on temp board
@@ -183,6 +211,10 @@ namespace ChessGame
             return true;
         }
 
+        /// <summary>
+        /// Demande au plateau de vérifiré la possibilité d'un échec et mat.
+        /// </summary>
+        /// <returns>Vrai si un des rois est en échec et mat.</returns>
         public bool askBoardCheckMat()
         {
             //trying move on temp board
@@ -203,7 +235,7 @@ namespace ChessGame
                                     int[] direction = new int[] { x, y };
                                     int[] start = new int[] { tempBoard[tileX, tileY].X, tempBoard[tileX, tileY].Y };
                                     int[] end = new int[] { start[0], start[1] };
-                                    Move tempMove = new Move(null, tempBoard[start[0], start[1]]);
+                                    Move tempMove = new Move(tempBoard[start[0], start[1]]);
 
                                     bool isOutOfIndex = true;
                                     bool isPossible = false;
@@ -239,6 +271,11 @@ namespace ChessGame
             return true;
         }
 
+        /// <summary>
+        /// Permet à une pièce de se déplacer.
+        /// </summary>
+        /// <param name="coordFrom">Coordonnée de départ du mouvement.</param>
+        /// <param name="coordTo">Coordonnée de fin du mouvement.</param>
         public void move(int[] coordFrom, int[] coordTo)
         {
             m_board.movePiece(coordFrom, coordTo);
@@ -247,6 +284,10 @@ namespace ChessGame
             m_gameGUI.writeEvent(playerName + ": Déplacement valide vers X(" + (coordTo[0] + 1) + "), Y(" + (coordTo[1] + 1) + ").");
         }
 
+        /// <summary>
+        /// Retourne le joueur qui est en train de jouer.
+        /// </summary>
+        /// <returns>Retourne le Player a qui est le tour.</returns>
         public string getCurrentPlayerName()
         {
             if (Turn)
@@ -258,6 +299,10 @@ namespace ChessGame
                 return m_pBlack.Name;
             }
         }
+
+        /// <summary>
+        /// Remet le plateau a l'etat avant d'effectuer un mouvement.
+        /// </summary>
         public void revertMove()
         {
             m_board.movePiece(m_move.getCoordTo(), m_move.getCoordFrom());
@@ -267,6 +312,9 @@ namespace ChessGame
         //    return this.m_board.isSameColorPiece(coordFrom, m_turn);
         //}
 
+        /// <summary>
+        /// Permet de changer de tours entre les joueurs.
+        /// </summary>
         public void switchTurns()
         {
             if (this.m_turn == 'W')
@@ -279,6 +327,11 @@ namespace ChessGame
             }
         }
 
+        /// <summary>
+        /// Permet à une partie de se terminer et de sauvegarder les scores des joueurs.
+        /// </summary>
+        /// <param name="winner">Joueur qui a gagner.</param>
+        /// <param name="loser">Joueur qui a perdu.</param>
         public void endGame(Player winner, Player loser)
         {
             winner.WinCount++;
@@ -286,6 +339,10 @@ namespace ChessGame
             savePlayerList();
         }
 
+        /// <summary>
+        /// Sérialise la liste de joueurs pour la sauvegarder sur disque.
+        /// </summary>
+        /// <returns></returns>
         public string serializePlayerList() //Sérialize la liste de joueur pour facilité l'écriture sur disque
         {
 
@@ -302,6 +359,9 @@ namespace ChessGame
             return serializedList;
         }
 
+        /// <summary>
+        /// Permet de sauvegarder les joueurs et leurs statistiques sur disque.
+        /// </summary>
         public void savePlayerList() //Sauvegarde la liste de joueurs sur disque
         {
             StreamWriter sw = new StreamWriter(AppDomain.CurrentDomain.BaseDirectory + "playerList.txt");
@@ -310,6 +370,9 @@ namespace ChessGame
             sw.Close();
         }
 
+        /// <summary>
+        /// Retourne le tour du joueur en cours.
+        /// </summary>
         public bool Turn
         {
             get

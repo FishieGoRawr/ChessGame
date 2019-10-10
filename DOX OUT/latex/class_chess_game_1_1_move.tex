@@ -1,0 +1,133 @@
+\hypertarget{class_chess_game_1_1_move}{}\doxysection{Chess\+Game.\+Move Class Reference}
+\label{class_chess_game_1_1_move}\index{ChessGame.Move@{ChessGame.Move}}
+
+
+Classe permettant d\textquotesingle{}effectuer les déplacements/vérifications requises.  
+
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_chess_game_1_1_move_a9c6a7b8913b785a9dcffa81ba3874dd3}{Move}} (\mbox{\hyperlink{class_chess_game_1_1_tile}{Tile}} p\+\_\+start)
+\begin{DoxyCompactList}\small\item\em Constructeur de base de la classe \mbox{\hyperlink{class_chess_game_1_1_move}{Move}}. Permet d\textquotesingle{}initier un mouvement. \end{DoxyCompactList}\item 
+int\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_chess_game_1_1_move_af1ee4c99586db66bb9722b9505913115}{get\+Coord\+From}} ()
+\begin{DoxyCompactList}\small\item\em Sert à avoir les coordonnées du point de départ. \end{DoxyCompactList}\item 
+int\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_chess_game_1_1_move_a1e33d7c7ca9e828eae5cb08a2ef0a557}{get\+Coord\+To}} ()
+\begin{DoxyCompactList}\small\item\em Sert à avoir les coordonnées du point de fin. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_chess_game_1_1_move_aff03c9b02cf31d472d24fde9cf443741}{is\+Valid\+Movement}} ()
+\begin{DoxyCompactList}\small\item\em Sert à savoir si le mouvement qu\textquotesingle{}on essais de faire est valide ou non. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_chess_game_1_1_piece}{Piece}} \mbox{\hyperlink{class_chess_game_1_1_move_ad4d05b6298e1b64460153bebf11a1731}{Moved\+Piece}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Accesseur pour la piève qu\textquotesingle{}on bouge. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_chess_game_1_1_piece}{Piece}} \mbox{\hyperlink{class_chess_game_1_1_move_ad49ba5ebc21490bcbe74afc9ebfa6534}{Killed\+Piece}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Accesseur pour la piève qu\textquotesingle{}on mange. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_chess_game_1_1_move_a84805c11aa754e29104d5b3d091f6184}\label{class_chess_game_1_1_move_a84805c11aa754e29104d5b3d091f6184}} 
+\mbox{\hyperlink{class_chess_game_1_1_tile}{Tile}} \mbox{\hyperlink{class_chess_game_1_1_move_a84805c11aa754e29104d5b3d091f6184}{m\+\_\+start}}
+\begin{DoxyCompactList}\small\item\em Tuile de départ. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_chess_game_1_1_move_aeb3609039f3797f3308c0923720953a2}\label{class_chess_game_1_1_move_aeb3609039f3797f3308c0923720953a2}} 
+\mbox{\hyperlink{class_chess_game_1_1_tile}{Tile}} \mbox{\hyperlink{class_chess_game_1_1_move_aeb3609039f3797f3308c0923720953a2}{m\+\_\+end}}
+\begin{DoxyCompactList}\small\item\em Tuile de fin. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_chess_game_1_1_move_a85bdc8c0bbfb2f9484e7770dcdc2723d}\label{class_chess_game_1_1_move_a85bdc8c0bbfb2f9484e7770dcdc2723d}} 
+\mbox{\hyperlink{class_chess_game_1_1_piece}{Piece}} \mbox{\hyperlink{class_chess_game_1_1_move_a85bdc8c0bbfb2f9484e7770dcdc2723d}{m\+\_\+moved\+Piece}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_chess_game_1_1_piece}{Piece}} qu\textquotesingle{}on déplace. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_chess_game_1_1_move_a3a3baac4c9b106abf00c9f4f541c1318}\label{class_chess_game_1_1_move_a3a3baac4c9b106abf00c9f4f541c1318}} 
+\mbox{\hyperlink{class_chess_game_1_1_piece}{Piece}} \mbox{\hyperlink{class_chess_game_1_1_move_a3a3baac4c9b106abf00c9f4f541c1318}{m\+\_\+killed\+Piece}}
+\begin{DoxyCompactList}\small\item\em Pièce qu\textquotesingle{}on mange. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Classe permettant d\textquotesingle{}effectuer les déplacements/vérifications requises. 
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_chess_game_1_1_move_a9c6a7b8913b785a9dcffa81ba3874dd3}\label{class_chess_game_1_1_move_a9c6a7b8913b785a9dcffa81ba3874dd3}} 
+\index{ChessGame.Move@{ChessGame.Move}!Move@{Move}}
+\index{Move@{Move}!ChessGame.Move@{ChessGame.Move}}
+\doxysubsubsection{\texorpdfstring{Move()}{Move()}}
+{\footnotesize\ttfamily Chess\+Game.\+Move.\+Move (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_chess_game_1_1_tile}{Tile}}}]{p\+\_\+start }\end{DoxyParamCaption})}
+
+
+
+Constructeur de base de la classe \mbox{\hyperlink{class_chess_game_1_1_move}{Move}}. Permet d\textquotesingle{}initier un mouvement. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+start} & Tuile de départ du mouvement. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_chess_game_1_1_move_af1ee4c99586db66bb9722b9505913115}\label{class_chess_game_1_1_move_af1ee4c99586db66bb9722b9505913115}} 
+\index{ChessGame.Move@{ChessGame.Move}!getCoordFrom@{getCoordFrom}}
+\index{getCoordFrom@{getCoordFrom}!ChessGame.Move@{ChessGame.Move}}
+\doxysubsubsection{\texorpdfstring{getCoordFrom()}{getCoordFrom()}}
+{\footnotesize\ttfamily int \mbox{[}$\,$\mbox{]} Chess\+Game.\+Move.\+get\+Coord\+From (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Sert à avoir les coordonnées du point de départ. 
+
+\begin{DoxyReturn}{Returns}
+Retourne les coord du poin de départ.
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_chess_game_1_1_move_a1e33d7c7ca9e828eae5cb08a2ef0a557}\label{class_chess_game_1_1_move_a1e33d7c7ca9e828eae5cb08a2ef0a557}} 
+\index{ChessGame.Move@{ChessGame.Move}!getCoordTo@{getCoordTo}}
+\index{getCoordTo@{getCoordTo}!ChessGame.Move@{ChessGame.Move}}
+\doxysubsubsection{\texorpdfstring{getCoordTo()}{getCoordTo()}}
+{\footnotesize\ttfamily int \mbox{[}$\,$\mbox{]} Chess\+Game.\+Move.\+get\+Coord\+To (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Sert à avoir les coordonnées du point de fin. 
+
+\begin{DoxyReturn}{Returns}
+Retourne les coord du poin de fin.
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_chess_game_1_1_move_aff03c9b02cf31d472d24fde9cf443741}\label{class_chess_game_1_1_move_aff03c9b02cf31d472d24fde9cf443741}} 
+\index{ChessGame.Move@{ChessGame.Move}!isValidMovement@{isValidMovement}}
+\index{isValidMovement@{isValidMovement}!ChessGame.Move@{ChessGame.Move}}
+\doxysubsubsection{\texorpdfstring{isValidMovement()}{isValidMovement()}}
+{\footnotesize\ttfamily bool Chess\+Game.\+Move.\+is\+Valid\+Movement (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Sert à savoir si le mouvement qu\textquotesingle{}on essais de faire est valide ou non. 
+
+\begin{DoxyReturn}{Returns}
+Vrai si valide, faux si invalide. s
+\end{DoxyReturn}
+
+
+\doxysubsection{Property Documentation}
+\mbox{\Hypertarget{class_chess_game_1_1_move_ad49ba5ebc21490bcbe74afc9ebfa6534}\label{class_chess_game_1_1_move_ad49ba5ebc21490bcbe74afc9ebfa6534}} 
+\index{ChessGame.Move@{ChessGame.Move}!KilledPiece@{KilledPiece}}
+\index{KilledPiece@{KilledPiece}!ChessGame.Move@{ChessGame.Move}}
+\doxysubsubsection{\texorpdfstring{KilledPiece}{KilledPiece}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_chess_game_1_1_piece}{Piece}} Chess\+Game.\+Move.\+Killed\+Piece\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Accesseur pour la piève qu\textquotesingle{}on mange. 
+
+\mbox{\Hypertarget{class_chess_game_1_1_move_ad4d05b6298e1b64460153bebf11a1731}\label{class_chess_game_1_1_move_ad4d05b6298e1b64460153bebf11a1731}} 
+\index{ChessGame.Move@{ChessGame.Move}!MovedPiece@{MovedPiece}}
+\index{MovedPiece@{MovedPiece}!ChessGame.Move@{ChessGame.Move}}
+\doxysubsubsection{\texorpdfstring{MovedPiece}{MovedPiece}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_chess_game_1_1_piece}{Piece}} Chess\+Game.\+Move.\+Moved\+Piece\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Accesseur pour la piève qu\textquotesingle{}on bouge. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Chess\+Game/\+Chess\+Game/Move.\+cs\end{DoxyCompactItemize}
